@@ -1,10 +1,14 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@storyblok/astro': ^2.0.14
   astro: ^2.1.5
+  vite: ^4.2.1
 
 dependencies:
+  '@storyblok/astro': 2.0.14
   astro: 2.1.5
+  vite: 4.2.1
 
 packages:
 
@@ -614,6 +618,19 @@ packages:
       tslib: 2.5.0
     dev: false
 
+  /@storyblok/astro/2.0.14:
+    resolution: {integrity: sha512-6QUEpLNqTthGQmSuqpRWBAUwc+kP2bhEN3sLbMFWbA3Qm18GOKvMdHlnsyP/R/PBX+bYdoipWUOiUnsLv8FeNA==}
+    dependencies:
+      '@storyblok/js': 2.1.1
+      camelcase: 7.0.1
+    dev: false
+
+  /@storyblok/js/2.1.1:
+    resolution: {integrity: sha512-jYzOmcGWWOTC4EeeYwXLm9Q84KFzyMFXx7K3ctev1twDJ82mc8+nP8hjXglsccp8Nmbhs6C5ddnU3RAHP0UeYg==}
+    dependencies:
+      storyblok-js-client: 5.9.0
+    dev: false
+
   /@types/babel__core/7.20.0:
     resolution: {integrity: sha512-+n8dL/9GWblDO0iU6eZAwEIJVr5DWigtle+Q6HLOrh/pdbXOhOtqzq8VPPE2zvNJzSKY4vH/z3iT3tn0A3ypiQ==}
     dependencies:
@@ -911,6 +928,11 @@ packages:
   /camelcase/6.3.0:
     resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
     engines: {node: '>=10'}
+    dev: false
+
+  /camelcase/7.0.1:
+    resolution: {integrity: sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==}
+    engines: {node: '>=14.16'}
     dev: false
 
   /caniuse-lite/1.0.30001469:
@@ -2540,6 +2562,10 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       bl: 5.1.0
+    dev: false
+
+  /storyblok-js-client/5.9.0:
+    resolution: {integrity: sha512-2vqEPzadiFFcDwq6lAff2ZsrEzGz9N1kBzk+ayVEX7F6W/W94nubi4RxlsxEOTmql/BQg8XMnJHW5sOMe3tiCw==}
     dev: false
 
   /streamsearch/1.1.0:
