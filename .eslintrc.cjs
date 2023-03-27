@@ -15,23 +15,24 @@ module.exports = {
     ],
     rules: {
         '@typescript-eslint/indent': ['error', 4],
+        '@typescript-eslint/object-curly-spacing': ['error', 'never'],
         '@typescript-eslint/semi': ['error', 'always'],
         'no-multi-spaces': 'error',
         'sort-keys': 'error',
 
-        'vue/attributes-order': ['error', { alphabetical: true }],
+        'vue/attributes-order': ['error', {alphabetical: true}],
         'vue/first-attribute-linebreak': ['error', {
             multiline: 'below',
             singleline: 'beside',
         }],
         'vue/html-indent': ['error', 4],
         'vue/max-attributes-per-line': ['error', {
-            multiline: { max: 1 },
-            singleline: { max: 1 },
+            multiline: {max: 1},
+            singleline: {max: 1},
         }],
         'vue/padding-line-between-tags': [
             'error',
-            [{ blankLine: 'always', next: '*', prev: '*' }],
+            [{blankLine: 'always', next: '*', prev: '*'}],
         ],
     },
     settings: {
