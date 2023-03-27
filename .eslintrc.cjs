@@ -4,8 +4,14 @@ process.env.ESLINT_TSCONFIG = 'tsconfig.json';
 module.exports = {
     extends: [
         '@antfu',
-        "plugin:astro/recommended",
+        'plugin:astro/recommended',
         'plugin:tailwindcss/recommended',
+    ],
+    overrides: [
+        {
+            files: ['*.astro'],
+            parser: 'astro-eslint-parser',
+        },
     ],
     rules: {
         '@typescript-eslint/indent': ['error', 4],
@@ -28,10 +34,9 @@ module.exports = {
             [{ blankLine: 'always', next: '*', prev: '*' }],
         ],
     },
-    overrides: [
-        {
-          files: ["*.astro"],
-          parser: "astro-eslint-parser",
+    settings: {
+        tailwindcss: {
+            config: 'tailwind.config.cjs',
         },
-    ],
+    },
 };

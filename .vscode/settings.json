@@ -2,6 +2,6 @@
   "eslint.validate": [
     "javascript",
     "astro",
-    "typescript",
+    "typescript"
   ]
 }
