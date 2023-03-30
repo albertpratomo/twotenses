@@ -2,12 +2,12 @@
 import {useStoryblokApi} from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 
-const version = import.meta.env.DEV ? 'draft' : 'published';
-
 export async function getStaticPaths() {
     const api = useStoryblokApi();
 
-    const {data: {links}} = await api.get('cdn/links', {version});
+    const {data: {links}} = await api.get('cdn/links', {
+        version: import.meta.env.DEV ? 'draft' : 'published',
+    });
 
     const homePath = {params: {slug: undefined}};
 
@@ -19,11 +19,11 @@ export async function getStaticPaths() {
 async function getStaticProps({slug}) {
     const api = useStoryblokApi();
 
-    const {data: {story}} = await api.get(`cdn/stories/${slug || 'home'}`, {version});
+    const {data: {story}} = await api.get(`cdn/stories/${slug || 'home'}`, {
+        version: import.meta.env.DEV ? 'draft' : 'published',
+    });
 
-    return {
-        story,
-    };
+    return {story};
 }
 
 const {story} = await getStaticProps(Astro.params);
