@@ -9,11 +9,12 @@ export async function getStaticPaths() {
         version: import.meta.env.DEV ? 'draft' : 'published',
     });
 
-    const homePath = {params: {slug: undefined}};
-
     return Object.values(links)
-        .map(link => ({params: {slug: link.slug}}))
-        .concat(homePath);
+        .map(link => ({
+            params: {
+                slug: link.slug === 'home' ? undefined : link.slug,
+            },
+        }));
 }
 
 async function getStaticProps({slug}) {
