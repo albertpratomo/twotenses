@@ -1,17 +1,14 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
-import Layout from '@/layouts/Layout.astro';
 
 const {blok} = Astro.props;
 ---
 
-<Layout title="twotenses">
-    <main {...storyblokEditable(blok)}>
-        {
-            blok.sections?.map((section) => {
-                return <StoryblokComponent blok={section} {...section} />;
-            })
-        }
-    </main>
-</Layout>
+<main {...storyblokEditable(blok)}>
+    {
+        blok.sections?.map((section) => {
+            return <StoryblokComponent blok={section} {...section} />;
+        })
+    }
+</main>

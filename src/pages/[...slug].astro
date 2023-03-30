@@ -1,6 +1,7 @@
 ---
 import {useStoryblokApi} from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import Layout from '@/layouts/Layout.astro';
 
 export async function getStaticPaths() {
     const api = useStoryblokApi();
@@ -30,4 +31,6 @@ async function getStaticProps({slug}) {
 const {story} = await getStaticProps(Astro.params);
 ---
 
-<StoryblokComponent blok={story.content} />
+<Layout title="twotenses">
+    <StoryblokComponent blok={story.content} />
+</Layout>
