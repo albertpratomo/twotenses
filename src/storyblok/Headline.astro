@@ -1,0 +1,14 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+
+const {blok, title} = Astro.props;
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="flex min-h-screen items-center justify-center bg-gray"
+>
+    <h2 class="text-4xl text-black lg:text-4xl">
+        {title}
+    </h2>
+</section>

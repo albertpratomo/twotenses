@@ -1,0 +1,16 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+
+const {blok, title} = Astro.props;
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="flex min-h-screen items-center justify-center bg-black"
+>
+    <a href="https://instagram.com/twotenses">
+        <h1 class="text-2xl text-red transition-colors hover:text-white lg:text-9xl">
+            {title}
+        </h1>
+    </a>
+</section>
