@@ -9,9 +9,11 @@ export async function getStaticPaths() {
         version: import.meta.env.DEV ? 'draft' : 'published',
     });
 
-    return Object.values(links).map(link => ({
-        params: {slug: link.slug === 'home' ? undefined : link.slug},
-    }));
+    const homeRoute = {params: {slug: undefined}};
+
+    return Object.values(links)
+        .map(link => ({params: {slug: link.slug}}))
+        .concat(homeRoute);
 }
 
 let {slug} = Astro.params;
