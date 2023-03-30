@@ -1,0 +1,20 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import Counter from '@/components/Counter.vue';
+
+export interface Props {
+    from: Number
+}
+
+const {blok, from} = Astro.props;
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="flex min-h-screen items-center justify-center bg-red"
+>
+    <Counter
+        client:visible
+        from={from}
+    />
+</section>
