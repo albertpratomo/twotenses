@@ -12,9 +12,11 @@ export async function getStaticPaths() {
 
     return Object.values(links)
         .map(link => ({
+            href: link.real_path,
             params: {
                 slug: link.slug === 'home' ? undefined : link.slug,
             },
+            text: link.name,
         }));
 }
 
@@ -29,8 +31,13 @@ async function getStaticProps({slug}) {
 }
 
 const {story} = await getStaticProps(Astro.params);
+
+const links = await getStaticPaths();
 ---
 
-<Layout title="twotenses">
+<Layout
+    title="twotenses"
+    links={links}
+>
     <StoryblokComponent blok={story.content} />
 </Layout>
