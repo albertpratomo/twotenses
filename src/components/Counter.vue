@@ -13,7 +13,7 @@ const count = ref(parseInt(props.from));
 
 <template>
     <div class="flex gap-4 text-6xl text-white">
-        <button @click="count--">
+        <button @click="count -= 2">
             -
         </button>
 
@@ -21,7 +21,7 @@ const count = ref(parseInt(props.from));
             {{ count }}
         </div>
 
-        <button @click="count++">
+        <button @click="count += 2">
             +
         </button>
     </div>
