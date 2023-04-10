@@ -6,11 +6,25 @@ const {blok, title} = Astro.props;
 
 <section
     {...storyblokEditable(blok)}
-    class="flex min-h-screen items-center justify-center bg-black"
+    class="bg-black text-red"
 >
-    <a href="https://instagram.com/twotenses">
-        <h1 class="text-2xl text-red transition-colors hover:text-white md:text-8xl">
-            {title}
-        </h1>
-    </a>
+    <div class="container mx-auto flex min-h-screen flex-col py-8">
+        <div class="mt-auto text-center">
+            <a href="https://instagram.com/twotenses">
+                <h1 class="text-2xl transition-colors hover:text-white md:text-8xl">
+                    {title}
+                </h1>
+            </a>
+        </div>
+
+        <div class="mt-auto flex justify-end justify-items-end gap-4">
+            <div class="max-w-xs">
+                <p>twotenses is a multidisciplinary interior design studio.</p>
+            </div>
+
+            <div class="max-w-xs">
+                <p>We help brands design their space for people to discover new experiences.</p>
+            </div>
+        </div>
+    </div>
 </section>
