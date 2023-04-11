@@ -8,6 +8,13 @@ module.exports = {
             red: '#9B3629',
             white: '#F4F4F4',
         },
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+                lg: '4rem',
+            },
+        },
         extend: {},
     },
 };
