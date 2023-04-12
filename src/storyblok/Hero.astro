@@ -11,19 +11,21 @@ const {blok, title} = Astro.props;
     <div class="container flex min-h-screen flex-col py-8">
         <div class="mt-auto text-center">
             <a href="https://instagram.com/twotenses">
-                <h1 class="text-2xl transition-colors hover:text-white md:text-8xl">
+                <h1 class="text-2xl italic transition-colors hover:text-white md:text-[16rem]">
                     {title}
                 </h1>
             </a>
         </div>
 
-        <div class="mt-auto flex justify-end justify-items-end gap-4">
+        <div class="mt-auto flex justify-end justify-items-end gap-4 text-2xl">
             <div class="max-w-xs">
                 <p>twotenses is a multidisciplinary interior design studio.</p>
             </div>
 
             <div class="max-w-xs">
-                <p>We help brands design their space for people to discover new experiences.</p>
+                <p>
+                    We design conceptual, yet functional spaces that delivers new experiences for people.
+                </p>
             </div>
         </div>
     </div>
