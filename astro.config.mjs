@@ -21,7 +21,7 @@ export default defineConfig({
                 Page: 'storyblok/Page',
             },
         }),
-        tailwind(),
+        tailwind({config: {applyBaseStyles: false}}),
         vue(),
     ],
     output: ssr ? 'server' : 'static',
