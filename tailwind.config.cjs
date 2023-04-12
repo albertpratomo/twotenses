@@ -16,5 +16,8 @@ module.exports = {
             },
         },
         extend: {},
+        fontFamily: {
+            sans: ['TT Commons', 'ui-sans-serif', 'system-ui'],
+        },
     },
 };

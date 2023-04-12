@@ -11,10 +11,6 @@
         font-display: swap;
     }
 
-    html {
-        font-family: 'TT Commons', ui-sans-serif, system-ui;
-    }
-
     @media (min-width: 1920px) {
         .container {
             max-width: 1920px;
