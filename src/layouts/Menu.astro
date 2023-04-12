@@ -1,0 +1,48 @@
+---
+export interface Link {
+    href: String
+    text: String
+}
+
+export interface Props {
+    links: Link[]
+}
+
+const {links} = Astro.props;
+
+const center = ['works', 'about', 'contact'];
+const right = ['index'];
+---
+
+<nav class="fixed inset-x-0 pt-4">
+    <div class="container flex items-center text-red">
+        <a
+            class="text-5xl italic"
+            href="/"
+        >
+            tt
+        </a>
+
+        <div class="ml-auto flex gap-8">
+            {center.map(link => (
+                <a
+                    class="p-4 uppercase"
+                    href={`/${link}`}
+                >
+                    {link}
+                </a>
+            ))}
+        </div>
+
+        <div class="ml-52 flex gap-8">
+            {right.map(link => (
+                <a
+                    class="p-4 uppercase"
+                    href={`/${link}`}
+                >
+                    {link}
+                </a>
+            ))}
+        </div>
+    </div>
+</nav>
