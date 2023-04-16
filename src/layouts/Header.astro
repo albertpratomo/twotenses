@@ -13,7 +13,7 @@ const {header_center_links, header_right_links} = settings;
                 <Logo />
             </a>
 
-            <div class="ml-auto flex gap-8">
+            <div class="ml-auto hidden sm:flex md:gap-8">
                 {header_center_links.map(link => (
                     <Link
                         class="p-4"
@@ -22,7 +22,7 @@ const {header_center_links, header_right_links} = settings;
                 ))}
             </div>
 
-            <div class="ml-52 flex gap-8">
+            <div class="hidden sm:flex md:ml-8 md:gap-8 lg:ml-52">
                 {header_right_links.map(link => (
                     <Link
                         class="p-4"
