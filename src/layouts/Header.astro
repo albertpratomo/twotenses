@@ -1,6 +1,7 @@
 ---
 import settings from '@/store/settings';
 import Link from '@/components/Link.astro';
+import Logo from '@/components/Logo.astro';
 
 const {header_center_links, header_right_links} = settings;
 ---
@@ -8,11 +9,8 @@ const {header_center_links, header_right_links} = settings;
 <header>
     <nav class="fixed inset-x-0 pt-4">
         <div class="container flex items-center text-red">
-            <a
-                class="text-5xl italic"
-                href="/"
-            >
-                tt
+            <a href="/">
+                <Logo />
             </a>
 
             <div class="ml-auto flex gap-8">
