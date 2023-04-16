@@ -1,5 +1,6 @@
 ---
-import settings from '@/store/settings.ts';
+import settings from '@/store/settings';
+import Link from '@/components/Link.astro';
 
 const {header_center_links, header_right_links} = settings;
 ---
@@ -16,23 +17,19 @@ const {header_center_links, header_right_links} = settings;
 
             <div class="ml-auto flex gap-8">
                 {header_center_links.map(link => (
-                    <a
+                    <Link
                         class="p-4"
-                        href={`/${link.url.cached_url}`}
-                    >
-                        {link.label}
-                    </a>
+                        {...link}
+                    />
                 ))}
             </div>
 
             <div class="ml-52 flex gap-8">
                 {header_right_links.map(link => (
-                    <a
+                    <Link
                         class="p-4"
-                        href={`/${link.url.cached_url}`}
-                    >
-                        {link.label}
-                    </a>
+                        {...link}
+                    />
                 ))}
             </div>
         </div>
