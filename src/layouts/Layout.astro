@@ -1,14 +1,8 @@
 ---
 import '@/styles/main.css';
-import type {Link} from '@/layouts/Header.astro';
 import Header from '@/layouts/Header.astro';
 
-export interface Props {
-    links: Link[]
-    title: string
-}
-
-const {title, links} = Astro.props;
+const {title} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,7 +16,7 @@ const {title, links} = Astro.props;
     </head>
 
     <body>
-        <Header links={links} />
+        <Header />
 
         <slot />
     </body>

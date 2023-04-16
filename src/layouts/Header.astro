@@ -1,48 +1,40 @@
 ---
-export interface Link {
-    href: String
-    text: String
-}
+import settings from '@/store/settings.ts';
 
-export interface Props {
-    links: Link[]
-}
-
-const {links} = Astro.props;
-
-const center = ['works', 'about', 'contact'];
-const right = ['index'];
+const {header_center_links, header_right_links} = settings;
 ---
 
-<nav class="fixed inset-x-0 pt-4">
-    <div class="container flex items-center text-red">
-        <a
-            class="text-5xl italic"
-            href="/"
-        >
-            tt
-        </a>
+<header>
+    <nav class="fixed inset-x-0 pt-4">
+        <div class="container flex items-center text-red">
+            <a
+                class="text-5xl italic"
+                href="/"
+            >
+                tt
+            </a>
 
-        <div class="ml-auto flex gap-8">
-            {center.map(link => (
-                <a
-                    class="p-4 uppercase"
-                    href={`/${link}`}
-                >
-                    {link}
-                </a>
-            ))}
-        </div>
+            <div class="ml-auto flex gap-8">
+                {header_center_links.map(link => (
+                    <a
+                        class="p-4"
+                        href={`/${link.url.cached_url}`}
+                    >
+                        {link.label}
+                    </a>
+                ))}
+            </div>
 
-        <div class="ml-52 flex gap-8">
-            {right.map(link => (
-                <a
-                    class="p-4 uppercase"
-                    href={`/${link}`}
-                >
-                    {link}
-                </a>
-            ))}
+            <div class="ml-52 flex gap-8">
+                {header_right_links.map(link => (
+                    <a
+                        class="p-4"
+                        href={`/${link.url.cached_url}`}
+                    >
+                        {link.label}
+                    </a>
+                ))}
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>
