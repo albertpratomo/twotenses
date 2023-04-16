@@ -1,7 +1,7 @@
 ---
 import '@/styles/main.css';
-import type {Link} from '@/layouts/Menu.astro';
-import Menu from '@/layouts/Menu.astro';
+import type {Link} from '@/layouts/Header.astro';
+import Header from '@/layouts/Header.astro';
 
 export interface Props {
     links: Link[]
@@ -22,7 +22,7 @@ const {title, links} = Astro.props;
     </head>
 
     <body>
-        <Menu links={links} />
+        <Header links={links} />
 
         <slot />
     </body>
