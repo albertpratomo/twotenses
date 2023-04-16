@@ -11,6 +11,9 @@ export async function getStaticPaths() {
     });
 
     return Object.values(links)
+        // @todo: fix this
+        // TODO: test
+        .filter(l => l.name !== 'Settings' && !l.slug.startsWith('service') && !l.slug.startsWith('project'))
         .map(link => ({
             params: {
                 slug: link.slug === 'home' ? undefined : link.slug,
