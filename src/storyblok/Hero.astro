@@ -1,8 +1,13 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
 import Twotenses from '@/components/Twotenses.astro';
+import IInstagram from '@/components/icons/IInstagram.astro';
+import IWhatsapp from '@/components/icons/IWhatsapp.astro';
+import settings from '@/store/settings';
 
-const {blok} = Astro.props;
+const {blok, texts} = Astro.props;
+
+const {contact_instagram, contact_whatsapp} = settings;
 ---
 
 <section
@@ -14,15 +19,29 @@ const {blok} = Astro.props;
             <Twotenses />
         </div>
 
-        <div class="mt-auto flex justify-end justify-items-end gap-4 text-2xl">
-            <div class="max-w-xs">
-                <p>twotenses is a multidisciplinary interior design studio.</p>
+        <div class="mt-auto flex items-end justify-between">
+            <div class="flex gap-4">
+                <a
+                    href={contact_whatsapp.cached_url}
+                    target="_blank"
+                >
+                    <IWhatsapp />
+                </a>
+
+                <a
+                    href={contact_instagram.cached_url}
+                    target="_blank"
+                >
+                    <IInstagram />
+                </a>
             </div>
 
-            <div class="max-w-xs">
-                <p>
-                    We design conceptual, yet functional spaces that delivers new experiences for people.
-                </p>
+            <div class="flex gap-4">
+                {texts.map(text => (
+                    <p class="max-w-xs text-2xl">
+                        {text.text}
+                    </p>
+                ))}
             </div>
         </div>
     </div>
