@@ -7,7 +7,6 @@ export async function getStaticPaths() {
     const api = useStoryblokApi();
 
     const {data: {stories}} = await api.get('cdn/stories', {
-        excluding_fields: 'sections',
         filter_query: {
             component: {in: 'Page'},
         },
@@ -23,10 +22,11 @@ export async function getStaticPaths() {
                         ? story.full_slug.slice(0, -1)
                         : story.full_slug,
             },
+            props: {story},
         }));
 }
 
-async function getStaticProps({slug}) {
+async function getStory(slug: string) {
     const api = useStoryblokApi();
 
     let response;
@@ -40,12 +40,14 @@ async function getStaticProps({slug}) {
         return false;
     }
 
-    return {story: response.data.story};
+    return response.data.story;
 }
 
 const {slug} = Astro.params;
+let {story} = Astro.props;
 
-const {story} = await getStaticProps(Astro.params);
+if (!story)
+    story = await getStory(slug);
 ---
 
 <Layout>
