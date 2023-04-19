@@ -6,17 +6,22 @@ import Layout from '@/layouts/Layout.astro';
 export async function getStaticPaths() {
     const api = useStoryblokApi();
 
-    const {data: {links}} = await api.get('cdn/links', {
+    const {data: {stories}} = await api.get('cdn/stories', {
+        excluding_fields: 'sections',
+        filter_query: {
+            component: {in: 'Page'},
+        },
         version: import.meta.env.DEV ? 'draft' : 'published',
     });
 
-    return Object.values(links)
-        // @todo: fix this
-        // TODO: test
-        .filter(l => l.name !== 'Settings' && !l.slug.startsWith('service') && !l.slug.startsWith('project'))
-        .map(link => ({
+    return stories
+        .map(story => ({
             params: {
-                slug: link.slug === 'home' ? undefined : link.slug,
+                slug: story.full_slug === 'home'
+                    ? undefined
+                    : story.full_slug.endsWith('/')
+                        ? story.full_slug.slice(0, -1)
+                        : story.full_slug,
             },
         }));
 }
