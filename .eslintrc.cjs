@@ -11,10 +11,15 @@ module.exports = {
         {
             files: ['*.astro'],
             parser: 'astro-eslint-parser',
+            parserOptions: {
+                extraFileExtensions: ['.astro'],
+                parser: '@typescript-eslint/parser',
+            },
         },
     ],
     rules: {
         '@typescript-eslint/indent': ['error', 4],
+        '@typescript-eslint/member-delimiter-style': 'error',
         '@typescript-eslint/object-curly-spacing': ['error', 'never'],
         '@typescript-eslint/semi': ['error', 'always'],
         'no-multi-spaces': 'error',

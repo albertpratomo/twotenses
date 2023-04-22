@@ -6,25 +6,26 @@
     "astro": "astro",
     "build": "astro build",
     "dev": "astro dev",
-    "lint": "eslint .",
+    "lint": "eslint . --ext .astro",
     "lint:fix": "eslint . --fix",
     "preview": "astro preview",
     "start": "astro dev"
   },
   "dependencies": {
     "@astrojs/tailwind": "^3.1.1",
-    "@astrojs/vercel": "^3.2.1",
-    "@astrojs/vue": "^2.1.0",
-    "@storyblok/astro": "^2.0.14",
-    "astro": "^2.1.5",
-    "tailwindcss": "^3.0.24",
-    "vite": "^4.2.1",
-    "vue": "^3.2.30"
+    "@astrojs/vercel": "^3.2.4",
+    "@astrojs/vue": "^2.1.1",
+    "@storyblok/astro": "^2.1.0",
+    "astro": "^2.3.0",
+    "tailwindcss": "^3.3.1",
+    "vite": "^4.3.1",
+    "vue": "^3.2.47"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.37.0",
-    "eslint": "^8.36.0",
+    "@antfu/eslint-config": "^0.38.5",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.39.0",
     "eslint-plugin-astro": "^0.26.1",
-    "eslint-plugin-tailwindcss": "^3.10.1"
+    "eslint-plugin-tailwindcss": "^3.11.0"
   }
 }
