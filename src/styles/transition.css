@@ -1,0 +1,10 @@
+/* slide-left */
+.slide-left-enter-active,
+.slide-left-leave-active {
+    @apply transition-transform duration-200 ease-in-out transform-gpu;
+}
+
+.slide-left-enter-from,
+.slide-left-leave-to {
+    @apply translate-x-full;
+}
