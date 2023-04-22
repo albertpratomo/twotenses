@@ -39,6 +39,6 @@
     }
 
     .container-fluid {
-        @apply max-w-screen-3xl px-4 md:px-8 xl:px-14 mx-auto;
+        @apply 3xl:max-w-screen-3xl px-4 md:px-8 xl:px-14 mx-auto;
     }
 }

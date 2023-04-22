@@ -1,35 +1,40 @@
 ---
 import settings from '@/store/settings';
+import HamburgerMenu from '@/components/HamburgerMenu.vue';
 import Link from '@/components/Link.astro';
 import Logo from '@/components/Logo.astro';
 
 const {header_center_links, header_right_links} = settings;
 ---
 
-<header>
-    <nav class="fixed inset-x-0 pt-4">
-        <div class="container-fluid flex items-center text-red">
-            <a href="/">
-                <Logo />
-            </a>
+<header class="fixed w-screen pt-4">
+    <nav class="container-fluid flex items-center text-red">
+        <a href="/">
+            <Logo />
+        </a>
 
-            <div class="ml-auto hidden sm:flex md:gap-8">
-                {header_center_links.map(link => (
-                    <Link
-                        class="p-4"
-                        {...link}
-                    />
-                ))}
-            </div>
+        <HamburgerMenu
+            client:visible
+            class="ml-auto sm:hidden"
+            links={header_center_links.concat(header_right_links)}
+        />
 
-            <div class="hidden sm:flex md:ml-8 md:gap-8 lg:ml-52">
-                {header_right_links.map(link => (
-                    <Link
-                        class="p-4"
-                        {...link}
-                    />
-                ))}
-            </div>
+        <div class="ml-auto hidden sm:flex md:gap-8">
+            {header_center_links.map(link => (
+                <Link
+                    class="p-4"
+                    {...link}
+                />
+            ))}
+        </div>
+
+        <div class="hidden sm:flex md:ml-8 md:gap-8 lg:ml-52">
+            {header_right_links.map(link => (
+                <Link
+                    class="p-4"
+                    {...link}
+                />
+            ))}
         </div>
     </nav>
 </header>
