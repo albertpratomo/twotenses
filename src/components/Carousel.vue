@@ -11,6 +11,11 @@ const item = props.items[0];
 
 <template>
     <div>
+        <img
+            class="w-full"
+            :src="item.image"
+        >
+
         <div class="flex justify-between">
             <p v-html="item.description" />
 

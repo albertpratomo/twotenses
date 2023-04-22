@@ -6,6 +6,7 @@ const {blok, items} = Astro.props;
 
 const carouselItems = items.map((item) => {
     // TODO: create util formatLink
+    // TODO: add option text white to storyblok
     const link = {
         href: item.link.cached_url,
         target: item.link.target,
@@ -21,7 +22,7 @@ const carouselItems = items.map((item) => {
 
 <section
     {...storyblokEditable(blok)}
-    class="bg-black"
+    class="bg-black py-8"
 >
     <div class="container-fluid min-h-screen">
         <Carousel
