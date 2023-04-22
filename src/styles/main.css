@@ -11,8 +11,13 @@
         font-display: swap;
     }
 
+    html {
+        overflow-y: overlay;
+    }
+
     * {
         scrollbar-color: #52525b transparent;
+        scrollbar-width: thin;
     }
 
     ::-webkit-scrollbar,
