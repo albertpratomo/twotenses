@@ -1,0 +1,32 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import Carousel from '@/components/Carousel.vue';
+
+const {blok, items} = Astro.props;
+
+const carouselItems = items.map((item) => {
+    // TODO: create util formatLink
+    const link = {
+        href: item.link.cached_url,
+        target: item.link.target,
+    };
+
+    return {
+        description: item.description,
+        image: item.image.filename,
+        link,
+    };
+});
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="bg-black"
+>
+    <div class="container-fluid min-h-screen">
+        <Carousel
+            client:visible
+            items={carouselItems}
+        />
+    </div>
+</section>
