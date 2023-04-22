@@ -3,8 +3,11 @@ import settings from '@/store/settings';
 import HamburgerMenu from '@/components/HamburgerMenu.vue';
 import Link from '@/components/Link.astro';
 import Logo from '@/components/Logo.astro';
+import Socials from '@/components/Socials.astro';
 
 const {header_center_links, header_right_links} = settings;
+
+const links = header_center_links.concat(header_right_links);
 ---
 
 <header class="fixed inset-x-0 top-4">
@@ -16,8 +19,17 @@ const {header_center_links, header_right_links} = settings;
         <HamburgerMenu
             client:visible
             class="ml-auto sm:hidden"
-            links={header_center_links.concat(header_right_links)}
-        />
+        >
+            <nav class="flex flex-col gap-4 text-right">
+                {links.map(link => (
+                    <Link
+                        {...link}
+                    />
+                ))}
+
+                <Socials class="mt-6" />
+            </nav>
+        </HamburgerMenu>
 
         <div class="ml-auto hidden sm:flex md:gap-8">
             {header_center_links.map(link => (

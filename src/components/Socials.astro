@@ -1,0 +1,28 @@
+---
+import IInstagram from '@/components/icons/IInstagram.astro';
+import IWhatsapp from '@/components/icons/IWhatsapp.astro';
+import settings from '@/store/settings';
+
+const {class: className} = Astro.props;
+
+const {contact_instagram, contact_whatsapp} = settings;
+---
+
+<div 
+    class:list={[className]}
+    class="flex gap-4"
+>
+    <a
+        href={contact_whatsapp.cached_url}
+        target="_blank"
+    >
+        <IWhatsapp />
+    </a>
+
+    <a
+        href={contact_instagram.cached_url}
+        target="_blank"
+    >
+        <IInstagram />
+    </a>
+</div>

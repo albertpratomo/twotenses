@@ -1,13 +1,9 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
 import Twotenses from '@/components/Twotenses.astro';
-import IInstagram from '@/components/icons/IInstagram.astro';
-import IWhatsapp from '@/components/icons/IWhatsapp.astro';
-import settings from '@/store/settings';
+import Socials from '@/components/Socials.astro';
 
 const {blok, texts} = Astro.props;
-
-const {contact_instagram, contact_whatsapp} = settings;
 ---
 
 <section
@@ -28,21 +24,7 @@ const {contact_instagram, contact_whatsapp} = settings;
                 ))}
             </div>
 
-            <div class="flex gap-4 sm:order-first">
-                <a
-                    href={contact_whatsapp.cached_url}
-                    target="_blank"
-                >
-                    <IWhatsapp />
-                </a>
-
-                <a
-                    href={contact_instagram.cached_url}
-                    target="_blank"
-                >
-                    <IInstagram />
-                </a>
-            </div>
+            <Socials class="sm:order-first" />
         </div>
     </div>
 </section>
