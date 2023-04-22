@@ -33,12 +33,6 @@
         border-radius: 10px;
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-        :root {
-            scroll-behavior: smooth;
-        }
-    }
-
     .container-fluid {
         @apply 3xl:max-w-screen-3xl px-4 md:px-8 xl:px-14 mx-auto;
     }

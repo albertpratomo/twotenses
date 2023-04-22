@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import {ref} from 'vue';
-import {onClickOutside} from '@vueuse/core';
 import IHamburger from '@/components/icons/IHamburger.vue';
 
 const isOpen = ref(false);
-
-const menu = ref(null);
-
-onClickOutside(menu, () => isOpen.value = false);
 </script>
 
 <template>
-    <div ref="menu">
+    <div>
+        <Transition name="slide-left">
+            <div
+                v-if="isOpen"
+                class="fixed inset-0 bg-black/75"
+                @click="isOpen = false"
+            />
+        </Transition>
+
         <IHamburger
             class="relative z-10"
             :is-open="isOpen"
@@ -21,7 +24,7 @@ onClickOutside(menu, () => isOpen.value = false);
         <Transition name="slide-left">
             <div
                 v-if="isOpen"
-                class="fixed inset-y-0 right-0 bg-black p-4 pt-20"
+                class="fixed inset-y-0 right-0 bg-black p-4 pt-20 shadow"
             >
                 <slot />
             </div>
