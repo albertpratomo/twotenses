@@ -8,15 +8,11 @@ module.exports = {
             red: '#9B3629',
             white: '#F4F4F4',
         },
-        container: {
-            center: true,
-            padding: {
-                DEFAULT: '1rem',
-                md: '2rem',
-                xl: '1rem',
+        extend: {
+            screens: {
+                '3xl': '1920px',
             },
         },
-        extend: {},
         fontFamily: {
             sans: ['TT Commons', 'ui-sans-serif', 'system-ui'],
         },

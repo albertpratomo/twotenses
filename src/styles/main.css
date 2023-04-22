@@ -11,12 +11,6 @@
         font-display: swap;
     }
 
-    @media (min-width: 1920px) {
-        .container {
-            max-width: 1920px;
-        }
-    }
-
     * {
         scrollbar-color: #52525b transparent;
     }
@@ -37,5 +31,9 @@
         :root {
             scroll-behavior: smooth;
         }
+    }
+
+    .container-fluid {
+        @apply max-w-screen-3xl px-4 md:px-8 xl:px-14 mx-auto;
     }
 }
