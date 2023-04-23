@@ -1,20 +1,18 @@
 ---
+import formatLink from '@/utils/formatLink';
+
 interface Props {
     class: any;
     label: string;
-    url: {
+    link: {
         cached_url: string;
         target?: string;
     };
 }
 
-const {class: className, label, url} = Astro.props;
+const {class: className, label, link} = Astro.props;
 
-const href = url.cached_url.startsWith('http')
-    ? url.cached_url
-    : `/${url.cached_url === 'home' ? '' : url.cached_url}`;
-
-const target = url.target || '_self';
+const {href, target} = formatLink(link);
 ---
 
 <a

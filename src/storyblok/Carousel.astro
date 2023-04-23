@@ -1,21 +1,16 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
 import Carousel from '@/components/Carousel.vue';
+import formatLink from '@/utils/formatLink';
 
 const {blok, items} = Astro.props;
 
 const carouselItems = items.map((item) => {
-    // TODO: create util formatLink
     // TODO: add option text white to storyblok
-    const link = {
-        href: item.link.cached_url,
-        target: item.link.target,
-    };
-
     return {
         description: item.description,
         image: item.image.filename,
-        link,
+        link: formatLink(item.link),
     };
 });
 ---
