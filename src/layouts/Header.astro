@@ -10,7 +10,7 @@ const {header_center_links, header_right_links} = settings;
 const links = header_center_links.concat(header_right_links);
 ---
 
-<header class="fixed inset-x-0 top-4">
+<header class="fixed inset-x-0 top-8 z-10">
     <nav class="container-fluid flex items-center text-red">
         <a href="/">
             <Logo />
@@ -35,19 +35,17 @@ const links = header_center_links.concat(header_right_links);
             </nav>
         </HamburgerMenu>
 
-        <div class="ml-auto hidden sm:flex md:gap-8">
+        <div class="ml-auto hidden sm:flex md:gap-12">
             {header_center_links.map(link => (
                 <Link
-                    class="p-4"
                     {...link}
                 />
             ))}
         </div>
 
-        <div class="hidden sm:flex md:ml-8 md:gap-8 lg:ml-52">
+        <div class="hidden sm:flex md:ml-8 md:gap-12 lg:ml-52">
             {header_right_links.map(link => (
                 <Link
-                    class="p-4"
                     {...link}
                 />
             ))}
