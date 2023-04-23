@@ -6,20 +6,20 @@ import formatLink from '@/utils/formatLink';
 const {blok, items} = Astro.props;
 
 const carouselItems = items.map((item) => {
-    // TODO: add option text white to storyblok
     return {
         description: item.description,
-        image: item.image.filename,
+        images: item.images,
         link: formatLink(item.link),
+        text_color: `text-${item.text_color || 'white'}`,
     };
 });
 ---
 
 <section
     {...storyblokEditable(blok)}
-    class="bg-black py-8"
+    class="bg-black"
 >
-    <div class="container-fluid min-h-screen">
+    <div class="mx-auto 3xl:max-w-screen-3xl">
         <Carousel
             client:visible
             items={carouselItems}

@@ -16,8 +16,11 @@ const item = props.items[0];
             :src="item.image"
         >
 
-        <div class="flex justify-between">
-            <p v-html="item.description" />
+        <div
+            class="flex justify-between"
+            :class="item.text_color"
+        >
+            <p>{{ item.description }}</p>
 
             <div class="text-white">
                 01 | 0{{ items.length }}

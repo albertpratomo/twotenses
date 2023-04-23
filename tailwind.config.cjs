@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./src/**/*.{astro,html,vue}'],
+    safelist: [
+        {pattern: /text-(black|gray|red|white)/},
+    ],
     theme: {
         colors: {
             black: '#1D1D1B',
