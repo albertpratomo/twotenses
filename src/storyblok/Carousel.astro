@@ -2,13 +2,15 @@
 import {storyblokEditable} from '@storyblok/astro';
 import Carousel from '@/components/Carousel.vue';
 import formatLink from '@/utils/formatLink';
+import formatImage from '@/utils/formatImage';
 
 const {blok, items} = Astro.props;
 
 const carouselItems = items.map((item) => {
     return {
         description: item.description,
-        images: item.images,
+        image_landscape: formatImage(item.image_landscape),
+        image_portrait: formatImage(item.image_portrait),
         link: formatLink(item.link),
         text_color: `text-${item.text_color || 'white'}`,
     };
