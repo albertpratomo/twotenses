@@ -42,4 +42,24 @@
     .min-h-screen {
         min-height: 100svh;
     }
+
+    .flex-col {
+        @apply flex;
+    }
+
+    .flex-center {
+        @apply flex items-center justify-center;
+    }
+
+    .inset-center {
+        @apply absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2;
+    }
+
+    .inset-x-center {
+        @apply absolute transform -translate-x-1/2 left-1/2;
+    }
+
+    .inset-y-center {
+        @apply absolute transform -translate-y-1/2 top-1/2;
+    }
 }
