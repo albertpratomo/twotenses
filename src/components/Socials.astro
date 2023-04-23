@@ -3,7 +3,7 @@ import IInstagram from '@/components/icons/IInstagram.astro';
 import IWhatsapp from '@/components/icons/IWhatsapp.astro';
 import settings from '@/store/settings';
 
-const {class: className} = Astro.props;
+const {class: className, size = 'w-7'} = Astro.props;
 
 const {contact_instagram, contact_whatsapp} = settings;
 ---
@@ -16,13 +16,13 @@ const {contact_instagram, contact_whatsapp} = settings;
         href={contact_whatsapp.cached_url}
         target="_blank"
     >
-        <IWhatsapp />
+        <IWhatsapp size={size} />
     </a>
 
     <a
         href={contact_instagram.cached_url}
         target="_blank"
     >
-        <IInstagram />
+        <IInstagram size={size} />
     </a>
 </div>

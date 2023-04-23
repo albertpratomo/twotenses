@@ -23,11 +23,15 @@ const links = header_center_links.concat(header_right_links);
             <nav class="flex flex-col gap-4 text-right">
                 {links.map(link => (
                     <Link
+                        class="text-3xl"
                         {...link}
                     />
                 ))}
 
-                <Socials class="mt-6" />
+                <Socials
+                    class="mt-12 justify-end"
+                    size="w-9"
+                />
             </nav>
         </HamburgerMenu>
 
