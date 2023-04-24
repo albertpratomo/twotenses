@@ -19,6 +19,9 @@ dependencies:
   astro:
     specifier: ^2.3.0
     version: 2.3.0
+  swiper:
+    specifier: ^9.2.4
+    version: 9.2.4
   tailwindcss:
     specifier: ^3.3.1
     version: 3.3.1(postcss@8.4.23)
@@ -4953,6 +4956,10 @@ packages:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
     dev: false
 
+  /ssr-window@4.0.2:
+    resolution: {integrity: sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==}
+    dev: false
+
   /stdin-discarder@0.1.0:
     resolution: {integrity: sha512-xhV7w8S+bUwlPTb4bAOUQhv8/cSS5offJuX8GQGq32ONF0ZtDWKfkdomM3HMRA+LhX6um/FZ0COqlwsjD53LeQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -5112,6 +5119,13 @@ packages:
 
   /svg-tags@1.0.0:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
+    dev: false
+
+  /swiper@9.2.4:
+    resolution: {integrity: sha512-L7y3K/iiMXNYQ94FbfcJn7jex4QPnS4+voXGupTdC+UHW4XrR40QDdm4c9hXJ+Br0Il7PP0vP1W3goM9/Ly6Sg==}
+    engines: {node: '>= 4.7.0'}
+    dependencies:
+      ssr-window: 4.0.2
     dev: false
 
   /synckit@0.8.5:

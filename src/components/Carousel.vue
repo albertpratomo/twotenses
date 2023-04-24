@@ -1,83 +1,93 @@
 <script setup lang="ts">
-import {useCycleList} from '@vueuse/core';
+import {Autoplay} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/vue';
+import {ref} from 'vue';
 import IArrow from '@/components/icons/IArrow.vue';
+import 'swiper/css';
 
-const props = defineProps({
+defineProps({
     items: {
         required: true,
         type: Array,
     },
 });
 
-// TODO: animate slide left right
-// TODO: interval next every 2s
-// TODO: swipe left right
-// TODO: responsiveness check
-const {state: item, next, prev, index} = useCycleList(props.items);
+const swiper = ref();
+
+// todo: fix autoplay index, use vueuse
 </script>
 
 <template>
-    <div
+    <Swiper
+        autoplay
         class="relative"
-        :class="item.text_color"
+        loop
+        :modules="[Autoplay]"
+        @swiper="swiper = $event"
     >
-        <Transition
-            mode="out-in"
-            name="fade"
+        <SwiperSlide
+            v-for="item, i in items"
+            :key="i"
         >
-            <div :key="index">
-                <picture>
-                    <source
-                        media="(max-width: 639px)"
-                        :srcset="`${item.image_portrait.url}639x852`"
-                    >
+            <picture>
+                <source
+                    media="(max-width: 639px)"
+                    :srcset="`${item.image_portrait.url}639x852`"
+                >
 
-                    <source
-                        media="(max-width: 767px)"
-                        :srcset="`${item.image_landscape.url}767x431`"
-                    >
+                <source
+                    media="(max-width: 767px)"
+                    :srcset="`${item.image_landscape.url}767x431`"
+                >
 
-                    <source
-                        media="(max-width: 1023px)"
-                        :srcset="`${item.image_portrait.url}1023x1364`"
-                    >
+                <source
+                    media="(max-width: 1023px)"
+                    :srcset="`${item.image_portrait.url}1023x1364`"
+                >
 
-                    <img
-                        :alt="item.image_landscape.alt"
-                        :src="`${item.image_landscape.url}1920x1080`"
-                        :title="item.image_landscape.title"
-                    >
-                </picture>
+                <img
+                    :alt="item.image_landscape.alt"
+                    :src="`${item.image_landscape.url}1920x1080`"
+                    :title="item.image_landscape.title"
+                >
+            </picture>
+        </SwiperSlide>
 
-                <div class="container-fluid absolute inset-x-0 bottom-8 flex items-center justify-between md:text-2xl">
-                    <p>
-                        {{ item.description }}
-                    </p>
+        <div
+            v-if="swiper"
+            class="container-fluid absolute inset-x-0 bottom-8 z-10 flex items-center justify-between md:text-2xl"
+            :class="items[swiper.realIndex].text_color"
+        >
+            <p>
+                {{ items[swiper.realIndex].description }}
+            </p>
 
-                    <div class="flex divide-x-2">
-                        <span class="pr-4">
-                            {{ `${index + 1}`.padStart(2, '0') }}
-                        </span>
+            <div class="flex divide-x-2">
+                <span class="pr-4">
+                    {{ `${swiper.realIndex + 1}`.padStart(2, '0') }}
+                </span>
 
-                        <span class="pl-4">
-                            {{ `${items.length}`.padStart(2, '0') }}
-                        </span>
-                    </div>
-                </div>
+                <span class="pl-4">
+                    {{ `${items.length}`.padStart(2, '0') }}
+                </span>
             </div>
-        </Transition>
+        </div>
 
-        <div class="inset-y-center container-fluid inset-x-0 flex justify-between">
+        <div
+            v-if="swiper"
+            class="inset-y-center container-fluid inset-x-0 z-10 flex justify-between"
+            :class="items[swiper.realIndex].text_color"
+        >
             <IArrow
                 class="cursor-pointer"
                 direction="left"
-                @click="prev()"
+                @click="swiper.slidePrev()"
             />
 
             <IArrow
                 class="cursor-pointer"
-                @click="next()"
+                @click="swiper.slideNext()"
             />
         </div>
-    </div>
+    </Swiper>
 </template>
