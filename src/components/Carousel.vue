@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {Autoplay} from 'swiper';
+import type {Swiper as ISwiper} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import {ref} from 'vue';
 import IArrow from '@/components/icons/IArrow.vue';
@@ -12,18 +12,27 @@ defineProps({
     },
 });
 
-const swiper = ref();
+const swiper = ref<ISwiper>();
 
-// todo: fix autoplay index, use vueuse
+let intervalId: number;
+
+function onSwiper(instance: ISwiper) {
+    swiper.value = instance;
+
+    intervalId = setInterval(() => { swiper.value.slideNext(); }, 3000);
+}
+
+function stopAutoplay() {
+    clearInterval(intervalId);
+}
 </script>
 
 <template>
     <Swiper
-        autoplay
         class="relative"
         loop
-        :modules="[Autoplay]"
-        @swiper="swiper = $event"
+        @swiper="onSwiper"
+        @touch-start="stopAutoplay"
     >
         <SwiperSlide
             v-for="item, i in items"
