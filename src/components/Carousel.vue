@@ -39,7 +39,7 @@ function stopAutoplay() {
             :key="i"
         >
             <a v-bind="item.link">
-                <picture class="cursor-pointer">
+                <picture>
                     <source
                         media="(max-width: 639px)"
                         :srcset="`${item.image_portrait.url}639x852`"
@@ -57,6 +57,7 @@ function stopAutoplay() {
 
                     <img
                         :alt="item.image_landscape.alt"
+                        class="max-h-screen w-full object-cover"
                         :src="`${item.image_landscape.url}1920x1080`"
                         :title="item.image_landscape.title"
                     >
@@ -66,14 +67,10 @@ function stopAutoplay() {
 
         <div
             v-if="swiper"
-            class="container-fluid pointer-events-none absolute inset-x-0 bottom-8 z-10 flex items-center justify-between md:text-2xl"
+            class="container-fluid pointer-events-none absolute inset-0 z-10 flex-col justify-between py-4 md:flex-row md:items-end md:py-8 md:text-2xl"
             :class="items[swiper.realIndex].text_color"
         >
-            <p>
-                {{ items[swiper.realIndex].description }}
-            </p>
-
-            <div class="hidden divide-x-2 md:flex">
+            <div class="flex divide-x-2">
                 <span class="pr-4">
                     {{ `${swiper.realIndex + 1}`.padStart(2, '0') }}
                 </span>
@@ -82,6 +79,10 @@ function stopAutoplay() {
                     {{ `${items.length}`.padStart(2, '0') }}
                 </span>
             </div>
+
+            <p class="md:order-first">
+                {{ items[swiper.realIndex].description }}
+            </p>
         </div>
 
         <div
