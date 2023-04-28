@@ -12,6 +12,10 @@ module.exports = {
             white: '#F4F4F4',
         },
         extend: {
+            cursor: {
+                'arrow-left': 'url(/images/arrow-left.svg) 46 46, w-resize',
+                'arrow-right': 'url(/images/arrow-right.svg) 46 46, e-resize',
+            },
             screens: {
                 '3xl': '1920px',
             },
