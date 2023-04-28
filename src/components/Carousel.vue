@@ -31,8 +31,9 @@ function stopAutoplay() {
     <Swiper
         class="relative"
         loop
+        @click="stopAutoplay"
+        @slider-move="stopAutoplay"
         @swiper="onSwiper"
-        @touch-start="stopAutoplay"
     >
         <SwiperSlide
             v-for="item, i in items"
@@ -71,7 +72,7 @@ function stopAutoplay() {
                 {{ items[swiper.realIndex].description }}
             </p>
 
-            <div class="flex divide-x-2">
+            <div class="hidden divide-x-2 md:flex">
                 <span class="pr-4">
                     {{ `${swiper.realIndex + 1}`.padStart(2, '0') }}
                 </span>
