@@ -1,0 +1,28 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import Accordion from '@/components/Accordion.vue';
+import formatImage from '@/utils/formatImage';
+
+const {blok, items, title} = Astro.props;
+
+const accordionItems = items.map((item) => {
+    return {
+        ...item,
+        image: formatImage(item.image),
+    };
+});
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="bg-gray"
+>
+    <div class="container-fluid border-l border-l-white">
+        <h2 class="text-4xl text-red">{title}</h2>
+
+        <Accordion
+            client:visible
+            items={accordionItems}
+        />
+    </div>
+</section>

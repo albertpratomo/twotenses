@@ -15,6 +15,7 @@ export default defineConfig({
             accessToken: env.STORYBLOK_TOKEN,
             bridge: ssr,
             components: {
+                Accordion: 'storyblok/Accordion',
                 Carousel: 'storyblok/Carousel',
                 Counter: 'storyblok/Counter',
                 Headline: 'storyblok/Headline',

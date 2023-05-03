@@ -58,6 +58,7 @@ function stopAutoplay() {
                     <img
                         :alt="item.image_landscape.alt"
                         class="max-h-screen w-full object-cover"
+                        loading="lazy"
                         :src="`${item.image_landscape.url}1920x1080`"
                         :title="item.image_landscape.title"
                     >
@@ -67,7 +68,7 @@ function stopAutoplay() {
 
         <div
             v-if="swiper"
-            class="container-fluid pointer-events-none absolute inset-0 z-10 flex-col justify-between py-4 md:flex-row md:items-end md:py-8 md:text-2xl"
+            class="container-fluid pointer-events-none absolute inset-0 z-10 flex-col justify-between gap-4 py-4 md:flex-row md:items-end md:py-8 md:text-2xl"
             :class="items[swiper.realIndex].text_color"
         >
             <div class="flex divide-x-2">
