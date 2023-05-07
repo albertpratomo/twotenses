@@ -1,6 +1,15 @@
+<script setup lang="ts">
+defineProps({
+    size: {
+        default: 'h-14',
+        type: String,
+    },
+});
+</script>
+
 <template>
     <svg
-        class="h-14"
+        :class="size"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
