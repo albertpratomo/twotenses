@@ -1,26 +1,41 @@
 <script setup lang="ts">
-import {Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue';
+import {ref} from 'vue';
+import IPlus from '@/components/icons/IPlus.vue';
 
-defineProps({
+const props = defineProps({
     items: {
         required: true,
         type: Array,
     },
 });
+
+const isOpen = ref(props.items.map(_ => false));
 </script>
 
 <template>
-    <Disclosure
+    <div
         v-for="item, i in items"
         :key="i"
-        as="div"
+        class="container-fluid border-b border-white"
     >
-        <DisclosureButton class="py-2">
+        <button
+            class="flex w-full items-center justify-between border-l border-white py-4 text-4xl"
+            @click="isOpen[i] = !isOpen[i]"
+        >
             {{ item.title }}
-        </DisclosureButton>
 
-        <DisclosurePanel>
+            <IPlus v-if="item.image.title !== null" />
+
+            <div
+                v-else
+                class="flex h-14 items-center text-white"
+            >
+                {{ item.content }}
+            </div>
+        </button>
+
+        <div v-if="isOpen[i] && item.image.title !== null">
             {{ item.content }}
-        </DisclosurePanel>
-    </Disclosure>
+        </div>
+    </div>
 </template>
