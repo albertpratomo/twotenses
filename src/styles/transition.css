@@ -1,12 +1,7 @@
 /* fade */
 .fade-enter-active,
 .fade-leave-active {
-    @apply transition-opacity duration-200;
-}
-
-.fade-enter-active.cross,
-.fade-leave-active.cross {
-    @apply absolute;
+    @apply transition-opacity duration-300;
 }
 
 .fade-enter-from,
