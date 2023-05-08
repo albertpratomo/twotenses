@@ -20,7 +20,7 @@ const isOpen = ref(props.items.map(_ => false));
     >
         <div class="relative border-l border-white">
             <button
-                class="flex w-full items-center justify-between py-4 text-2xl md:pr-3 md:text-4xl"
+                class="flex w-full items-center justify-between py-4 text-2xl md:text-4xl xl:pr-3"
                 @click="isOpen[i] = !isOpen[i]"
             >
                 {{ item.title }}
@@ -43,7 +43,7 @@ const isOpen = ref(props.items.map(_ => false));
             <Transition name="fade">
                 <picture
                     v-if="isOpen[i] && item.image.title !== null"
-                    class="pointer-events-none inset-y-0 right-0 lg:absolute"
+                    class="pointer-events-none inset-y-0 right-0 xl:absolute"
                 >
                     <source
                         media="(max-width: 639px)"
@@ -62,7 +62,7 @@ const isOpen = ref(props.items.map(_ => false));
 
                     <img
                         :alt="item.image.alt"
-                        class="lg:h-full"
+                        class="xl:h-full"
                         loading="lazy"
                         :src="`${item.image.url}672x388`"
                         :title="item.image.title"
@@ -73,7 +73,7 @@ const isOpen = ref(props.items.map(_ => false));
             <Transition name="fade">
                 <div
                     v-if="isOpen[i] && item.image.title !== null"
-                    class="mt-4 max-w-md pb-6 lg:mt-28"
+                    class="mt-4 pb-4 md:pb-6 xl:mt-28 xl:max-w-md"
                 >
                     {{ item.content }}
                 </div>

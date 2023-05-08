@@ -35,7 +35,7 @@ const links = header_center_links.concat(header_right_links);
             </nav>
         </HamburgerMenu>
 
-        <div class="ml-auto hidden sm:flex md:gap-12">
+        <div class="ml-auto hidden sm:flex sm:gap-4 md:gap-12">
             {header_center_links.map(link => (
                 <Link
                     {...link}
@@ -43,7 +43,7 @@ const links = header_center_links.concat(header_right_links);
             ))}
         </div>
 
-        <div class="hidden sm:flex md:ml-8 md:gap-12 lg:ml-52">
+        <div class="hidden sm:ml-4 sm:flex sm:gap-4 md:ml-8 md:gap-12 lg:ml-52">
             {header_right_links.map(link => (
                 <Link
                     {...link}
