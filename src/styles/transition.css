@@ -9,6 +9,20 @@
     @apply opacity-0;
 }
 
+/* fade-up */
+.fade-up-enter-active,
+.fade-up-leave-active {
+    @apply transition duration-300 ease-in-out;
+}
+
+.fade-up-enter-from {
+    @apply opacity-0 translate-y-8;
+}
+
+.fade-up-leave-to {
+    @apply opacity-0 -translate-y-8;
+}
+
 /* slide-left */
 .slide-left-enter-active,
 .slide-left-leave-active {

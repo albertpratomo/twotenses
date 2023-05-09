@@ -11,10 +11,8 @@ items = items.map(item => item.text.split('\n'));
     {...storyblokEditable(blok)}
     class="bg-gray"
 >
-    <div class="container-fluid">
-        <TextsGrid
-            client:visible
-            items={items}
-        />
-    </div>
+    <TextsGrid
+        client:visible
+        items={items}
+    />
 </section>

@@ -39,10 +39,6 @@
         @apply 3xl:max-w-screen-3xl px-4 md:px-8 xl:px-14 mx-auto;
     }
 
-    .min-h-screen {
-        min-height: 100svh;
-    }
-
     .flex-col {
         @apply flex;
     }
