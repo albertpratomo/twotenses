@@ -3,9 +3,9 @@ import {storyblokEditable} from '@storyblok/astro';
 import Accordion from '@/components/Accordion.vue';
 import formatImage from '@/utils/formatImage';
 
-const {blok, items, title} = Astro.props;
+let {blok, items, title} = Astro.props;
 
-const accordionItems = items.map((item) => {
+items = items.map((item) => {
     return {
         ...item,
         image: formatImage(item.image),
@@ -23,7 +23,7 @@ const accordionItems = items.map((item) => {
 
     <Accordion
         client:visible
-        items={accordionItems}
+        items={items}
     />
 
     <div class="container-fluid">

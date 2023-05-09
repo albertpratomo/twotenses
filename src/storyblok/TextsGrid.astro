@@ -1,0 +1,20 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import TextsGrid from '@/components/TextsGrid.vue';
+
+let {blok, items} = Astro.props;
+
+items = items.map(item => item.text.split('\n'));
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="bg-gray"
+>
+    <div class="container-fluid">
+        <TextsGrid
+            client:visible
+            items={items}
+        />
+    </div>
+</section>

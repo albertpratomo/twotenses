@@ -4,9 +4,9 @@ import Carousel from '@/components/Carousel.vue';
 import formatLink from '@/utils/formatLink';
 import formatImage from '@/utils/formatImage';
 
-const {blok, items} = Astro.props;
+let {blok, items} = Astro.props;
 
-const carouselItems = items.map((item) => {
+items = items.map((item) => {
     return {
         description: item.description,
         image_landscape: formatImage(item.image_landscape),
@@ -24,7 +24,7 @@ const carouselItems = items.map((item) => {
     <div class="mx-auto 3xl:max-w-screen-3xl">
         <Carousel
             client:visible
-            items={carouselItems}
+            items={items}
         />
     </div>
 </section>
