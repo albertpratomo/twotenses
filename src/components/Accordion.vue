@@ -16,68 +16,71 @@ const isOpen = ref(props.items.map(_ => false));
     <div
         v-for="item, i in items"
         :key="i"
-        class="container-fluid border-b border-white"
+        class="border-b border-white"
+        :class="{ 'border-t': i === 0 }"
     >
-        <div class="relative border-l border-white">
-            <button
-                class="flex w-full items-center justify-between py-4 text-2xl md:text-4xl xl:pr-3"
-                @click="isOpen[i] = !isOpen[i]"
-            >
-                {{ item.title }}
-
-                <IPlus
-                    v-if="item.image.title !== null"
-                    class="z-10 transition-transform duration-300 ease-in-out"
-                    :class="{ '-rotate-45': isOpen[i] }"
-                    size="h-8 md:h-14"
-                />
-
-                <div
-                    v-else
-                    class="flex h-8 items-center text-white md:h-14"
+        <div class="container-fluid">
+            <div class="relative border-l border-white">
+                <button
+                    class="flex w-full items-center justify-between py-4 text-2xl md:text-4xl xl:pr-3"
+                    @click="isOpen[i] = !isOpen[i]"
                 >
-                    {{ item.content }}
-                </div>
-            </button>
+                    {{ item.title }}
 
-            <Transition name="fade">
-                <picture
-                    v-if="isOpen[i] && item.image.title !== null"
-                    class="pointer-events-none inset-y-0 right-0 xl:absolute"
-                >
-                    <source
-                        media="(max-width: 639px)"
-                        :srcset="`${item.image.url}639x359`"
+                    <IPlus
+                        v-if="item.image.title !== null"
+                        class="z-10 transition-transform duration-300 ease-in-out"
+                        :class="{ '-rotate-45': isOpen[i] }"
+                        size="h-8 md:h-14"
+                    />
+
+                    <div
+                        v-else
+                        class="flex h-8 items-center text-white md:h-14"
                     >
+                        {{ item.content }}
+                    </div>
+                </button>
 
-                    <source
-                        media="(max-width: 767px)"
-                        :srcset="`${item.image.url}767x431`"
+                <Transition name="fade">
+                    <picture
+                        v-if="isOpen[i] && item.image.title !== null"
+                        class="pointer-events-none inset-y-0 right-0 xl:absolute"
                     >
+                        <source
+                            media="(max-width: 639px)"
+                            :srcset="`${item.image.url}639x359`"
+                        >
 
-                    <source
-                        media="(max-width: 1023px)"
-                        :srcset="`${item.image.url}1023x575`"
+                        <source
+                            media="(max-width: 767px)"
+                            :srcset="`${item.image.url}767x431`"
+                        >
+
+                        <source
+                            media="(max-width: 1023px)"
+                            :srcset="`${item.image.url}1023x575`"
+                        >
+
+                        <img
+                            :alt="item.image.alt"
+                            class="xl:h-full"
+                            loading="lazy"
+                            :src="`${item.image.url}672x388`"
+                            :title="item.image.title"
+                        >
+                    </picture>
+                </Transition>
+
+                <Transition name="fade">
+                    <div
+                        v-if="isOpen[i] && item.image.title !== null"
+                        class="mt-4 pb-4 md:pb-6 xl:mt-28 xl:max-w-md"
                     >
-
-                    <img
-                        :alt="item.image.alt"
-                        class="xl:h-full"
-                        loading="lazy"
-                        :src="`${item.image.url}672x388`"
-                        :title="item.image.title"
-                    >
-                </picture>
-            </Transition>
-
-            <Transition name="fade">
-                <div
-                    v-if="isOpen[i] && item.image.title !== null"
-                    class="mt-4 pb-4 md:pb-6 xl:mt-28 xl:max-w-md"
-                >
-                    {{ item.content }}
-                </div>
-            </Transition>
+                        {{ item.content }}
+                    </div>
+                </Transition>
+            </div>
         </div>
     </div>
 </template>
