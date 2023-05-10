@@ -5,14 +5,31 @@ import TextsGrid from '@/components/TextsGrid.vue';
 let {blok, items} = Astro.props;
 
 items = items.map(item => item.text.split('\n'));
+
+const width = 'sm:w-10/12 lg:w-full xl:w-10/12';
 ---
 
 <section
     {...storyblokEditable(blok)}
-    class="bg-gray"
+    class="flex-col bg-gray sm:h-[100svh]"
 >
+    <div class="container-fluid w-full grow">
+        <div 
+            class="h-48 border-x border-white sm:h-full"
+            class:list={width}
+        />
+    </div>
+
     <TextsGrid
         client:visible
         items={items}
+        width={width}
     />
+
+    <div class="container-fluid w-full grow">
+        <div 
+            class="h-48 border-x border-white sm:h-full"
+            class:list={width}
+        />
+    </div>
 </section>

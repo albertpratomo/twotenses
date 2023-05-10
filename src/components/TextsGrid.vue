@@ -6,6 +6,10 @@ const props = defineProps({
         required: true,
         type: Array,
     },
+    width: {
+        required: true,
+        type: String,
+    },
 });
 
 const {state: texts, next} = useCycleList(props.items);
@@ -14,42 +18,38 @@ setInterval(next, 4000);
 </script>
 
 <template>
-    <div class="h-[100svh] flex-col">
-        <div class="container-fluid w-full grow">
-            <div class="h-full max-w-4xl border-x border-white" />
-        </div>
-
-        <template
-            v-for="text, i in texts"
-            :key="i"
+    <template
+        v-for="text, i in texts"
+        :key="i"
+    >
+        <div
+            v-if="i > 0"
+            class="container-fluid w-full"
         >
             <div
-                v-if="i > 0"
-                class="container-fluid w-full"
-            >
-                <div class="h-9 max-w-4xl border-x border-white" />
-            </div>
+                class="h-3 border-x border-white sm:h-4 md:h-7 lg:h-9"
+                :class="width"
+            />
+        </div>
 
-            <div class="border-y border-white text-8xl leading-[.67]">
-                <div class="container-fluid">
-                    <div class="max-w-4xl border-x border-white">
-                        <Transition
-                            mode="out-in"
-                            name="fade-up"
-                        >
-                            <div
-                                :key="text"
-                                :style="{ transitionDelay: `calc(${i} * 120ms)` }"
-                                v-html="text"
-                            />
-                        </Transition>
-                    </div>
+        <div class="border-y border-white text-3xl !leading-[.67] sm:text-5xl md:text-6xl lg:text-8xl">
+            <div class="container-fluid">
+                <div
+                    class="border-x border-white "
+                    :class="width"
+                >
+                    <Transition
+                        mode="out-in"
+                        name="fade-up"
+                    >
+                        <div
+                            :key="text"
+                            :style="{ transitionDelay: `calc(${i} * 120ms)` }"
+                            v-html="text"
+                        />
+                    </Transition>
                 </div>
             </div>
-        </template>
-
-        <div class="container-fluid w-full grow">
-            <div class="h-full max-w-4xl border-x border-white" />
         </div>
-    </div>
+    </template>
 </template>
