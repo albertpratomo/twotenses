@@ -21,6 +21,7 @@ export default defineConfig({
                 Hero: 'storyblok/Hero',
                 Page: 'storyblok/Page',
                 TextsGrid: 'storyblok/TextsGrid',
+                TitleParagraph: 'storyblok/TitleParagraph',
             },
         }),
         tailwind({config: {applyBaseStyles: false}}),

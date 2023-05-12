@@ -8,43 +8,45 @@ const labelClass = 'text-red';
 const linkClass = 'text-lg md:text-2xl text-gray';
 ---
 
-<footer class="container-fluid flex flex-col sm:flex-row border-t border-red bg-black py-12 md:py-20 text-white">
-    <a href="/"}>
-        <Logo size="w-14 sm:w-24 md:w-28"/>
-    </a>
-
-    <div class="sm:ml-auto flex-col text-right sm:text-left">
-        <label class={labelClass}>EMAIL</label>
-        <a
-            href={`mailto:${contact_email}`}
-            class={linkClass}
-        >
-            {contact_email}
+<footer class="border-t border-red bg-black py-12 md:py-20 text-white">
+    <div class="container-fluid flex flex-col sm:flex-row ">
+        <a href="/"}>
+            <Logo size="w-14 sm:w-24 md:w-28"/>
         </a>
-
-        <label 
-            class="mt-4" 
-            class:list={labelClass}
-        >
-            WHATSAPP
-        </label>
-        <a
-            href={contact_whatsapp.cached_url}
-            target="_blank"
-            class={linkClass}
-        >
-            {contact_whatsapp.title}
-        </a>
-    </div>
-
-    <div class="sm:ml-16 md:ml-24 flex-col text-right sm:text-left mt-4 sm:mt-0">
-        <label class={labelClass}>FOLLOW US</label>
-        <a
-            href={contact_instagram.cached_url}
-            target="_blank"
-            class={linkClass}
-        >
-            Instagram
-        </a>
+    
+        <div class="sm:ml-auto flex-col text-right sm:text-left">
+            <label class={labelClass}>EMAIL</label>
+            <a
+                href={`mailto:${contact_email}`}
+                class={linkClass}
+            >
+                {contact_email}
+            </a>
+    
+            <label 
+                class="mt-4" 
+                class:list={labelClass}
+            >
+                WHATSAPP
+            </label>
+            <a
+                href={contact_whatsapp.cached_url}
+                target="_blank"
+                class={linkClass}
+            >
+                {contact_whatsapp.title}
+            </a>
+        </div>
+    
+        <div class="sm:ml-16 md:ml-24 flex-col text-right sm:text-left mt-4 sm:mt-0">
+            <label class={labelClass}>FOLLOW US</label>
+            <a
+                href={contact_instagram.cached_url}
+                target="_blank"
+                class={linkClass}
+            >
+                Instagram
+            </a>
+        </div>
     </div>
 </footer>
