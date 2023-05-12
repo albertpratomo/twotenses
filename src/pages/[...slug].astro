@@ -1,6 +1,7 @@
 ---
 import {useStoryblokApi} from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import Footer from '@/layouts/Footer.astro';
 import Layout from '@/layouts/Layout.astro';
 
 export async function getStaticPaths() {
@@ -52,4 +53,6 @@ if (!story)
 
 <Layout>
     {story ? <StoryblokComponent blok={story.content} /> : slug}
+
+    <Footer />
 </Layout>

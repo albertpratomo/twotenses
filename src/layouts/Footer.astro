@@ -1,0 +1,42 @@
+---
+import settings from '@/store/settings';
+import Logo from '@/components/Logo.astro';
+
+const {contact_email, contact_instagram, contact_whatsapp} = settings;
+---
+
+<footer class="container-fluid flex border-t border-red bg-black py-20 text-white">
+    <a href="/"}>
+        <Logo size="w-28"/>
+    </a>
+
+    <div class="ml-auto flex-col">
+        <label class="text-red">EMAIL</label>
+        <a
+            href={`mailto:${contact_email}`}
+            class="text-2xl text-gray"
+        >
+            {contact_email}
+        </a>
+
+        <label class="mt-4 text-red">WHATSAPP</label>
+        <a
+            href={contact_whatsapp.cached_url}
+            target="_blank"
+            class="text-2xl text-gray"
+        >
+            {contact_whatsapp.title}
+        </a>
+    </div>
+
+    <div class="ml-24 flex-col">
+        <label class="text-red">FOLLOW US</label>
+        <a
+            href={contact_instagram.cached_url}
+            target="_blank"
+            class="text-2xl text-gray"
+        >
+            Instagram
+        </a>
+    </div>
+</footer>
