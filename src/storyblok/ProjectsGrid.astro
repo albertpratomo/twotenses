@@ -1,27 +1,44 @@
 ---
 import {storyblokEditable, useStoryblokApi} from '@storyblok/astro';
 import formatImage from '@/utils/formatImage';
-import ProjectsGrid from '@/components/ProjectsGrid.vue';
+import ProjectsGrid from '@/components/projects/ProjectsGrid.vue';
 
 const {blok} = Astro.props;
 
 const api = useStoryblokApi();
 
-const {data: {stories}} = await api.get('cdn/stories', {
-    excluding_fields: 'sections',
-    filter_query: {
-        component: {in: 'Project'},
-    },
-    version: import.meta.env.DEV ? 'draft' : 'published',
-});
+async function getDatasource(datasource: string) {
+    const {data: {datasource_entries}} = await api.get('cdn/datasource_entries', {
+        datasource,
+    });
 
-const projects = stories.map(s => ({
-    categories: s.content.categories,
-    href: `/${s.full_slug}`,
-    industries: s.content.industries,
-    name: s.name,
-    thumbnail: formatImage(s.content.thumbnail),
-}));
+    return datasource_entries.map(e => ({
+        name: e.name,
+        value: e.value,
+    }));
+}
+
+async function getProjects() {
+    const {data: {stories}} = await api.get('cdn/stories', {
+        excluding_fields: 'sections',
+        filter_query: {
+            component: {in: 'Project'},
+        },
+        version: import.meta.env.DEV ? 'draft' : 'published',
+    });
+
+    return stories.map(s => ({
+        categories: s.content.categories,
+        href: `/${s.full_slug}`,
+        industries: s.content.industries,
+        name: s.name,
+        thumbnail: formatImage(s.content.thumbnail),
+    }));
+}
+
+const categories = await getDatasource('categories');
+const industries = await getDatasource('industries');
+const projects = await getProjects();
 ---
 
 <section
@@ -30,6 +47,8 @@ const projects = stories.map(s => ({
 >
     <ProjectsGrid
         client:visible
+        categories={categories}
+        industries={industries}
         projects={projects}
     />
 </section>
