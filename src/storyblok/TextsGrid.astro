@@ -2,7 +2,7 @@
 import {storyblokEditable} from '@storyblok/astro';
 import TextsGrid from '@/components/TextsGrid.vue';
 
-let {blok, items} = Astro.props;
+let {blok, items, parallax = false} = Astro.props;
 
 items = items.map(item => item.text.split('\n'));
 
@@ -12,6 +12,7 @@ const width = 'sm:w-10/12 lg:w-full xl:w-10/12';
 <section
     {...storyblokEditable(blok)}
     class="flex-col bg-gray sm:h-[100svh]"
+    class:list={{'sticky inset-x-0 bottom-0 -z-10': parallax}}
 >
     <div class="container-fluid w-full grow">
         <div 

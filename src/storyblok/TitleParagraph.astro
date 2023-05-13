@@ -1,14 +1,15 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
 
-const {blok, title, paragraph} = Astro.props;
+const {blok, title, paragraph, parallax = false} = Astro.props;
 ---
 
 <section
     {...storyblokEditable(blok)}
-    class="container-fluid flex-col gap-y-6 bg-black py-24 sm:gap-x-12 md:flex-row md:justify-center lg:items-center lg:py-48 xl:gap-x-36"
+    class="container-fluid flex-col gap-y-6 bg-black py-24 sm:gap-x-12 md:flex-row lg:items-center lg:py-48 xl:gap-x-36"
+    class:list={{'sticky inset-x-0 bottom-0 -z-20': parallax}}
 >
-    <h2 class="max-w-3xl flex-1 text-4xl text-red sm:text-6xl lg:text-8xl">
+    <h2 class="max-w-3xl flex-1 text-5xl text-red sm:text-6xl lg:text-8xl">
         {title}
     </h2>
 
