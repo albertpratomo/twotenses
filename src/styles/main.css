@@ -64,4 +64,8 @@
     .inset-y-center {
         @apply absolute transform -translate-y-1/2 top-1/2;
     }
+
+    .min-h-screen {
+        min-height: 100svh;
+    }
 }
