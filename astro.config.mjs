@@ -21,6 +21,8 @@ export default defineConfig({
                 Header: 'storyblok/Header',
                 Hero: 'storyblok/Hero',
                 Page: 'storyblok/Page',
+                Project: 'storyblok/Project',
+                ProjectsGrid: 'storyblok/ProjectsGrid',
                 TextsGrid: 'storyblok/TextsGrid',
                 TitleParagraph: 'storyblok/TitleParagraph',
             },

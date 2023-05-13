@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 
     const {data: {stories}} = await api.get('cdn/stories', {
         filter_query: {
-            component: {in: 'Page'},
+            component: {in: 'Page,Project'},
         },
         version: import.meta.env.DEV ? 'draft' : 'published',
     });
