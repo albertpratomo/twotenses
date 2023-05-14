@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import {ref} from 'vue';
 import ProjectCard from '@/components/projects/ProjectCard.vue';
+import ProjectsFilter from '@/components/projects/ProjectsFilter.vue';
 
 defineProps({
     categories: {
@@ -15,10 +17,20 @@ defineProps({
         type: Array,
     },
 });
+
+const category = ref('all');
+const industry = ref('all');
 </script>
 
 <template>
-    <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-4 md:gap-y-12 lg:grid-cols-3">
+    <ProjectsFilter
+        v-model:category="category"
+        v-model:industry="industry"
+        :categories="categories"
+        :industries="industries"
+    />
+
+    <div class="mt-4 grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-4 md:gap-y-12 lg:grid-cols-3">
         <ProjectCard
             v-for="(project, i) in projects"
             :key="i"

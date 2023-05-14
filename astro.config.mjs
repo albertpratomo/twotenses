@@ -28,7 +28,11 @@ export default defineConfig({
             },
         }),
         tailwind({config: {applyBaseStyles: false}}),
-        vue(),
+        vue({
+            script: {
+                defineModel: true,
+            },
+        }),
     ],
     output: ssr ? 'server' : 'static',
 });

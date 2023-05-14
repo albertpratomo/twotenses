@@ -7,15 +7,14 @@ const {blok} = Astro.props;
 
 const api = useStoryblokApi();
 
-async function getDatasource(datasource: string) {
+async function getFilter(datasource: string) {
     const {data: {datasource_entries}} = await api.get('cdn/datasource_entries', {
         datasource,
     });
 
-    return datasource_entries.map(e => ({
-        name: e.name,
-        value: e.value,
-    }));
+    return [{name: 'All', value: 'all'}].concat(
+        datasource_entries.map(e => ({name: e.name, value: e.value})),
+    );
 }
 
 async function getProjects() {
@@ -36,8 +35,8 @@ async function getProjects() {
     }));
 }
 
-const categories = await getDatasource('categories');
-const industries = await getDatasource('industries');
+const categories = await getFilter('categories');
+const industries = await getFilter('industries');
 const projects = await getProjects();
 ---
 
