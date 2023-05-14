@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import {ref} from 'vue';
+import {computed, ref} from 'vue';
 import ProjectCard from '@/components/projects/ProjectCard.vue';
 import ProjectsFilter from '@/components/projects/ProjectsFilter.vue';
 
-defineProps({
+const props = defineProps({
     categories: {
         required: true,
         type: Array,
@@ -20,6 +20,22 @@ defineProps({
 
 const category = ref('all');
 const industry = ref('all');
+
+const projects = computed(() => {
+    return props.projects.filter((p) => {
+        if (category.value !== 'all') {
+            if (!p.categories.includes(category.value))
+                return false;
+        }
+
+        if (industry.value !== 'all') {
+            if (!p.industries.includes(industry.value))
+                return false;
+        }
+
+        return true;
+    });
+});
 </script>
 
 <template>
@@ -38,7 +54,10 @@ const industry = ref('all');
         />
     </div>
 
-    <div v-if="projects.length === 0">
-        No projects found for the active filter.
+    <div
+        v-if="projects.length === 0"
+        class="text-white"
+    >
+        No projects found for the selected filters.
     </div>
 </template>
