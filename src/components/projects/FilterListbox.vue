@@ -47,9 +47,12 @@ const model = computed(() => props.options.find(o => o.value === modelValue.valu
                         class="cursor-pointer px-2 py-1"
                         :value="o.value"
                     >
-                        <span :class="selected ? 'text-white' : 'text-gray/50' ">
+                        <div
+                            class="hover:text-white"
+                            :class="selected ? 'text-white' : 'text-gray/50' "
+                        >
                             {{ o.name }}
-                        </span>
+                        </div>
                     </ListboxOption>
                 </ListboxOptions>
             </Transition>
