@@ -29,20 +29,30 @@ const model = computed(() => props.options.find(o => o.value === modelValue.valu
             {{ label }}
         </label>
 
-        <Listbox v-model="modelValue">
-            <ListboxButton>
+        <Listbox
+            v-model="modelValue"
+            as="div"
+            class="relative -ml-2 whitespace-nowrap"
+        >
+            <ListboxButton class="w-full px-2 py-1 text-left text-white">
                 {{ model.name }}
             </ListboxButton>
 
-            <ListboxOptions>
-                <ListboxOption
-                    v-for="o in options"
-                    :key="o.value"
-                    :value="o.value"
-                >
-                    {{ o.name }}
-                </ListboxOption>
-            </ListboxOptions>
+            <Transition name="fade">
+                <ListboxOptions class="absolute top-0 bg-black">
+                    <ListboxOption
+                        v-for="o in options"
+                        :key="o.value"
+                        v-slot="{ selected }"
+                        class="cursor-pointer px-2 py-1"
+                        :value="o.value"
+                    >
+                        <span :class="selected ? 'text-white' : 'text-gray/50' ">
+                            {{ o.name }}
+                        </span>
+                    </ListboxOption>
+                </ListboxOptions>
+            </Transition>
         </Listbox>
     </div>
 </template>

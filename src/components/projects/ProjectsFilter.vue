@@ -17,9 +17,10 @@ const industry = defineModel<String>('industry');
 </script>
 
 <template>
-    <div class="flex gap-4 text-white">
+    <div class="flex">
         <FilterListbox
             v-model="category"
+            class="w-40"
             label="CATEGORY"
             :options="categories"
         />

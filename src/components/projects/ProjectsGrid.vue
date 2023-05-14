@@ -30,7 +30,7 @@ const industry = ref('all');
         :industries="industries"
     />
 
-    <div class="mt-4 grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-4 md:gap-y-12 lg:grid-cols-3">
+    <div class="mt-8 grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-4 md:gap-y-12 lg:grid-cols-3">
         <ProjectCard
             v-for="(project, i) in projects"
             :key="i"
