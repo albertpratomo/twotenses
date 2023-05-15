@@ -51,7 +51,10 @@ if (!story)
     story = await getStory(slug);
 ---
 
-<Layout>
+<Layout
+    description={story.content.seo_description}
+    title={story.content.seo_title}
+>
     {story ? <StoryblokComponent blok={story.content} /> : slug}
 
     <Footer />

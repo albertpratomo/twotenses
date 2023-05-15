@@ -1,6 +1,11 @@
 ---
 import '@/styles/main.css';
 import Header from '@/layouts/Header.astro';
+
+const {
+    description = 'twotenses is an interior design studio based in Jakarta.',
+    title = 'Interior Design Studio',
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -13,7 +18,8 @@ import Header from '@/layouts/Header.astro';
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>twotenses — interior design studio</title>
+        <title>{title} - twotenses</title>
+        <meta name="description" content={description}>
     </head>
 
     <body class="bg-black">
