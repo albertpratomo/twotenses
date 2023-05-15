@@ -41,26 +41,34 @@ function stopAutoplay() {
             <a v-bind="item.link">
                 <picture>
                     <source
+                        height="852"
                         media="(max-width: 639px)"
                         :srcset="`${item.image_portrait.url}639x852`"
+                        width="639"
                     >
 
                     <source
+                        height="431"
                         media="(max-width: 767px)"
                         :srcset="`${item.image_landscape.url}767x431`"
+                        width="767"
                     >
 
                     <source
+                        height="1364"
                         media="(max-width: 1023px)"
                         :srcset="`${item.image_portrait.url}1023x1364`"
+                        width="1023"
                     >
 
                     <img
                         :alt="item.image_landscape.alt"
                         class="max-h-screen w-full object-cover"
+                        height="1080"
                         loading="lazy"
                         :src="`${item.image_landscape.url}1920x1080`"
                         :title="item.image_landscape.title"
+                        width="1920"
                     >
                 </picture>
             </a>

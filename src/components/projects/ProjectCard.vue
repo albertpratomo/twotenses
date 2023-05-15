@@ -20,7 +20,7 @@ defineProps({
 
             <img
                 :alt="project.thumbnail.alt"
-                height="320"
+                height="380"
                 loading="lazy"
                 :src="`${project.thumbnail.url}570x380`"
                 :title="project.thumbnail.title"

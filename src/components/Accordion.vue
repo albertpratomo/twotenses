@@ -48,26 +48,34 @@ const isOpen = ref(props.items.map(_ => false));
                         class="pointer-events-none inset-y-0 right-0 xl:absolute"
                     >
                         <source
+                            height="359"
                             media="(max-width: 639px)"
                             :srcset="`${item.image.url}639x359`"
+                            width="639"
                         >
 
                         <source
+                            height="431"
                             media="(max-width: 767px)"
                             :srcset="`${item.image.url}767x431`"
+                            width="767"
                         >
 
                         <source
+                            height="575"
                             media="(max-width: 1023px)"
                             :srcset="`${item.image.url}1023x575`"
+                            width="1023"
                         >
 
                         <img
                             :alt="item.image.alt"
                             class="xl:h-full"
+                            height="388"
                             loading="lazy"
                             :src="`${item.image.url}672x388`"
                             :title="item.image.title"
+                            width="672"
                         >
                     </picture>
                 </Transition>
