@@ -1,6 +1,7 @@
 import {defineConfig} from 'astro/config';
-import storyblok from '@storyblok/astro';
 import {loadEnv} from 'vite';
+import sitemap from '@astrojs/sitemap';
+import storyblok from '@storyblok/astro';
 import tailwind from '@astrojs/tailwind';
 import vercel from '@astrojs/vercel/serverless';
 import vue from '@astrojs/vue';
@@ -27,6 +28,7 @@ export default defineConfig({
                 TitleParagraph: 'storyblok/TitleParagraph',
             },
         }),
+        sitemap(),
         tailwind({config: {applyBaseStyles: false}}),
         vue({
             script: {
@@ -35,4 +37,5 @@ export default defineConfig({
         }),
     ],
     output: ssr ? 'server' : 'static',
+    site: 'https://www.twotenses.com',
 });
