@@ -46,7 +46,7 @@ const model = computed(() => props.options.find(o => o.value === modelValue.valu
         </ListboxButton>
 
         <Transition name="fade">
-            <ListboxOptions class="absolute top-6 bg-black">
+            <ListboxOptions class="absolute top-6 z-10 bg-black">
                 <ListboxOption
                     v-for="o in options"
                     :key="o.value"
