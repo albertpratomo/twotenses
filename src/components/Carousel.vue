@@ -38,7 +38,10 @@ function stopAutoplay() {
             v-for="item, i in items"
             :key="i"
         >
-            <a v-bind="item.link">
+            <a
+                v-bind="item.link"
+                :aria-label="item.description"
+            >
                 <picture>
                     <source
                         height="852"

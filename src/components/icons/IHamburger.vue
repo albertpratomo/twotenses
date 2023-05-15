@@ -11,6 +11,7 @@ defineEmits(['toggle']);
 
 <template>
     <button
+        aria-label="Menu"
         class="flex h-6 w-6 flex-col justify-between transition-transform"
         :class="isOpen ? '-rotate-45' : ''"
         @click="$emit('toggle')"
