@@ -19,6 +19,9 @@ module.exports = {
             screens: {
                 '3xl': '1920px',
             },
+            strokeWidth: {
+                7: '7px',
+            },
         },
         fontFamily: {
             sans: ['TT Commons', 'ui-sans-serif', 'system-ui'],

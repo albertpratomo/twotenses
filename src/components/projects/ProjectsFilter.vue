@@ -27,7 +27,7 @@ const industry = defineModel<String>('industry');
 
         <FilterListbox
             v-model="industry"
-            label="CLIENT TYPE"
+            label="CLIENT INDUSTRY"
             :options="industries"
         />
     </div>
