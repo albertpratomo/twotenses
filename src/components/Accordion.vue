@@ -70,7 +70,7 @@ const isOpen = ref(props.items.map(_ => false));
 
                         <img
                             :alt="item.image.alt"
-                            class="xl:h-full"
+                            class="w-auto xl:h-full"
                             height="388"
                             loading="lazy"
                             :src="`${item.image.url}672x388`"
