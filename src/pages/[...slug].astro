@@ -55,7 +55,10 @@ if (!story)
     description={story.content.seo_description}
     title={story.content.seo_title}
 >
-    {story ? <StoryblokComponent blok={story.content} /> : slug}
+    <StoryblokComponent
+        blok={story.content}
+        name={story.name}
+    />
 
     <Footer />
 </Layout>
