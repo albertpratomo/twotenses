@@ -19,6 +19,7 @@ export default defineConfig({
                 Accordion: 'storyblok/Accordion',
                 Carousel: 'storyblok/Carousel',
                 Counter: 'storyblok/Counter',
+                FullImage: 'storyblok/FullImage',
                 Header: 'storyblok/Header',
                 Hero: 'storyblok/Hero',
                 Page: 'storyblok/Page',

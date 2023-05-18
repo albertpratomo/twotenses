@@ -1,0 +1,45 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import formatImage from '@/utils/formatImage';
+
+let {blok, image} = Astro.props;
+
+image = formatImage(image);
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="container-fluid bg-black"
+>
+    <picture>
+        <source
+            height="360"
+            media="(max-width: 639px)"
+            srcset={`${image.url}639x360`}
+            width="639"
+        />
+
+        <source
+            height="431"
+            media="(max-width: 767px)"
+            srcset={`${image.url}767x431`}
+            width="767"
+        />
+
+        <source
+            height="576"
+            media="(max-width: 1023px)"
+            srcset={`${image.url}1023x576`}
+            width="1023"
+        />
+
+        <img
+            alt={image.alt}
+            height="1080"
+            loading="lazy"
+            src={`${image.url}1920x1080`}
+            title={image.title}
+            width="1920"
+        />
+    </picture>
+</section>
