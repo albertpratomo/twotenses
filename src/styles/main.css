@@ -42,9 +42,9 @@
 
 @layer utilities {
     .container-fluid {
-        @apply 3xl:max-w-screen-3xl px-4 md:px-8 xl:px-14 mx-auto;
+        @apply 3xl:max-w-screen-3xl mx-auto;
     }
-
+    
     .flex-col {
         @apply flex;
     }
@@ -67,5 +67,9 @@
 
     .h-screen {
         height: 100svh;
+    }
+
+    .px-container {
+        @apply px-4 md:px-8 xl:px-14;
     }
 }

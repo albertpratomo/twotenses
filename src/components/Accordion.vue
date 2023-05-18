@@ -19,7 +19,7 @@ const isOpen = ref(props.items.map(_ => false));
         class="border-b border-white"
         :class="{ 'border-t': i === 0 }"
     >
-        <div class="container-fluid">
+        <div class="container-fluid px-container">
             <div class="relative border-l border-white">
                 <button
                     class="flex w-full items-center justify-between py-4 text-2xl md:text-4xl xl:pr-3"

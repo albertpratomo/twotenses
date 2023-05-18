@@ -24,7 +24,7 @@ setInterval(next, 4000);
     >
         <div
             v-if="i > 0"
-            class="container-fluid w-full"
+            class="container-fluid px-container w-full"
         >
             <div
                 class="h-3 border-x border-white sm:h-4 md:h-7 lg:h-9"
@@ -33,7 +33,7 @@ setInterval(next, 4000);
         </div>
 
         <div class="border-y border-white text-3xl !leading-[.67] sm:text-5xl md:text-6xl lg:text-8xl">
-            <div class="container-fluid">
+            <div class="container-fluid px-container">
                 <div
                     class="border-x border-white "
                     :class="width"
