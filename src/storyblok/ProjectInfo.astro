@@ -5,16 +5,19 @@ let {blok, items, projectName, projectDate} = Astro.props;
 
 projectDate = new Date(projectDate);
 
-const colClass = 'flex-col flex-1 pt-32 pb-12';
+const colClass = 'flex-col flex-1 md:pt-20 lg:pt-32 md:pb-12';
 ---
 
 <section
     {...storyblokEditable(blok)}
     class="border-b border-red bg-gray"
 >
-    <div class="container-fluid px-container flex  divide-x divide-red">
-        <div class:list={colClass}>
-            <h1 class="text-7xl">
+    <div class="container-fluid px-container flex-col md:flex-row md:divide-x divide-red">
+        <div 
+            class="pt-12"
+            class:list={colClass}
+        >
+            <h1 class="text-5xl lg:text-7xl">
                 {projectName}
             </h1>
 
@@ -24,7 +27,7 @@ const colClass = 'flex-col flex-1 pt-32 pb-12';
         </div>
 
         <div 
-            class="gap-6 pl-12" 
+            class="gap-4 md:gap-6 md:pl-12 pt-8 pb-12"
             class:list={colClass}
         >
             {items.map(item => (
@@ -33,7 +36,7 @@ const colClass = 'flex-col flex-1 pt-32 pb-12';
                         {item.label}
                     </label>
 
-                    <div class="text-2xl">
+                    <div class="text-lg md:text-xl lg:text-2xl">
                         {item.text}
                     </div>
                 </div>
