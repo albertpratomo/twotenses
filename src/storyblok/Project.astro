@@ -10,7 +10,8 @@ const {blok, name} = Astro.props;
         blok.sections?.map((section) => {
             return <StoryblokComponent
                 blok={section}
-                project-name={name}
+                projectDate={blok.date}
+                projectName={name}
                 {...section}
             />;
         })

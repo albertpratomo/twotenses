@@ -1,0 +1,43 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+
+let {blok, items, projectName, projectDate} = Astro.props;
+
+projectDate = new Date(projectDate);
+
+const colClass = 'flex-col flex-1 pt-32 pb-12';
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="border-b border-red bg-gray"
+>
+    <div class="container-fluid px-container flex  divide-x divide-red">
+        <div class:list={colClass}>
+            <h1 class="text-7xl">
+                {projectName}
+            </h1>
+
+            <div class="text-red mt-auto">
+                {projectDate.getFullYear()}
+            </div>
+        </div>
+
+        <div 
+            class="gap-6 pl-12" 
+            class:list={colClass}
+        >
+            {items.map(item => (
+                <div>
+                    <label class="text-red">
+                        {item.label}
+                    </label>
+
+                    <div class="text-2xl">
+                        {item.text}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
