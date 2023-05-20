@@ -24,7 +24,8 @@
     "swiper": "^9.2.4",
     "tailwindcss": "^3.3.1",
     "vite": "^4.3.1",
-    "vue": "^3.3.2"
+    "vue": "^3.3.2",
+    "vue-3d-model": "^2.0.0-alpha.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.5",

@@ -1,0 +1,27 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import {ModelFbx} from 'vue-3d-model';
+
+const {blok, model, paragraph} = Astro.props;
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="border-b border-red bg-gray"
+>
+    <div class="container-fluid px-container grid items-center gap-y-4 py-12 lg:grid-cols-2">
+        <div class="lg:h-[70vh]">
+            <ModelFbx
+                background-alpha="0"
+                client:visible
+                src={model.filename}
+            />
+        </div>
+
+        <div class="lg:pl-12">
+            <p class="text-lg lg:max-w-xl xl:text-2xl">
+                {paragraph}
+            </p>
+        </div>
+    </div>
+</section>
