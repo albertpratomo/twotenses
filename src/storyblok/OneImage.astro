@@ -1,0 +1,39 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import formatImage from '@/utils/formatImage';
+
+let {blok, image} = Astro.props;
+
+image = formatImage(image);
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="bg-gray"
+>
+    <div class="container-fluid flex justify-end py-12 lg:pr-36 xl:py-48">
+        <div class="lg:w-2/5">
+            <picture>
+                <source
+                    media="(max-width: 639px)"
+                    srcset={`${image.url}639x0`}
+                    width="639"
+                />
+
+                <source
+                    media="(max-width: 767px)"
+                    srcset={`${image.url}767x0`}
+                    width="767"
+                />
+
+                <img
+                    alt={image.alt}
+                    loading="lazy"
+                    src={`${image.url}700x0`}
+                    title={image.title}
+                    width="700"
+                />
+            </picture>
+        </div>
+    </div>
+</section>
