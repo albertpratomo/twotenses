@@ -42,12 +42,14 @@ const projects = await getProjects();
 
 <section
     {...storyblokEditable(blok)}
-    class="container-fluid px-container bg-black pb-16"
+    class="bg-black pb-16"
 >
-    <ProjectsGrid
-        client:visible
-        categories={categories}
-        industries={industries}
-        projects={projects}
-    />
+    <div class="container-fluid px-container">
+        <ProjectsGrid
+            client:visible
+            categories={categories}
+            industries={industries}
+            projects={projects}
+        />
+    </div>
 </section>

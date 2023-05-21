@@ -6,9 +6,11 @@ const {blok, title} = Astro.props;
 
 <section
     {...storyblokEditable(blok)}
-    class="container-fluid px-container bg-black"
+    class="bg-black"
 >
-    <h1 class="flex min-h-[70vh] max-w-5xl items-center text-4xl text-gray lg:text-7xl">
-        {title}
-    </h1>
+    <div class="container-fluid px-container">
+        <h1 class="flex min-h-[70vh] max-w-5xl items-center text-4xl text-gray lg:text-7xl">
+            {title}
+        </h1>
+    </div>
 </section>

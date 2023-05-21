@@ -60,5 +60,5 @@ if (!story)
         name={story.name}
     />
 
-    <Footer />
+    <Footer parallax={!story.content.sections.at(-1).parallax}/>
 </Layout>
