@@ -12,7 +12,7 @@ image2 = formatImage(image2);
     {...storyblokEditable(blok)}
     class="bg-gray"
 >
-    <div class="container-fluid grid grid-cols-12 gap-y-12 py-12 xl:py-48">
+    <div class="container-fluid grid grid-cols-12 gap-y-6 py-6 md:gap-y-12 md:py-12 xl:pb-24 xl:pt-48">
         <div class="col-span-full md:col-span-6 xl:col-span-3">
             <picture>
                 <source
@@ -57,6 +57,7 @@ image2 = formatImage(image2);
                     src={`${image2.url}960x0`}
                     title={image2.title}
                     width="960"
+                    class="ml-auto"
                 />
             </picture>
         </div>

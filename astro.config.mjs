@@ -17,6 +17,7 @@ export default defineConfig({
             bridge: ssr,
             components: {
                 Accordion: 'storyblok/Accordion',
+                ArrowLink: 'storyblok/ArrowLink',
                 Carousel: 'storyblok/Carousel',
                 Counter: 'storyblok/Counter',
                 FullImage: 'storyblok/FullImage',

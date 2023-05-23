@@ -3,14 +3,17 @@ import formatLink from '@/utils/formatLink';
 
 interface Props {
     class: any;
-    label: string;
+    label?: string;
     link: {
         cached_url: string;
         target?: string;
+        title?: string;
     };
 }
 
-const {class: className, label, link} = Astro.props;
+let {class: className, label, link} = Astro.props;
+
+label = label || link.title;
 
 const {href, target} = formatLink(link);
 ---
@@ -21,4 +24,6 @@ const {href, target} = formatLink(link);
     target={target}
 >
     {label}
+
+    <slot></slot>
 </a>
