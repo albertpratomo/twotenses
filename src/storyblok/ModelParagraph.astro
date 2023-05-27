@@ -1,8 +1,13 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
-import {ModelFbx} from 'vue-3d-model';
+import {ModelGltf} from 'vue-3d-model';
 
 const {blok, model, paragraph} = Astro.props;
+
+const controlsOptions = {
+    maxPolarAngle: 1.2,
+    minPolarAngle: 1.2,
+};
 ---
 
 <section
@@ -11,10 +16,11 @@ const {blok, model, paragraph} = Astro.props;
 >
     <div class="container-fluid px-container grid items-center gap-y-4 p-6 md:py-12 lg:grid-cols-2 lg:py-36">
         <div class="lg:h-[70vh]">
-            <ModelFbx
+            <ModelGltf
                 background-alpha={0}
                 client:visible
                 src={model.filename}
+                controls-options={controlsOptions}
             />
         </div>
 
