@@ -49,6 +49,8 @@ let {story} = Astro.props;
 
 if (!story)
     story = await getStory(slug);
+
+const footerParallax = !story.content.sections.at(-1).parallax;
 ---
 
 <Layout
@@ -58,7 +60,8 @@ if (!story)
     <StoryblokComponent
         blok={story.content}
         name={story.name}
+        class={{'relative z-[5]': footerParallax}}
     />
 
-    <Footer parallax={!story.content.sections.at(-1).parallax}/>
+    <Footer parallax={footerParallax}/>
 </Layout>

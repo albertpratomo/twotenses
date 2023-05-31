@@ -11,7 +11,7 @@ interface Props {
     };
 }
 
-let {class: className, label, link} = Astro.props;
+let {class: classes, label, link} = Astro.props;
 
 label = label || link.title;
 
@@ -19,7 +19,7 @@ const {href, target} = formatLink(link);
 ---
 
 <a
-    class:list={className}
+    class:list={classes}
     href={href}
     target={target}
 >
