@@ -3,11 +3,6 @@ import {storyblokEditable} from '@storyblok/astro';
 import {ModelGltf} from 'vue-3d-model';
 
 const {blok, model, paragraph} = Astro.props;
-
-const controlsOptions = {
-    maxPolarAngle: 1.2,
-    minPolarAngle: 1.2,
-};
 ---
 
 <section
@@ -17,10 +12,16 @@ const controlsOptions = {
     <div class="container-fluid px-container grid items-center gap-y-4 p-6 md:py-12 lg:grid-cols-2 lg:py-36">
         <div class="lg:h-[70vh]">
             <ModelGltf
+                class="cursor-grab active:cursor-grabbing"
                 background-alpha={0}
                 client:visible
                 src={model.filename}
-                controls-options={controlsOptions}
+                controls-options={{
+                    maxDistance: 8,
+                    maxPolarAngle: 1.6,
+                    minDistance: 1,
+                    minPolarAngle: 1.2,
+                }}
             />
         </div>
 
