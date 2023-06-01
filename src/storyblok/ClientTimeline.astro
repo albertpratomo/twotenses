@@ -1,0 +1,27 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import Link from '@/components/Link.astro';
+
+const {blok, links} = Astro.props;
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="bg-gray py-24 md:py-36"
+>
+    <div class="container-fluid pl-8 pr-4 md:px-container">
+        <div class="flex border-l-[3px] md:border-l-0 md:border-b-[3px] border-red flex-col md:flex-row">
+            {links.map(link => (
+                <Link
+                    class="relative flex-1 pb-12 pt-1 md:pt-0 md:pb-3 pl-6 text-2xl"
+                    {...link}
+                >
+                    <div 
+                        class="absolute -top-4 md:top-auto md:bottom-[-1.2rem] left-[-1.21rem] md:-left-4 h-9 w-9 rounded-full bg-red bg-clip-content p-2.5 border" 
+                        class:list={ Astro.url.pathname.slice(1) === link.link.cached_url ? 'border-red' : 'border-transparent'}
+                    />
+                </Link>
+            ))}
+        </div>
+    </div>
+</section>
