@@ -1,8 +1,15 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
-import Link from '@/components/Link.astro';
+import formatLink from '@/utils/formatLink';
 
-const {blok, links} = Astro.props;
+let {blok, links} = Astro.props;
+
+links = links.map(l => ({
+    ...l,
+    link: formatLink(l.link),
+}));
+
+const circleClass = 'absolute md:top-auto md:bottom-[-1.2rem] left-[-1.21rem] h-9 w-9 rounded-full bg-red bg-clip-content p-2.5 border';
 ---
 
 <section
@@ -11,17 +18,32 @@ const {blok, links} = Astro.props;
 >
     <div class="container-fluid pl-8 pr-4 md:px-container">
         <div class="flex border-l-[3px] md:border-l-0 md:border-b-[3px] border-red flex-col md:flex-row">
-            {links.map(link => (
-                <Link
-                    class="relative flex-1 pb-12 pt-1 md:pt-0 md:pb-3 pl-6 text-2xl"
-                    {...link}
+            {links.map((link, i, {length}) => 
+                <a
+                    class="relative flex-1 pb-12 -pt-1 md:pt-0 md:pb-3 pl-8 md:pl-6 text-2xl"
+                    href={link.link.href}
+                    target={link.link.target}
                 >
+                    <div class="-mt-3.5 md:mt-0">
+                        {link.label}    
+                    </div>
+
                     <div 
-                        class="absolute -top-4 md:top-auto md:bottom-[-1.2rem] left-[-1.21rem] md:-left-4 h-9 w-9 rounded-full bg-red bg-clip-content p-2.5 border" 
-                        class:list={ Astro.url.pathname.slice(1) === link.link.cached_url ? 'border-red' : 'border-transparent'}
+                        class="-top-4 md:-left-4" 
+                        class:list={[
+                            circleClass,
+                            Astro.url.pathname === link.link.href ? 'border-red' : 'border-transparent',
+                        ]}
                     />
-                </Link>
-            ))}
+
+                    {length - 1 === i && 
+                        <div
+                            class="-bottom-4 md:left-auto md:-right-4 border-transparent" 
+                            class:list={circleClass}
+                        />
+                    }
+                </a>
+            )}
         </div>
     </div>
 </section>
