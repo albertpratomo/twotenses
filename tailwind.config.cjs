@@ -25,7 +25,7 @@ module.exports = {
             },
         },
         fontFamily: {
-            sans: ['TT Commons', 'ui-sans-serif', 'system-ui'],
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
         },
     },
 };

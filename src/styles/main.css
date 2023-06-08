@@ -4,14 +4,6 @@
 @import 'transition';
 
 @layer base {
-    @font-face {
-        font-family: 'TT Commons';
-        src: url('/fonts/tt-commons.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-    }
-
     html {
         overflow-y: overlay;
     }
