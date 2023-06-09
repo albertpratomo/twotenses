@@ -1,11 +1,8 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
-import formatImage from '@/utils/formatImage';
+import {getSrcset} from '@/utils';
 
-let {blok, image1, image2} = Astro.props;
-
-image1 = formatImage(image1);
-image2 = formatImage(image2);
+const {blok, image1, image2} = Astro.props;
 ---
 
 <section
@@ -17,20 +14,20 @@ image2 = formatImage(image2);
             <picture>
                 <source
                     media="(max-width: 639px)"
-                    srcset={`${image1.url}639x0`}
+                    srcset={getSrcset(image1, 639)}
                     width="639"
                 />
 
                 <source
                     media="(max-width: 767px)"
-                    srcset={`${image1.url}384x0`}
+                    srcset={getSrcset(image1, 384)}
                     width="384"
                 />
 
                 <img
                     alt={image1.alt}
                     loading="lazy"
-                    src={`${image1.url}512x0`}
+                    srcset={getSrcset(image1, 480)}
                     title={image1.title}
                     width="480"
                 />
@@ -41,20 +38,20 @@ image2 = formatImage(image2);
             <picture>
                 <source
                     media="(max-width: 639px)"
-                    srcset={`${image2.url}639x0`}
+                    srcset={getSrcset(image2, 639)}
                     width="639"
                 />
 
                 <source
                     media="(max-width: 767px)"
-                    srcset={`${image2.url}576x0`}
+                    srcset={getSrcset(image2, 576)}
                     width="576"
                 />
 
                 <img
                     alt={image2.alt}
                     loading="lazy"
-                    src={`${image2.url}960x0`}
+                    srcset={getSrcset(image2, 960)}
                     title={image2.title}
                     width="960"
                     class="ml-auto"

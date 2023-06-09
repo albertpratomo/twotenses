@@ -3,6 +3,7 @@ import type {Swiper as ISwiper} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import {ref} from 'vue';
 import 'swiper/css';
+import {getSrcset} from '@/utils';
 
 defineProps({
     items: {
@@ -46,21 +47,21 @@ function stopAutoplay() {
                     <source
                         height="852"
                         media="(max-width: 639px)"
-                        :srcset="`${item.image_portrait.url}639x852`"
+                        :srcset="getSrcset(item.image_portrait, 639, 852)"
                         width="639"
                     >
 
                     <source
                         height="431"
                         media="(max-width: 767px)"
-                        :srcset="`${item.image_landscape.url}767x431`"
+                        :srcset="getSrcset(item.image_landscape, 767, 431)"
                         width="767"
                     >
 
                     <source
                         height="1364"
                         media="(max-width: 1023px)"
-                        :srcset="`${item.image_portrait.url}1023x1364`"
+                        :srcset="getSrcset(item.image_portrait, 1023, 1364)"
                         width="1023"
                     >
 
@@ -69,7 +70,7 @@ function stopAutoplay() {
                         class="max-h-screen w-full object-cover"
                         height="1080"
                         loading="lazy"
-                        :src="`${item.image_landscape.url}1920x1080`"
+                        :srcset="getSrcset(item.image_landscape, 1920, 1080)"
                         :title="item.image_landscape.title"
                         width="1920"
                     >

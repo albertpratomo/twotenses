@@ -1,6 +1,5 @@
 ---
 import {storyblokEditable, useStoryblokApi} from '@storyblok/astro';
-import formatImage from '@/utils/formatImage';
 import ProjectsGrid from '@/components/projects/ProjectsGrid.vue';
 
 const {blok} = Astro.props;
@@ -31,7 +30,7 @@ async function getProjects() {
         href: `/${s.full_slug}`,
         industries: s.content.industries,
         name: s.name,
-        thumbnail: formatImage(s.content.thumbnail),
+        thumbnail: s.content.thumbnail,
     }));
 }
 

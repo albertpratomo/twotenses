@@ -1,16 +1,8 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
 import Accordion from '@/components/Accordion.vue';
-import formatImage from '@/utils/formatImage';
 
-let {blok, items, title} = Astro.props;
-
-items = items.map((item) => {
-    return {
-        ...item,
-        image: formatImage(item.image),
-    };
-});
+const {blok, items, title} = Astro.props;
 ---
 
 <section

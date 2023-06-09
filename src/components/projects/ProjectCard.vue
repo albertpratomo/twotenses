@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import {getSrcset} from '@/utils';
+
 defineProps({
     project: {
         required: true,
@@ -15,14 +17,14 @@ defineProps({
         <picture>
             <source
                 media="(max-width: 414px)"
-                :srcset="`${project.thumbnail.url}414x276`"
+                :srcset="getSrcset(project.thumbnail, 414, 276)"
             >
 
             <img
                 :alt="project.thumbnail.alt"
                 height="380"
                 loading="lazy"
-                :src="`${project.thumbnail.url}570x380`"
+                :srcset="getSrcset(project.thumbnail, 570, 380)"
                 :title="project.thumbnail.title"
                 width="570"
             >
