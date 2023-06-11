@@ -1,6 +1,7 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
 import {ModelGltf} from 'vue-3d-model';
+import IRotateArrow from '@/components/icons/IRotateArrow.astro';
 
 const {blok, model, paragraph} = Astro.props;
 ---
@@ -23,6 +24,12 @@ const {blok, model, paragraph} = Astro.props;
                     minPolarAngle: 1.2,
                 }}
             />
+
+            <div class="mt-4 flex justify-center gap-4 text-red">
+                DRAG TO ROTATE
+
+                <IRotateArrow />
+            </div>
         </div>
 
         <div class="lg:pl-12">
