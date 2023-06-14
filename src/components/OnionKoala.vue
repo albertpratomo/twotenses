@@ -4,16 +4,21 @@ import {ref} from 'vue';
 
 const slides = [
     {
-        answer: ['12-01-23'],
-        button: 'I think so',
+        button: 'Yes... muah!',
+        image: 'onion-koala.png',
         title: `
-            Hello? Hello?<br><br>
-            Are you truly my bb? 
+            Helloooo...? Helloooo...?<br>
+            Am I talking to my bb? 
         `,
     },
     {
         answer: ['12-01-23'],
-        question: 'When did we get together? (DD-MM-YY)',
+        button: 'I am your bb!',
+        question: `
+            Are you truly my bb?<br>
+            Let\'s prove that by answering some questions.<br>
+            When did we get together? (DD-MM-YY)
+        `,
     },
     {
         answer: ['nasi padang', 'bumbu rendang', 'perkedel', 'nangka', 'telur dadar'],
@@ -66,6 +71,12 @@ function submit() {
 
 <template>
     <section class="flex-center h-screen flex-col text-center text-gray">
+        <img
+            v-if="state.image"
+            class="mb-8 rounded"
+            :src="`/images/onion-koala/${state.image}`"
+        >
+
         <h1
             v-if="state.title"
             v-html="state.title"
