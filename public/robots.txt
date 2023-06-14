@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /onion-koala/
 
 Sitemap: https://www.twotenses.com/sitemap-index.xml

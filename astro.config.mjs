@@ -35,7 +35,9 @@ export default defineConfig({
                 TwoImage: 'storyblok/TwoImage',
             },
         }),
-        sitemap(),
+        sitemap({
+            filter: p => !p.includes('onion-koala'),
+        }),
         tailwind({config: {applyBaseStyles: false}}),
         vue({
             script: {

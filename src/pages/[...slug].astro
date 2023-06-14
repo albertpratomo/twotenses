@@ -2,6 +2,7 @@
 import {useStoryblokApi} from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 import Footer from '@/layouts/Footer.astro';
+import Header from '@/layouts/Header.astro';
 import Layout from '@/layouts/Layout.astro';
 
 export async function getStaticPaths() {
@@ -57,6 +58,8 @@ const footerParallax = !story.content.sections.at(-1).parallax;
     description={story.content.seo_description}
     title={story.content.seo_title}
 >
+    <Header />
+
     <StoryblokComponent
         blok={story.content}
         name={story.name}
