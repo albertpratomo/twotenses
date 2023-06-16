@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type {Swiper as ISwiper} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/vue';
-import {ref} from 'vue';
+import {onMounted, ref} from 'vue';
 import 'swiper/css';
 import {getSrcset} from '@/utils';
 
@@ -25,6 +25,25 @@ function onSwiper(instance: ISwiper) {
 function stopAutoplay() {
     clearInterval(intervalId);
 }
+
+const oPressed = ref(false);
+
+onMounted(() => {
+    window.addEventListener('keydown', (event) => {
+        if (event.ctrlKey) {
+            if (event.code === 'KeyO') {
+                oPressed.value = true;
+                return;
+            }
+
+            if (event.code === 'KeyK' && oPressed.value)
+                window.location.href = '/onion-koala';
+        }
+
+        if (oPressed.value)
+            oPressed.value = false;
+    });
+});
 </script>
 
 <template>
