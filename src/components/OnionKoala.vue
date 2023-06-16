@@ -59,16 +59,15 @@ const slides = [
             Okay okay... I am sure you are my bb! 🤍🤍🤍 <br>
             Muahhhhhh.... 💋<br><br>
 
-            Happy 5th monthiversarry bb... You have answered 5 questions correctly. <br><br>
-            Just like our tradition, you get a reward. <br>
-            I will grant you one wish. What is your wish? 🥰
+            Just like our tradition, since you've answered correctly, I give you a wish. <br>
+            What is your wish? 🥰
         `,
     },
     {
-        buttons: ['OMGGGGGGGGGGGGGGG 🥺😍🤗😭💗'],
+        buttons: ['OMGGGGG 😭😭😭💗💗💗'],
         image: 'ticket.png',
         title: `
-            TAAAAAAAA-DAAAAAAAAA! 🥳🍾🎉
+            Well...
         `,
     },
     {
@@ -110,7 +109,7 @@ const slides = [
         title: `
             Happy 5th monthiversary bb..<br>
             🤍🤍🤍🤍🤍<br><br>
-            Here's to 5x5x5x5x5x5x5x5 more months together with you. <br>
+            Here's to 5x5x5x5x5 more months together with you. <br>
             I love you.
         `,
     },
@@ -125,7 +124,7 @@ function generateError(correct: number, total: number) {
     const percent = Math.floor(correct * 100 / total);
 
     const messages = [
-        'Almost... try again! 💪',
+        'Almost... Almost is never enough... 🥺',
         'Coba tanya Albert lagi deh.. 😉',
         'Don\'t give up bb! You can do this! 🤗',
         'Ganbatte.... 加油! (i bukan wibu >.<)',
@@ -151,23 +150,20 @@ function submit() {
                 correct++;
         });
 
-        if (correct >= correctAnswer.length) {
-            answer.value = '';
-            error.value = '';
-            next();
-        }
-        else {
+        if (correct < correctAnswer.length) {
             error.value = generateError(correct, correctAnswer.length);
+            return;
         }
     }
-    else {
-        next();
-    }
+
+    answer.value = '';
+    error.value = '';
+    next();
 }
 </script>
 
 <template>
-    <section class="flex-center relative h-screen flex-col text-center text-gray">
+    <section class="flex-center container-fluid px-container relative h-screen flex-col text-center text-gray">
         <div
             class="absolute right-0 top-0 h-4 w-4"
             @click="next()"
