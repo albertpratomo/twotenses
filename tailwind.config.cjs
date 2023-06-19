@@ -2,6 +2,8 @@
 module.exports = {
     content: ['./src/**/*.{astro,html,vue}'],
     safelist: [
+        'font-bold',
+        'italic',
         {pattern: /text-(black|gray|red|white)/},
     ],
     theme: {

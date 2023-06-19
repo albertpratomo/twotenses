@@ -24,6 +24,7 @@ export default defineConfig({
                 FullImage: 'storyblok/FullImage',
                 Header: 'storyblok/Header',
                 Hero: 'storyblok/Hero',
+                ImageParagraph: 'storyblok/ImageParagraph',
                 ModelParagraph: 'storyblok/ModelParagraph',
                 OneImage: 'storyblok/OneImage',
                 Page: 'storyblok/Page',
