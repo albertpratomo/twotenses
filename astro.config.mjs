@@ -28,6 +28,7 @@ export default defineConfig({
                 ModelParagraph: 'storyblok/ModelParagraph',
                 OneImage: 'storyblok/OneImage',
                 Page: 'storyblok/Page',
+                ParagraphImageGrid: 'storyblok/ParagraphImageGrid',
                 Project: 'storyblok/Project',
                 ProjectInfo: 'storyblok/ProjectInfo',
                 ProjectsGrid: 'storyblok/ProjectsGrid',
