@@ -13,7 +13,6 @@ defineProps({
         :class="direction === 'left' ? 'rotate-180' : ''"
         fill="none"
         viewBox="0 0 56 51"
-        xmlns="http://www.w3.org/2000/svg"
     >
         <path
             d="M.173 25.572l53.468.026M29.642 1.599l24.049 23.949L29.619 49.72"
