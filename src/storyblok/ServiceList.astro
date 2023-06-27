@@ -1,0 +1,40 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import CircleWorkWithYou from '@/components/CircleWorkWithYou.astro';
+
+const {blok, items, title} = Astro.props;
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="bg-black py-12 text-gray lg:py-24 xl:py-40"
+>
+    <div class="container-fluid px-container">
+        <h2 class="text-5xl lg:text-7xl">
+            {title}
+        </h2>
+
+        <div class="grid lg:mt-12 lg:grid-cols-2">
+            <div class="flex items-end justify-end pl-12 lg:justify-start">
+                <CircleWorkWithYou
+                    size="w-28 lg:w-48"
+                    class="animate-[spin_5s_linear_infinite]"
+                />
+            </div>
+
+            <ul class="flex-col gap-12 lg:gap-16">
+                {items.map(item => (
+                    <li class="max-w-prose">
+                        <div class="text-4xl">
+                            {item.label}
+                        </div>
+
+                        <div class="mt-4 text-lg lg:text-2xl">
+                            {item.text}
+                        </div>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </div>
+</section>

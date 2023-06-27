@@ -10,7 +10,7 @@ const {blok, image, paragraph, subtitle, title} = Astro.props;
     class="flex-col bg-gray lg:h-screen"
 >
     <div class="container-fluid px-container grid w-full grow lg:grid-cols-3">
-        <div class="col-span-2 flex items-end border-x border-white text-4xl lg:text-7xl text-red pt-12 lg:pb-8">
+        <div class="col-span-2 flex items-end border-x border-white text-5xl lg:text-7xl text-red pt-12 lg:pb-8">
             {title}
         </div>
 
@@ -26,7 +26,7 @@ const {blok, image, paragraph, subtitle, title} = Astro.props;
 
                 <p 
                     set:html={paragraph}
-                    class="max-w-lg whitespace-pre-line xl:mx-auto mt-4 xl:mt-0"
+                    class="max-w-lg text-lg whitespace-pre-line xl:mx-auto mt-4 xl:mt-0"
                 />
             </div>
 
