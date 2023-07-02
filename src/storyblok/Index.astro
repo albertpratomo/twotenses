@@ -1,0 +1,40 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import Link from '@/components/Link.astro';
+
+const {blok, sections, title} = Astro.props;
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="bg-black"
+>
+    <div class="container-fluid px-container py-28 lg:py-36">
+        <h2 class="text-5xl text-red md:text-7xl">
+            {title}
+        </h2>
+
+        {sections.map(section => (
+            <div class="mt-12 flex flex-wrap gap-y-8 border-t border-red py-6 md:mt-16">
+                <h3 class="w-full text-3xl text-red md:text-4xl lg:mr-80 lg:w-auto">
+                    {section.title}
+                </h3>
+
+                {section.columns.map(column => (
+                    <div class="w-1/2 flex-col gap-y-2 sm:w-auto sm:flex-1">
+                        <h4 class="text-red">
+                            {column.label || <>&nbsp;</>}
+                        </h4>
+
+                        {column.links.map(link => (
+                            <Link
+                                class="text-gray"
+                                {...link}
+                            />
+                        ))}
+                    </div>
+                ))}
+            </div>
+        ))}
+    </div>
+</section>
