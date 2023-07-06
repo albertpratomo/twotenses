@@ -12,15 +12,15 @@ title = title.replace('t--t', tt);
 
 <section
     {...storyblokEditable(blok)}
-    class="container-fluid px-container flex-col gap-y-6 bg-black py-24 sm:gap-x-12 md:flex-row lg:items-center lg:py-48 xl:gap-x-36"
+    class="container-fluid px-container grid gap-y-6 bg-black py-24 lg:py-48 lg:grid-cols-12"
     class:list={{'sticky inset-x-0 bottom-0 -z-20': parallax}}
 >
     <h2 
         set:html={title}
-        class="max-w-3xl flex-1 text-5xl text-gray sm:text-6xl lg:text-8xl"
+        class="text-5xl text-gray sm:text-6xl lg:text-7xl lg:col-span-5"
     />
 
-    <p class="max-w-lg flex-1 text-gray md:text-2xl">
+    <p class="flex-1 text-gray lg:text-2xl lg:col-span-5 lg:col-start-7 py-4">
         {paragraph}
     </p>
 </section>
