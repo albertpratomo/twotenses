@@ -1,0 +1,41 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import settings from '@/store/settings';
+
+const {blok} = Astro.props;
+const {contact_email, contact_instagram, contact_whatsapp} = settings;
+
+const labelClass = 'text-red';
+const linkClass = 'text-lg md:text-4xl text-gray';
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="container-fluid px-container grid bg-black pb-12 md:grid-cols-12"
+>
+    <div class="flex-col md:col-span-5 md:col-start-7">
+        <label class={labelClass}>REACH US</label>
+        <a
+            href={`mailto:${contact_email}`}
+            class={linkClass}
+        >
+            {contact_email}
+        </a>
+        <a
+            href={contact_whatsapp.cached_url}
+            target="_blank"
+            class={linkClass}
+        >
+            {contact_whatsapp.title}
+        </a>
+
+        <label class:list={[labelClass, 'mt-8']}>FOLLOW US</label>
+        <a
+            href={contact_instagram.cached_url}
+            target="_blank"
+            class={linkClass}
+        >
+            Instagram
+        </a>
+    </div>
+</section>
