@@ -2,7 +2,7 @@
 import {storyblokEditable} from '@storyblok/astro';
 import {getSrcset} from '@/utils';
 
-const {blok, image} = Astro.props;
+const {blok, caption, image} = Astro.props;
 ---
 
 <section
@@ -10,7 +10,7 @@ const {blok, image} = Astro.props;
     class="bg-black"
 >
     <div class="container-fluid">
-        <picture>
+        <picture class="relative">
             <source
                 height="360"
                 media="(max-width: 639px)"
@@ -39,6 +39,11 @@ const {blok, image} = Astro.props;
                 srcset={getSrcset(image, 1920, 1080)}
                 title={image.title}
                 width="1920"
+            />
+
+            <div 
+                class="px-container absolute bottom-6 text-lg lg:text-2xl"
+                set:html={caption}
             />
         </picture>
     </div>
