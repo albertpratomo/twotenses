@@ -7,10 +7,10 @@ const {blok, image1, image2} = Astro.props;
 
 <section
     {...storyblokEditable(blok)}
-    class="bg-gray"
+    class="bg-gray py-4 md:py-6 lg:py-36"
 >
-    <div class="container-fluid grid grid-cols-12 gap-y-8 py-4 md:gap-y-12 md:py-6 xl:pb-24 xl:pt-48">
-        <div class="col-span-full md:col-span-6 xl:col-span-3">
+    <div class="container-fluid grid gap-y-8 sm:grid-cols-11 md:gap-y-12">
+        <div class="col-span-full sm:col-span-5 lg:col-span-4 lg:col-start-2">
             <picture>
                 <source
                     media="(max-width: 639px)"
@@ -20,21 +20,21 @@ const {blok, image1, image2} = Astro.props;
 
                 <source
                     media="(max-width: 767px)"
-                    srcset={getSrcset(image1, 384)}
-                    width="384"
+                    srcset={getSrcset(image1, 350)}
+                    width="350"
                 />
 
                 <img
                     alt={image1.alt}
                     loading="lazy"
-                    srcset={getSrcset(image1, 480)}
+                    srcset={getSrcset(image1, 700)}
                     title={image1.title}
-                    width="480"
+                    width="700"
                 />
             </picture>
         </div>
 
-        <div class="col-span-full md:col-span-9 md:col-end-13 xl:col-span-6 xl:col-end-13">
+        <div class="col-span-full sm:col-span-5 sm:col-end-12 lg:col-span-4 lg:col-end-11">
             <picture>
                 <source
                     media="(max-width: 639px)"
@@ -44,17 +44,16 @@ const {blok, image1, image2} = Astro.props;
 
                 <source
                     media="(max-width: 767px)"
-                    srcset={getSrcset(image2, 576)}
-                    width="576"
+                    srcset={getSrcset(image2, 350)}
+                    width="350"
                 />
 
                 <img
                     alt={image2.alt}
                     loading="lazy"
-                    srcset={getSrcset(image2, 960)}
+                    srcset={getSrcset(image2, 700)}
                     title={image2.title}
-                    width="960"
-                    class="ml-auto"
+                    width="700"
                 />
             </picture>
         </div>
