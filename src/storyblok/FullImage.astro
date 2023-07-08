@@ -7,7 +7,7 @@ const {blok, caption, image} = Astro.props;
 
 <section
     {...storyblokEditable(blok)}
-    class="bg-black"
+    class="bg-gray py-4 first:py-0"
 >
     <div class="container-fluid">
         <picture class="relative">
@@ -42,7 +42,7 @@ const {blok, caption, image} = Astro.props;
             />
 
             <div 
-                class="px-container absolute bottom-6 text-lg lg:text-2xl"
+                class="px-container absolute text-sm md:text-base bottom-4 md:bottom-6 lg:text-2xl"
                 set:html={caption}
             />
         </picture>
