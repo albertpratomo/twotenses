@@ -5,6 +5,10 @@ module.exports = {
         'font-bold',
         'italic',
         {pattern: /text-(black|gray|red|white)/},
+        {
+            pattern: /w-\d\/12/,
+            variants: ['lg'],
+        },
     ],
     theme: {
         colors: {

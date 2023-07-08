@@ -2,15 +2,19 @@
 import {storyblokEditable} from '@storyblok/astro';
 import {getSrcset} from '@/utils';
 
-const {blok, image} = Astro.props;
+const {blok, image, width} = Astro.props;
+
+const imageClass = width === '12'
+    ? 'lg:w-full'
+    : `lg:w-${width}/12`;
 ---
 
 <section
     {...storyblokEditable(blok)}
-    class="bg-gray"
+    class="bg-gray py-4 md:py-12 lg:py-20"
 >
-    <div class="container-fluid flex justify-end py-4 md:py-12 lg:pr-36 xl:py-48">
-        <div class="lg:w-2/5">
+    <div class="container-fluid flex-center">
+        <div class={imageClass}>
             <picture>
                 <source
                     media="(max-width: 639px)"
@@ -27,9 +31,9 @@ const {blok, image} = Astro.props;
                 <img
                     alt={image.alt}
                     loading="lazy"
-                    srcset={getSrcset(image, 700)}
+                    srcset={getSrcset(image, 1920)}
                     title={image.title}
-                    width="700"
+                    width="1920"
                 />
             </picture>
         </div>
