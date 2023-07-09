@@ -17,14 +17,14 @@ defineEmits(['toggle']);
         @click="$emit('toggle')"
     >
         <div
-            class="h-1 w-1/2 origin-right bg-red transition-transform delay-150"
+            class="h-1 w-1/2 origin-right bg-gray transition-transform delay-150"
             :class="isOpen ? '-rotate-90 -translate-y-0.5' : ''"
         />
 
-        <div class="h-1 w-full bg-red" />
+        <div class="h-1 w-full bg-gray" />
 
         <div
-            class="h-1 w-1/2 origin-left self-end bg-red transition-transform delay-150"
+            class="h-1 w-1/2 origin-left self-end bg-gray transition-transform delay-150"
             :class="isOpen ? '-rotate-90 translate-y-0.5' : ''"
         />
     </button>

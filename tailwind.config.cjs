@@ -4,6 +4,7 @@ module.exports = {
     safelist: [
         'font-bold',
         'italic',
+        {pattern: /bg-(black|gray|red|white)/},
         {pattern: /text-(black|gray|red|white)/},
         {
             pattern: /w-\d\/12/,
