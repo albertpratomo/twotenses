@@ -10,10 +10,11 @@ const {header_center_links, header_right_links} = settings;
 const links = header_center_links.concat(header_right_links);
 ---
 
-<header class="fixed inset-x-0 top-8 z-10">
+<header class="fixed inset-x-0 z-10 transition">
     <nav class="container-fluid px-container flex items-center text-gray">
         <a
             href="/"
+            class="py-8"
             aria-label="Twotenses Logo"
         >
             <Logo />
@@ -55,3 +56,20 @@ const links = header_center_links.concat(header_right_links);
         </div>
     </nav>
 </header>
+
+<script>
+let scrollY = 0;
+const header = document.querySelector('header');
+
+document.addEventListener('scroll', () => {
+    const method = window.scrollY > scrollY ? 'add' : 'remove';
+
+    header?.classList[method]('-translate-y-full');
+    header?.classList[method]('opacity-0');
+
+    scrollY = window.scrollY;
+
+    const toggleBg = scrollY === 0 ? 'remove' : 'add';
+    header?.classList[toggleBg]('bg-black');
+});
+</script>
