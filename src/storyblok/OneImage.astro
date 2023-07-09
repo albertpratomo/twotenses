@@ -2,7 +2,7 @@
 import {storyblokEditable} from '@storyblok/astro';
 import {getSrcset} from '@/utils';
 
-const {blok, image, width} = Astro.props;
+const {blok, image, width = 6} = Astro.props;
 
 const imageClass = width === '12'
     ? 'lg:w-full'
