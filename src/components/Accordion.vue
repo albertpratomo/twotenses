@@ -37,7 +37,7 @@ const isOpen = ref(props.items.map(_ => false));
 
                     <div
                         v-else
-                        class="flex h-8 items-center text-white md:h-14"
+                        class="flex h-8 items-center md:h-14"
                     >
                         {{ item.content }}
                     </div>
