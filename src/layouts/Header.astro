@@ -62,14 +62,16 @@ let scrollY = 0;
 const header = document.querySelector('header');
 
 document.addEventListener('scroll', () => {
-    const method = window.scrollY > scrollY ? 'add' : 'remove';
+    const method = (window.scrollY > 0 && window.scrollY > scrollY)
+        ? 'add'
+        : 'remove';
 
     header?.classList[method]('-translate-y-full');
     header?.classList[method]('opacity-0');
 
     scrollY = window.scrollY;
 
-    const toggleBg = scrollY === 0 ? 'remove' : 'add';
+    const toggleBg = scrollY <= 0 ? 'remove' : 'add';
     header?.classList[toggleBg]('bg-black');
 });
 </script>
