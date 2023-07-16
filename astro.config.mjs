@@ -27,6 +27,7 @@ export default defineConfig({
                 Hero: 'storyblok/Hero',
                 ImageParagraph: 'storyblok/ImageParagraph',
                 Index: 'storyblok/Index',
+                LogosGrid: 'storyblok/LogosGrid',
                 ModelParagraph: 'storyblok/ModelParagraph',
                 OneImage: 'storyblok/OneImage',
                 Page: 'storyblok/Page',
