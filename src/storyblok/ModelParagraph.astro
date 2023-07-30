@@ -8,6 +8,7 @@ const {blok, model, paragraph} = Astro.props;
 
 <section
     {...storyblokEditable(blok)}
+    id="model-paragraph"
     class="border-b border-red bg-gray"
 >
     <div class="container-fluid px-container grid items-center gap-y-4 p-6 md:py-12 lg:grid-cols-2 lg:py-36">
@@ -39,3 +40,9 @@ const {blok, model, paragraph} = Astro.props;
         </div>
     </div>
 </section>
+
+<style is:global>
+#model-paragraph .cursor-grab > div:first-child > div:first-child {
+    @apply !bg-red;
+}
+</style>
