@@ -11,7 +11,8 @@ const width = 'sm:w-10/12 lg:w-full xl:w-10/12';
 
 <section
     {...storyblokEditable(blok)}
-    class="flex-col bg-gray sm:h-screen"
+    id="texts-grid"
+    class="flex-col bg-gray sm:h-screen transition-colors duration-300"
     class:list={{'sticky inset-x-0 bottom-0 -z-10': parallax}}
 >
     <div class="container-fluid px-container w-full grow">
@@ -34,3 +35,31 @@ const width = 'sm:w-10/12 lg:w-full xl:w-10/12';
         />
     </div>
 </section>
+
+<style is:global>
+    #texts-grid.bg-red {
+        @apply text-white;
+    }
+
+    #texts-grid * {
+        @apply transition;
+    }
+
+    #texts-grid.bg-red .text-red{
+        @apply text-black;
+    }
+
+    #texts-grid.bg-red .border-white{
+        @apply border-black;
+    }
+</style>
+
+<script>
+const section = document.querySelector("#texts-grid");
+
+const observer = new IntersectionObserver(() => {
+    section?.classList.toggle('bg-red');
+}, {threshold: 1});
+
+observer.observe(section);
+</script>
