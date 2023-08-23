@@ -27,6 +27,7 @@ const {blok, image1, image2} = Astro.props;
                 <img
                     alt={image1.alt}
                     loading="lazy"
+                    class="skeleton"
                     srcset={getSrcset(image1, 700)}
                     title={image1.title}
                     width="700"
@@ -51,6 +52,7 @@ const {blok, image1, image2} = Astro.props;
                 <img
                     alt={image2.alt}
                     loading="lazy"
+                    class="skeleton"
                     srcset={getSrcset(image2, 700)}
                     title={image2.title}
                     width="700"

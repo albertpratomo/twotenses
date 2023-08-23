@@ -35,6 +35,7 @@ const isVideo = image.filename.endsWith('.mp4');
                     <img
                         alt={image.alt}
                         loading="lazy"
+                        class="skeleton"
                         srcset={getSrcset(image, 1920)}
                         title={image.title}
                         width="1920"

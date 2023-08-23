@@ -86,12 +86,13 @@ onMounted(() => {
 
                     <img
                         :alt="item.image_landscape.alt"
-                        class="max-h-screen w-full object-cover"
+                        class="skeleton max-h-screen w-full object-cover"
                         height="1080"
                         loading="lazy"
                         :srcset="getSrcset(item.image_landscape, 1920, 1080)"
                         :title="item.image_landscape.title"
                         width="1920"
+                        @load="e => e.target.classList.remove('skeleton')"
                     >
                 </picture>
             </a>

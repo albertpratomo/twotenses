@@ -22,11 +22,13 @@ defineProps({
 
             <img
                 :alt="project.thumbnail.alt"
+                class="skeleton"
                 height="380"
                 loading="lazy"
                 :srcset="getSrcset(project.thumbnail, 570, 380)"
                 :title="project.thumbnail.title"
                 width="570"
+                @load="e => e.target.classList.remove('skeleton')"
             >
         </picture>
 

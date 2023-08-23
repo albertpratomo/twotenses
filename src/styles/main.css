@@ -72,4 +72,8 @@
     .px-container {
         @apply px-4 md:px-8 xl:px-14;
     }
+
+    .skeleton {
+        @apply animate-pulse bg-[#ababab];
+    }
 }

@@ -72,12 +72,13 @@ const isOpen = ref(props.items.map(_ => false));
 
                             <img
                                 :alt="item.image.alt"
-                                class="w-full"
+                                class="skeleton w-full"
                                 height="388"
                                 loading="lazy"
                                 :srcset="getSrcset(item.image, 672, 388)"
                                 :title="item.image.title"
                                 width="672"
+                                @load="e => e.target.classList.remove('skeleton')"
                             >
                         </picture>
 

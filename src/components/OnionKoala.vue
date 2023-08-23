@@ -171,9 +171,10 @@ function submit() {
 
         <img
             v-if="state.image"
-            class="mb-8 rounded"
+            class="skeleton mb-8 rounded"
             :src="`/images/onion-koala/${state.image}`"
             width="420"
+            @load="e => e.target.classList.remove('skeleton')"
         >
 
         <h1
