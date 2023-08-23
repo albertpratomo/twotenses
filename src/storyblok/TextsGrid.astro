@@ -57,9 +57,11 @@ const width = 'sm:w-10/12 lg:w-full xl:w-10/12';
 <script>
 const section = document.querySelector("#texts-grid");
 
-const observer = new IntersectionObserver(() => {
-    section?.classList.toggle('bg-red');
-}, {threshold: 1});
+if (section) {
+    const observer = new IntersectionObserver(() => {
+        section?.classList.toggle('bg-red');
+    }, {threshold: 1});
 
-observer.observe(section);
+    observer.observe(section);
+}
 </script>
