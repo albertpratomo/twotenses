@@ -5,7 +5,7 @@ module.exports = {
         'font-bold',
         'italic',
         {pattern: /bg-(black|gray|red|white)/},
-        {pattern: /text-(black|gray|red|white)/},
+        {pattern: /text-(black|gray|red|white|left|right|center|justify)/},
         {
             pattern: /w-\d\/12/,
             variants: ['lg'],

@@ -21,8 +21,9 @@ title = title.replace('t--t', tt);
             class="text-5xl text-gray sm:text-6xl lg:text-7xl lg:col-span-5"
         />
     
-        <p class="text-gray lg:text-2xl lg:col-span-5 lg:col-start-7 pt-4">
-            {paragraph}
-        </p>
+        <p
+            class="text-gray lg:text-2xl lg:col-span-5 lg:col-start-7 pt-4"
+            set:html={paragraph}
+        />
     </div>
 </section>

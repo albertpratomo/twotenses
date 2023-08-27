@@ -30,6 +30,7 @@ export default defineConfig({
                 LogosGrid: 'storyblok/LogosGrid',
                 ModelParagraph: 'storyblok/ModelParagraph',
                 OneImage: 'storyblok/OneImage',
+                OneParagraph: 'storyblok/OneParagraph',
                 Page: 'storyblok/Page',
                 ParagraphImageGrid: 'storyblok/ParagraphImageGrid',
                 Project: 'storyblok/Project',
