@@ -11,6 +11,8 @@ const {
     logo = false,
     paragraph,
 } = Astro.props;
+
+const isVideo = image.filename.endsWith('.mp4');
 ---
 
 <section
@@ -18,29 +20,35 @@ const {
     class=`bg-${background} py-4 md:py-12 lg:py-20 first:py-0`
 >
     <div class="container-fluid grid md:grid-cols-2">
-        <picture class:list={{'order-last': image_on_right}}>
-            <source
-                media="(max-width: 639px)"
-                srcset={getSrcset(image, 639)}
-                width="639"
-            />
+        <div class:list={{'order-last': image_on_right}}>
+            {isVideo
+                ? <video src={image.filename} loop autoplay controls/>
+                : <picture>
+                    <source
+                        media="(max-width: 639px)"
+                        srcset={getSrcset(image, 639)}
+                        width="639"
+                    />
 
-            <source
-                media="(max-width: 767px)"
-                srcset={getSrcset(image, 767)}
-                width="767"
-            />
+                    <source
+                        media="(max-width: 767px)"
+                        srcset={getSrcset(image, 767)}
+                        width="767"
+                    />
 
-            <img
-                alt={image.alt}
-                loading="lazy"
-                class="skeleton"
-                srcset={getSrcset(image, 960 )}
-                title={image.title}
-                width="960"
-                height="1280"
-            />
-        </picture>
+                    <img
+                        alt={image.alt}
+                        loading="lazy"
+                        class="skeleton"
+                        srcset={getSrcset(image, 960 )}
+                        title={image.title}
+                        width="960"
+                        height="1280"
+                    />
+                </picture>
+            }
+        </div>
+        
 
         <div class="flex-col items-center justify-center px-container relative py-8">
             <p 
