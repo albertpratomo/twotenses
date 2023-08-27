@@ -10,9 +10,10 @@ const {
     image_on_right = false,
     logo = false,
     paragraph,
+    clock = false,
 } = Astro.props;
 
-const isVideo = image.filename.endsWith('.mp4');
+const isVideo = image.filename && image.filename.endsWith('.mp4');
 ---
 
 <section
@@ -20,10 +21,31 @@ const isVideo = image.filename.endsWith('.mp4');
     class=`bg-${background} py-4 md:py-12 lg:py-20 first:py-0`
 >
     <div class="container-fluid grid md:grid-cols-2">
-        <div class:list={{'order-last': image_on_right}}>
-            {isVideo
-                ? <video src={image.filename} loop autoplay controls/>
-                : <picture>
+        <div class:list={[{'order-last': image_on_right}, 'relative overflow-hidden']}>
+            {clock && 
+                <img
+                    loading="lazy"
+                    src="/images/clock-bg.png"
+                    class="skeleton"
+                    width="952"
+                    height="714"
+                />
+
+                <img
+                    loading="lazy"
+                    src="/images/clock-future-hand.png"
+                    class="absolute skeleton animate-[spin_5s_linear_infinite] inset-0"
+                    width="952"
+                    height="714"
+                />
+            }
+
+            {(!clock && isVideo) && 
+                <video src={image.filename} loop autoplay controls/>
+            }
+
+            {(!clock && !isVideo) &&
+                <picture>
                     <source
                         media="(max-width: 639px)"
                         srcset={getSrcset(image, 639)}
