@@ -5,6 +5,9 @@ const {
     description = 'twotenses is an interior design studio based in Jakarta.',
     title = 'Interior Design Studio',
 } = Astro.props;
+
+const url = 'https://www.twotenses.com/';
+const image = 'https://a.storyblok.com/f/210339/6181x4121/8aed680f62/img_9646.jpg/m/1200x630';
 ---
 
 <!DOCTYPE html>
@@ -20,8 +23,20 @@ const {
 
         <title>{title} - twotenses</title>
         <meta name="description" content={description}>
-
         <link rel="sitemap" href="/sitemap-index.xml">
+
+        <meta property="og:url" content={url}>
+        <meta property="og:type" content="website">
+        <meta property="og:title" content={title}>
+        <meta property="og:description" content={description}>
+        <meta property="og:image" content={image}>
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="twotenses.com">
+        <meta property="twitter:url" content={url}>
+        <meta property="twitter:title" content={title}>
+        <meta property="twitter:description" content={description}>
+        <meta name="twitter:image" content={image}>
 
         <script>
             window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
