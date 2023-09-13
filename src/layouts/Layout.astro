@@ -6,7 +6,7 @@ const {
     title = 'Interior Design Studio',
 } = Astro.props;
 
-const url = 'https://www.twotenses.com/';
+const url = new URL(Astro.url.pathname, Astro.site);
 const image = 'https://a.storyblok.com/f/210339/6181x4121/8aed680f62/img_9646.jpg/m/1200x630';
 ---
 
