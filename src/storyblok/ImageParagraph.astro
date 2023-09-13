@@ -41,7 +41,7 @@ const isVideo = image.filename && image.filename.endsWith('.mp4');
             }
 
             {(!clock && isVideo) && 
-                <video src={image.filename} loop autoplay controls/>
+                <video src={image.filename} loop controls/>
             }
 
             {(!clock && !isVideo) &&

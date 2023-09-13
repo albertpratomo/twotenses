@@ -18,7 +18,7 @@ const isVideo = image.filename.endsWith('.mp4');
     <div class="container-fluid flex-center">
         <div class={imageClass}>
             {isVideo
-                ? <video src={image.filename} loop autoplay controls/>
+                ? <video src={image.filename} loop controls/>
                 : <picture>
                     <source
                         media="(max-width: 639px)"
