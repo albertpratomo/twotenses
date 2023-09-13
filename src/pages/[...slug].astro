@@ -12,6 +12,7 @@ export async function getStaticPaths() {
         filter_query: {
             component: {in: 'Page,Project'},
         },
+        per_page: 100,
         version: import.meta.env.DEV ? 'draft' : 'published',
     });
 
