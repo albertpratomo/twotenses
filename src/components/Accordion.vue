@@ -82,7 +82,7 @@ const isOpen = ref(props.items.map(_ => false));
                             >
                         </picture>
 
-                        <div class="py-4 text-lg md:py-6 md:text-2xl lg:order-first lg:w-1/2 lg:pr-16 lg:pt-28">
+                        <div class="py-4 text-lg md:py-6 md:text-xl lg:order-first lg:w-1/2 lg:pr-16 lg:pt-28">
                             {{ item.content }}
                         </div>
                     </div>

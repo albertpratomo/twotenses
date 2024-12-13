@@ -18,9 +18,9 @@ const {blok, texts} = Astro.props;
         <div class="mt-auto flex flex-col justify-between gap-16 sm:flex-row sm:items-end">
             <Socials class="hidden sm:flex" />
 
-            <div class="flex gap-2 sm:gap-4">
+            <div class="flex gap-2 sm:gap-4 lg:gap-8">
                 {texts.map(text => (
-                    <h1 class="flex-1 md:max-w-xs lg:text-2xl">
+                    <h1 class="flex-1 md:max-w-sm lg:text-xl">
                         {text.text}
                     </h1>
                 ))}
