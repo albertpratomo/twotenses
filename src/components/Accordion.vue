@@ -23,7 +23,7 @@ const isOpen = ref(props.items.map(_ => false));
         <div class="container-fluid px-container">
             <div class="relative border-l border-white">
                 <button
-                    class="flex w-full items-center justify-between py-4 text-2xl md:text-4xl lg:pr-3"
+                    class="flex w-full items-center justify-between py-4 text-2xl md:text-3xl lg:pr-3"
                     @click="isOpen[i] = !isOpen[i]"
                 >
                     {{ item.title }}
