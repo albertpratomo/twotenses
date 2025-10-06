@@ -2,7 +2,7 @@
 import {storyblokEditable} from '@storyblok/astro';
 import {getSrcset} from '@/utils';
 
-const {blok, image1, image2} = Astro.props;
+const {blok, image1, image2, projectName} = Astro.props;
 ---
 
 <section
@@ -25,11 +25,11 @@ const {blok, image1, image2} = Astro.props;
                 />
 
                 <img
-                    alt={image1.alt}
+                    alt={image1.alt || projectName}
                     loading="lazy"
                     class="skeleton"
                     srcset={getSrcset(image1, 700)}
-                    title={image1.title}
+                    title={image1.title || projectName}
                     width="700"
                 />
             </picture>
@@ -50,11 +50,11 @@ const {blok, image1, image2} = Astro.props;
                 />
 
                 <img
-                    alt={image2.alt}
+                    alt={image2.alt || projectName}
                     loading="lazy"
                     class="skeleton"
                     srcset={getSrcset(image2, 700)}
-                    title={image2.title}
+                    title={image2.title || projectName}
                     width="700"
                 />
             </picture>

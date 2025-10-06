@@ -11,6 +11,7 @@ const {
     logo = false,
     paragraph,
     clock = false,
+    projectName,
 } = Astro.props;
 
 const isVideo = image.filename && image.filename.endsWith('.mp4');
@@ -59,11 +60,11 @@ const isVideo = image.filename && image.filename.endsWith('.mp4');
                     />
 
                     <img
-                        alt={image.alt}
+                        alt={image.alt || projectName}
                         loading="lazy"
                         class="skeleton"
                         srcset={getSrcset(image, 960 )}
-                        title={image.title}
+                        title={image.title || projectName   }
                         width="960"
                         height="1280"
                     />

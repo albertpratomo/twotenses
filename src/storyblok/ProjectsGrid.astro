@@ -31,7 +31,11 @@ async function getProjects() {
         href: `/${s.full_slug}`,
         industries: s.content.industries,
         name: s.name,
-        thumbnail: s.content.thumbnail,
+        thumbnail: {
+            ...s.content.thumbnail,
+            alt: s.content.thumbnail?.alt || s.name,
+            title: s.content.thumbnail?.title || s.name,
+        },
     }));
 }
 
