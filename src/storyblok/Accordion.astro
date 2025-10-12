@@ -2,6 +2,12 @@
 import {storyblokEditable} from '@storyblok/astro';
 import Accordion from '@/components/Accordion.vue';
 
+interface Props {
+    blok: any
+    items: any[]
+    title: string
+}
+
 const {blok, items, title} = Astro.props;
 ---
 

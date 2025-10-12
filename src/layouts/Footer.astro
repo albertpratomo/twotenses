@@ -2,6 +2,10 @@
 import settings from '@/store/settings';
 import Logo from '@/components/Logo.astro';
 
+interface Props {
+    parallax?: boolean
+}
+
 const {parallax = true} = Astro.props;
 
 const {contact_email, contact_instagram, contact_whatsapp} = settings;

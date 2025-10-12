@@ -46,6 +46,10 @@ async function getStory(slug: string) {
     return response.data.story;
 }
 
+interface Props {
+    story?: any
+}
+
 const {slug} = Astro.params;
 let {story} = Astro.props;
 
@@ -64,7 +68,7 @@ const footerParallax = !story.content.sections.at(-1).parallax;
     <StoryblokComponent
         blok={story.content}
         name={story.name}
-        class={{'relative z-[5]': footerParallax}}
+        class:list={{'relative z-[5]': footerParallax}}
     />
 
     <Footer parallax={footerParallax}/>

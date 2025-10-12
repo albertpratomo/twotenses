@@ -3,6 +3,11 @@ import {storyblokEditable} from '@storyblok/astro';
 import Twotenses from '@/components/Twotenses.astro';
 import Socials from '@/components/Socials.astro';
 
+interface Props {
+    blok: any
+    texts: any[]
+}
+
 const {blok, texts} = Astro.props;
 ---
 

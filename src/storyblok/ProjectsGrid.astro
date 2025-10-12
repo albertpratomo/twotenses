@@ -2,6 +2,10 @@
 import {storyblokEditable, useStoryblokApi} from '@storyblok/astro';
 import ProjectsGrid from '@/components/projects/ProjectsGrid.vue';
 
+interface Props {
+    blok: any
+}
+
 const {blok} = Astro.props;
 
 const api = useStoryblokApi();
