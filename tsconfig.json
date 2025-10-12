@@ -8,5 +8,7 @@
       ]
     },
     "jsx": "preserve"
-  }
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }

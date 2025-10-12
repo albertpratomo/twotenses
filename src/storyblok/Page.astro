@@ -2,6 +2,11 @@
 import {storyblokEditable} from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 
+interface Props {
+    blok: any
+    class?: string
+}
+
 const {blok, class: classes} = Astro.props;
 ---
 

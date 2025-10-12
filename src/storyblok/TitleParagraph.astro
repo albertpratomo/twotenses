@@ -1,6 +1,14 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
 
+interface Props {
+    background?: string
+    blok: any
+    title: string
+    paragraph: string
+    parallax?: boolean
+}
+
 let {background = 'black', blok, title, paragraph, parallax = false} = Astro.props;
 
 const tt = `<svg class="inline relative top-[-.09em]" fill="currentColor" height=".67em" viewBox="0 0 398 128">

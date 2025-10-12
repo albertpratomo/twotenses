@@ -3,6 +3,11 @@ import IInstagram from '@/components/icons/IInstagram.astro';
 import IWhatsapp from '@/components/icons/IWhatsapp.astro';
 import settings from '@/store/settings';
 
+interface Props {
+    class?: string;
+    size?: string;
+}
+
 const {class: classes, size = 'w-7'} = Astro.props;
 
 const {contact_instagram, contact_whatsapp} = settings;
