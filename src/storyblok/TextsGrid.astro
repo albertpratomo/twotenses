@@ -36,24 +36,6 @@ const width = 'sm:w-10/12 lg:w-full xl:w-10/12';
     </div>
 </section>
 
-<style is:global>
-    #texts-grid.bg-red {
-        @apply text-white;
-    }
-
-    #texts-grid * {
-        @apply transition;
-    }
-
-    #texts-grid.bg-red .text-red{
-        @apply text-black;
-    }
-
-    #texts-grid.bg-red .border-white{
-        @apply border-black;
-    }
-</style>
-
 <script>
 const section = document.querySelector("#texts-grid");
 
