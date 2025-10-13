@@ -1,7 +1,83 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import 'transition';
+@import 'tailwindcss';
+@import './transition.css' layer(utilities);
+
+@config '../../tailwind.config.cjs';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility container-fluid {
+  @apply 3xl:max-w-(--breakpoint-3xl) mx-auto;
+}
+
+@utility flex-col {
+  @apply flex;
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility inset-center {
+  @apply absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2;
+}
+
+@utility inset-x-center {
+  @apply absolute transform -translate-x-1/2 left-1/2;
+}
+
+@utility inset-y-center {
+  @apply absolute transform -translate-y-1/2 top-1/2;
+}
+
+@utility h-screen {
+  height: 100svh;
+}
+
+@utility px-container {
+  @apply px-4 md:px-8 xl:px-14;
+}
+
+@utility skeleton {
+  @apply animate-pulse bg-[#ababab];
+}
+
+@layer components {
+    #model-paragraph .cursor-grab > div:first-child > div:first-child {
+        @apply bg-red!;
+    }
+
+    #texts-grid.bg-red {
+        @apply text-white;
+    }
+
+    #texts-grid * {
+        @apply transition;
+    }
+
+    #texts-grid.bg-red .text-red {
+        @apply text-black!;
+    }
+
+    #texts-grid.bg-red .border-white {
+        @apply border-black;
+    }
+}
 
 @layer base {
     html {
@@ -9,7 +85,7 @@
         overflow-y: overlay;
     }
 
-    @media screen(3xl) {
+    @media (width >= theme(--breakpoint-3xl)) {
         html {
             font-size: 21px;
         }
@@ -30,43 +106,5 @@
         border: 4px solid transparent;
         background-clip: content-box;
         border-radius: 10px;
-    }
-}
-
-@layer utilities {
-    .container-fluid {
-        @apply 3xl:max-w-screen-3xl mx-auto;
-    }
-    
-    .flex-col {
-        @apply flex;
-    }
-
-    .flex-center {
-        @apply flex items-center justify-center;
-    }
-
-    .inset-center {
-        @apply absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2;
-    }
-
-    .inset-x-center {
-        @apply absolute transform -translate-x-1/2 left-1/2;
-    }
-
-    .inset-y-center {
-        @apply absolute transform -translate-y-1/2 top-1/2;
-    }
-
-    .h-screen {
-        height: 100svh;
-    }
-
-    .px-container {
-        @apply px-4 md:px-8 xl:px-14;
-    }
-
-    .skeleton {
-        @apply animate-pulse bg-[#ababab];
     }
 }

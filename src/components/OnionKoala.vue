@@ -171,7 +171,7 @@ function submit() {
 
         <img
             v-if="state.image"
-            class="skeleton mb-8 rounded"
+            class="skeleton mb-8 rounded-sm"
             :src="`/images/onion-koala/${state.image}`"
             width="420"
             @load="e => e.target.classList.remove('skeleton')"
@@ -190,7 +190,7 @@ function submit() {
         <textarea
             v-if="state.question"
             v-model="answer"
-            class="mt-8 w-80 rounded border bg-transparent p-3 focus:outline-none"
+            class="mt-8 w-80 rounded-sm border bg-transparent p-3 focus:outline-hidden"
             rows="3"
         />
 
@@ -204,7 +204,7 @@ function submit() {
             <button
                 v-for="(button, i) in state.buttons"
                 :key="i"
-                class="mt-8 rounded border px-4 py-2 hover:bg-gray hover:text-black"
+                class="mt-8 rounded-sm border px-4 py-2 hover:bg-gray hover:text-black"
                 @click="submit()"
             >
                 {{ button }}

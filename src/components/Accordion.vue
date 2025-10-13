@@ -46,7 +46,7 @@ const isOpen = ref(props.items.map(_ => false));
                 <Transition name="fade">
                     <div
                         v-if="isOpen[i] && item.image.title !== null"
-                        class="pointer-events-none flex flex-col justify-between lg:mt-[-5.5rem] lg:flex-row"
+                        class="pointer-events-none flex flex-col justify-between lg:-mt-22 lg:flex-row"
                     >
                         <picture class="sm:w-1/2">
                             <source
