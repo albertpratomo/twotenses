@@ -18,8 +18,8 @@ importers:
         specifier: ^5.1.1
         version: 5.1.1(astro@5.14.4(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.52.4)(typescript@5.9.3)(yaml@2.8.1))(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.52.4)(vue@3.5.22(typescript@5.9.3))(yaml@2.8.1)
       '@formkit/auto-animate':
-        specifier: 1.0.0-beta.6
-        version: 1.0.0-beta.6
+        specifier: ^0.9.0
+        version: 0.9.0
       '@headlessui/vue':
         specifier: ^1.7.23
         version: 1.7.23(vue@3.5.22(typescript@5.9.3))
@@ -513,8 +513,8 @@ packages:
     resolution: {integrity: sha512-kf9RB0Fg7NZfap83B3QOqOGg9QmD9yBudqQXzzOtn3i4y7ZUXe5ONeW34Gwi+TxhH4mvj72R1Zc300KUMa9Bng==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@formkit/auto-animate@1.0.0-beta.6':
-    resolution: {integrity: sha512-PVDhLAlr+B4Xb7e+1wozBUWmXa6BFU8xUPR/W/E+TsQhPS1qkAdAsJ25keEnFrcePSnXHrOsh3tiFbEToOzV9w==}
+  '@formkit/auto-animate@0.9.0':
+    resolution: {integrity: sha512-VhP4zEAacXS3dfTpJpJ88QdLqMTcabMg0jwpOSxZ/VzfQVfl3GkZSCZThhGC5uhq/TxPHPzW0dzr4H9Bb1OgKA==}
 
   '@headlessui/vue@1.7.23':
     resolution: {integrity: sha512-JzdCNqurrtuu0YW6QaDtR2PIYCKPUWq28csDyMvN4zmGccmE7lz40Is6hc3LA4HFeCI7sekZ/PQMTNmn9I/4Wg==}
@@ -4612,7 +4612,7 @@ snapshots:
 
   '@eslint/js@8.39.0': {}
 
-  '@formkit/auto-animate@1.0.0-beta.6': {}
+  '@formkit/auto-animate@0.9.0': {}
 
   '@headlessui/vue@1.7.23(vue@3.5.22(typescript@5.9.3))':
     dependencies:
