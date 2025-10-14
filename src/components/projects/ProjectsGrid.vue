@@ -54,8 +54,8 @@ const [grid] = useAutoAnimate();
         class="mt-8 grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-4 md:gap-y-12 lg:grid-cols-3"
     >
         <ProjectCard
-            v-for="(project, i) in _projects"
-            :key="`${project.name}-${i}`"
+            v-for="project in _projects"
+            :key="project.name"
             :project="project"
         />
     </div>
