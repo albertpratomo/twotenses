@@ -33,7 +33,7 @@ module.exports = {
             },
         },
         fontFamily: {
-            sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+            sans: ['Work Sans', 'ui-sans-serif', 'system-ui'],
         },
     },
 };

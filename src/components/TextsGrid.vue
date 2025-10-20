@@ -32,7 +32,7 @@ setInterval(next, 4000);
             />
         </div>
 
-        <div class="border-y border-white text-3xl leading-[.67]! sm:text-5xl md:text-6xl lg:text-[5rem]">
+        <div class="border-y border-white text-3xl leading-[.69]! sm:text-5xl md:text-6xl lg:text-[5rem]">
             <div class="container-fluid px-container">
                 <div
                     class="border-x border-white "

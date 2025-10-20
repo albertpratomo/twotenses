@@ -81,13 +81,12 @@
 
 @layer base {
     html {
-        font-size: 14px;
         overflow-y: overlay;
     }
 
     @media (width >= theme(--breakpoint-3xl)) {
         html {
-            font-size: 21px;
+            font-size: 18px;
         }
     }
 
