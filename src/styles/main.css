@@ -2,11 +2,9 @@
 @import './transition.css' layer(utilities);
 
 @theme {
-  --color-black: #1D1D1B;
+  --color-black: #1D1D16;
   --color-gray: #CBCBCB;
-  --color-orange: #f7a100;
   --color-red: #9B3629;
-  --color-transparent: transparent;
   --color-white: #F4F4F4;
 
   --font-sans: 'Work Sans', ui-sans-serif, system-ui;
