@@ -1,7 +1,27 @@
 @import 'tailwindcss';
 @import './transition.css' layer(utilities);
 
-@config '../../tailwind.config.cjs';
+@theme {
+  --color-black: #1D1D1B;
+  --color-gray: #CBCBCB;
+  --color-orange: #f7a100;
+  --color-red: #9B3629;
+  --color-transparent: transparent;
+  --color-white: #F4F4F4;
+
+  --font-sans: 'Work Sans', ui-sans-serif, system-ui;
+
+  --breakpoint-3xl: 1920px;
+
+  --cursor-arrow-left: url(/images/arrow-left.svg) 46 46, w-resize;
+  --cursor-arrow-right: url(/images/arrow-right.svg) 46 46, e-resize;
+}
+
+/* Safelist classes that might be added via Storyblok */
+@source inline("font-bold italic");
+@source inline("bg-{black,gray,red,white}");
+@source inline("text-{black,gray,red,white,left,right,center,justify}");
+@source inline("{lg:,}w-{1..12}/12");
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
