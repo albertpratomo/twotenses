@@ -31,8 +31,8 @@ const model = computed(() => props.options.find(o => o.value === modelValue.valu
         as="div"
         class="relative -ml-2 whitespace-nowrap"
     >
-        <ListboxButton class="w-full px-2 py-1 text-left text-white">
-            <div class="flex items-center gap-3 text-red">
+        <ListboxButton class="w-full px-2 py-1 text-left">
+            <div class="flex items-center gap-3">
                 {{ label }}
 
                 <IPlus
@@ -46,7 +46,7 @@ const model = computed(() => props.options.find(o => o.value === modelValue.valu
         </ListboxButton>
 
         <Transition name="fade">
-            <ListboxOptions class="absolute top-6 z-10 bg-black">
+            <ListboxOptions class="absolute top-6 z-10 bg-gray-light">
                 <ListboxOption
                     v-for="o in options"
                     :key="o.value"
@@ -55,8 +55,8 @@ const model = computed(() => props.options.find(o => o.value === modelValue.valu
                     :value="o.value"
                 >
                     <div
-                        class="hover:text-white"
-                        :class="selected ? 'text-white' : 'text-gray/50' "
+                        class="hover:text-black"
+                        :class="selected ? 'text-red' : 'text-black' "
                     >
                         {{ o.name }}
                     </div>
