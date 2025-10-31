@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {getSrcset} from '@/utils';
+import IArrowBox from '@/components/icons/IArrowBox.vue';
 
 defineProps({
     project: {
@@ -10,9 +11,9 @@ defineProps({
 </script>
 
 <template>
-    <a
-        class="uppercase text-gray"
+    <a 
         :href="project.href"
+        :aria-label="`View ${project.name} project details`"
     >
         <picture>
             <source
@@ -21,7 +22,7 @@ defineProps({
             >
 
             <img
-                :alt="project.thumbnail.alt"
+                :alt="project.thumbnail.alt || `${project.name} project thumbnail`"
                 class="skeleton"
                 height="380"
                 loading="lazy"
@@ -32,8 +33,10 @@ defineProps({
             >
         </picture>
 
-        <div class="mt-2">
+        <h2 class="mt-4 uppercase-wide flex gap-3 items-center">
             {{ project.name }}
-        </div>
+
+            <IArrowBox />
+        </h2>
     </a>
 </template>
