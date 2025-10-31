@@ -163,7 +163,7 @@ function submit() {
 </script>
 
 <template>
-    <section class="flex-center container-fluid px-container relative h-screen flex-col text-center text-gray">
+    <section class="flex-center container-fluid px-container relative h-screen flex-col text-center text-gray bg-black">
         <div
             class="absolute right-0 top-0 h-4 w-4"
             @click="next()"

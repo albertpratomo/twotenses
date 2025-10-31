@@ -2,7 +2,7 @@
 import settings from '@/store/settings';
 import HamburgerMenu from '@/components/HamburgerMenu.vue';
 import Link from '@/components/Link.astro';
-import Logo from '@/components/Logo.astro';
+import Twotenses from '@/components/Twotenses.astro';
 import Socials from '@/components/Socials.astro';
 
 const {header_center_links, header_right_links} = settings;
@@ -10,14 +10,14 @@ const {header_center_links, header_right_links} = settings;
 const links = header_center_links.concat(header_right_links);
 ---
 
-<header class="fixed inset-x-0 z-10 transition">
-    <nav class="container-fluid px-container flex items-center text-gray">
+<header class="fixed inset-x-0 z-10 transition border-b-2 border-white">
+    <nav class="container-fluid px-container flex items-center">
         <a
             href="/"
             class="py-8"
             aria-label="Twotenses Logo"
         >
-            <Logo />
+            <Twotenses class="w-32 fill-red"/>
         </a>
 
         <HamburgerMenu
@@ -39,7 +39,7 @@ const links = header_center_links.concat(header_right_links);
             </nav>
         </HamburgerMenu>
 
-        <div class="ml-auto hidden sm:flex sm:gap-4 md:gap-12">
+        <div class="ml-auto hidden sm:flex sm:gap-4 md:gap-12 uppercase-wide text-sm">
             {header_center_links.map(link => (
                 <Link
                     {...link}
@@ -47,7 +47,7 @@ const links = header_center_links.concat(header_right_links);
             ))}
         </div>
 
-        <div class="hidden sm:ml-4 sm:flex sm:gap-4 md:ml-8 md:gap-12 lg:ml-52">
+        <div class="hidden uppercase-wide text-sm sm:ml-4 sm:flex sm:gap-4 md:ml-8 md:gap-12 lg:ml-52">
             {header_right_links.map(link => (
                 <Link
                     {...link}
@@ -72,6 +72,6 @@ document.addEventListener('scroll', () => {
     scrollY = window.scrollY;
 
     const toggleBg = scrollY <= 0 ? 'remove' : 'add';
-    header?.classList[toggleBg]('bg-black');
+    header?.classList[toggleBg]('bg-gray-light');
 });
 </script>

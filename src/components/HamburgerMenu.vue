@@ -10,7 +10,7 @@ const isOpen = ref(false);
         <Transition name="slide-left">
             <div
                 v-if="isOpen"
-                class="fixed inset-0 bg-black/75"
+                class="fixed inset-0"
                 @click="isOpen = false"
             />
         </Transition>
@@ -24,7 +24,7 @@ const isOpen = ref(false);
         <Transition name="slide-left">
             <div
                 v-if="isOpen"
-                class="fixed inset-y-0 right-0 min-w-[50vw] bg-black p-4 pt-28"
+                class="fixed inset-y-0 right-0 min-w-[50vw] bg-gray-light p-4 pt-28"
             >
                 <slot />
             </div>
