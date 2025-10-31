@@ -1,64 +1,75 @@
 ---
 import settings from '@/store/settings';
-import Logo from '@/components/Logo.astro';
-
+import Link from '@/components/Link.astro';
+import Twotenses from '@/components/Twotenses.astro';
 interface Props {
     parallax?: boolean
 }
 
 const {parallax = true} = Astro.props;
 
-const {contact_email, contact_instagram, contact_whatsapp} = settings;
+const {contact_email, contact_instagram, contact_whatsapp, header_center_links, header_right_links} = settings;
 
-const labelClass = 'text-red';
-const linkClass = 'text-lg md:text-2xl text-gray';
+const labelClass = 'uppercase-wide text-[10px] 2xl:text-base';
+const linkClass = '2xl:text-xl';
 ---
 
 <footer
-    class="border-t border-red bg-black py-12 md:py-20 text-gray"
+    class="border-t border-white bg-gray-light"
     class:list={{'sticky inset-x-0 bottom-0': parallax}}
 >
-    <div class="container-fluid px-container flex flex-col sm:flex-row">
-        <a 
-            href="/" 
-            aria-label="Twotenses Logo"
-        >
-            <Logo size="w-14 sm:w-24 md:w-28 text-red"/>
-        </a>
-    
-        <div class="sm:ml-auto flex-col text-right sm:text-left">
-            <label class={labelClass}>EMAIL</label>
-            <a
-                href={`mailto:${contact_email}`}
-                class={linkClass}
-            >
-                {contact_email}
-            </a>
-    
-            <label 
-                class="mt-4" 
-                class:list={labelClass}
-            >
-                WHATSAPP
-            </label>
-            <a
-                href={contact_whatsapp.cached_url}
-                target="_blank"
-                class={linkClass}
-            >
-                {contact_whatsapp.title}
-            </a>
+    <div class="container-fluid px-container grid grid-cols-3">
+        <div class="col-span-1 border-r border-white pt-8 flex-col gap-1">
+            {header_center_links.map(link => (
+                <Link
+                    {...link}
+                    class={linkClass}
+                />
+            ))}
+
+            {header_right_links.map(link => (
+                <Link
+                    {...link}
+                    class={linkClass}
+                />
+            ))}
         </div>
-    
-        <div class="sm:ml-16 md:ml-24 flex-col text-right sm:text-left mt-4 sm:mt-0">
-            <label class={labelClass}>FOLLOW US</label>
-            <a
-                href={contact_instagram.cached_url}
-                target="_blank"
-                class={linkClass}
-            >
-                Instagram
-            </a>
+
+        <div class="col-span-2 pl-12 pt-8 pb-40 sm:pb-16 md:pb-40 md:flex md:justify-end md:gap-20">
+            <div class="flex-col gap-1">
+                <label class={labelClass}>CONTACT</label>
+
+                <a
+                    href={`mailto:${contact_email}`}
+                    class={linkClass}
+                >
+                    {contact_email}
+                </a>
+        
+                <a
+                    href={contact_whatsapp.cached_url}
+                    target="_blank"
+                    class={linkClass}
+                >
+                    {contact_whatsapp.title}
+                </a>
+            </div>
+        
+            <div class="flex-col mt-6 md:mt-0 gap-1">
+                <label class={labelClass}>FOLLOW US</label>
+
+                <a
+                    href={contact_instagram.cached_url}
+                    target="_blank"
+                    class={linkClass}
+                >
+                    Instagram
+                </a>
+            </div>
+        </div>
+
+        <div class="col-span-full py-4 md:py-6 lg:pt-10">
+            <Twotenses/>
         </div>
     </div>
 </footer>

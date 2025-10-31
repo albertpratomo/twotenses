@@ -3,13 +3,15 @@
 
 @theme {
   --color-black: #1D1D16;
+  --color-gray-light: #E3E3E3;
   --color-gray: #CBCBCB;
+  --color-gray-dark: #B1B1B1;
   --color-red: #9B3629;
   --color-white: #F4F4F4;
 
   --font-sans: 'Work Sans', ui-sans-serif, system-ui;
 
-  --breakpoint-3xl: 1920px;
+  --breakpoint-3xl: 120rem; /* 1920px */
 
   --cursor-arrow-left: url(/images/arrow-left.svg) 46 46, w-resize;
   --cursor-arrow-right: url(/images/arrow-right.svg) 46 46, e-resize;
@@ -73,6 +75,10 @@
 
 @utility skeleton {
   @apply animate-pulse bg-[#ababab];
+}
+
+@utility uppercase-wide {
+  @apply uppercase tracking-wider
 }
 
 @layer components {
