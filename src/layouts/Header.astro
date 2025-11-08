@@ -24,19 +24,31 @@ const links = header_center_links.concat(header_right_links);
             client:visible
             class="ml-auto sm:hidden"
         >
-            <nav class="flex flex-col gap-6 text-right">
-                {links.map(link => (
-                    <Link
-                        class="text-3xl"
-                        {...link}
-                    />
-                ))}
+            <div class="bg-red h-full flex-col">
+                <div class="px-4 py-8">
+                    <Twotenses class="w-32 fill-gray-light"/>
+                </div>
 
-                <Socials
-                    class="mt-12 justify-end"
-                    size="w-9"
-                />
-            </nav>
+                <div class="grow flex border-t border-black">
+                    <div class="w-25 border-r border-black"></div>
+
+                    <div class="grow flex justify-end px-16 py-12">
+                        <nav class="flex flex-col gap-6 text-gray-light">
+                            {links.map(link => (
+                                <Link
+                                    class="text-3xl"
+                                    {...link}
+                                />
+                            ))}
+        
+                            <Socials
+                                class="mt-12"
+                                size="w-9"
+                            />
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </HamburgerMenu>
 
         <div class="ml-auto hidden sm:flex sm:gap-4 md:gap-12 uppercase-wide text-sm">

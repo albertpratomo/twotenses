@@ -7,14 +7,6 @@ const isOpen = ref(false);
 
 <template>
     <div>
-        <Transition name="slide-left">
-            <div
-                v-if="isOpen"
-                class="fixed inset-0"
-                @click="isOpen = false"
-            />
-        </Transition>
-
         <IHamburger
             class="relative z-10"
             :is-open="isOpen"
@@ -24,7 +16,7 @@ const isOpen = ref(false);
         <Transition name="slide-left">
             <div
                 v-if="isOpen"
-                class="fixed inset-y-0 right-0 min-w-[50vw] bg-gray-light p-4 pt-28"
+                class="fixed inset-0"
             >
                 <slot />
             </div>
