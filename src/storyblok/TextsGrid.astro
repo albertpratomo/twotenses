@@ -7,6 +7,7 @@ let {blok, items, parallax = false} = Astro.props;
 items = items.map(item => item.text.split('\n'));
 
 const width = 'sm:w-10/12 lg:w-full xl:w-10/12';
+const containerClass = 'container-fluid px-container w-full flex justify-center';
 ---
 
 <section
@@ -15,7 +16,10 @@ const width = 'sm:w-10/12 lg:w-full xl:w-10/12';
     class="flex-col bg-gray sm:h-screen transition-colors duration-300"
     class:list={{'sticky inset-x-0 bottom-0 -z-10': parallax}}
 >
-    <div class="container-fluid px-container w-full grow">
+    <div
+        class="grow"
+        class:list={containerClass}
+    >
         <div 
             class="h-48 border-x border-white sm:h-full"
             class:list={width}
@@ -26,9 +30,13 @@ const width = 'sm:w-10/12 lg:w-full xl:w-10/12';
         client:visible
         items={items}
         width={width}
+        container-class={containerClass}
     />
 
-    <div class="container-fluid px-container w-full grow">
+    <div 
+        class="grow"
+        class:list={containerClass}
+    >
         <div 
             class="h-48 border-x border-white sm:h-full"
             class:list={width}

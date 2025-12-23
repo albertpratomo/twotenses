@@ -6,12 +6,12 @@ const {blok} = Astro.props;
 const {contact_email, contact_instagram, contact_whatsapp} = settings;
 
 const labelClass = 'text-red';
-const linkClass = 'text-lg md:text-4xl text-gray';
+const linkClass = 'text-lg md:text-4xl';
 ---
 
 <section
     {...storyblokEditable(blok)}
-    class="container-fluid px-container grid bg-black pb-12 md:grid-cols-12"
+    class="container-fluid px-container grid pb-12 md:grid-cols-12"
 >
     <div class="flex-col md:col-span-5 md:col-start-7">
         <label class={labelClass}>REACH US</label>

@@ -2,6 +2,10 @@
 import {useCycleList} from '@vueuse/core';
 
 const props = defineProps({
+    containerClass: {
+        required: true,
+        type: String,
+    },
     items: {
         required: true,
         type: Array,
@@ -24,7 +28,7 @@ setInterval(next, 4000);
     >
         <div
             v-if="i > 0"
-            class="container-fluid px-container w-full"
+            :class="containerClass"
         >
             <div
                 class="h-3 border-x border-white sm:h-4 md:h-7 lg:h-9"
@@ -32,17 +36,18 @@ setInterval(next, 4000);
             />
         </div>
 
-        <div class="border-y border-white text-3xl leading-[.69]! sm:text-5xl md:text-6xl lg:text-[5rem]">
-            <div class="container-fluid px-container">
+        <div class="border-b border-white text-3xl leading-[.69]! sm:text-4xl xl:text-5xl">
+            <div :class="containerClass">
                 <div
-                    class="border-x border-white "
+                    class="border-x border-white flex justify-center"
                     :class="width"
                 >
                     <Transition
                         mode="out-in"
                         name="fade-up"
                     >
-                        <div
+                        <p
+                            class="w-[70%]"
                             :key="text"
                             :style="{ transitionDelay: `calc(${i} * 120ms)` }"
                             v-html="text"
