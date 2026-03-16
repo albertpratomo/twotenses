@@ -11,7 +11,7 @@ const props = defineProps({
 defineEmits(['toggle']);
 
 const color = computed(() => {
-    return props.isOpen ? 'bg-gray-light' : 'bg-red'
+    return props.isOpen ? 'bg-gray-light' : 'bg-gray group-[.bg-gray-light]:bg-red'
 })
 </script>
 
