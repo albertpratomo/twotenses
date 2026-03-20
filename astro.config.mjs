@@ -26,6 +26,7 @@ export default defineConfig({
               FullImage: 'storyblok/FullImage',
               Header: 'storyblok/Header',
               Hero: 'storyblok/Hero',
+              HeroCarousel: 'storyblok/HeroCarousel',
               ImageParagraph: 'storyblok/ImageParagraph',
               Index: 'storyblok/Index',
               LogosGrid: 'storyblok/LogosGrid',

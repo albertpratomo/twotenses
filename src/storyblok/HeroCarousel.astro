@@ -1,0 +1,41 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import HeroCarouselSlider from '@/components/HeroCarouselSlider.vue';
+import IArrow from '@/components/icons/IArrow.vue';
+import {formatLink} from '@/utils';
+
+let {blok, items} = Astro.props;
+
+items = items.map((item) => {
+    return {
+        ...item,
+        link: formatLink(item.link),
+    };
+});
+---
+
+<section
+    {...storyblokEditable(blok)}
+    class="bg-red text-gray"
+>
+    <div class="h-[82.16px]" />
+
+    <div class="grid grid-cols-4 border-b border-black">
+        <div class="col-span-3 flex flex-col justify-between items-start p-5 pt-12 h-[25vh]">
+            <h1 class="text-xl">
+                {blok.title}
+            </h1>
+
+            <IArrow direction="bottom" size="h-10" />
+        </div>
+
+        <div class="border-l border-black" />
+    </div>
+
+    <div>
+        <HeroCarouselSlider
+            client:visible
+            items={items}
+        />
+    </div>
+</section>

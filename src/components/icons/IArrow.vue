@@ -1,16 +1,34 @@
 <script setup lang="ts">
-defineProps({
+import { computed } from 'vue';
+
+const props = defineProps({
     direction: {
         default: 'right',
         type: String,
     },
+    size: {
+        default: 'h-14',
+        type: String,
+    },
+});
+
+const directionClass = computed(() => {
+    switch (props.direction) {
+        case 'left':
+            return 'rotate-180';
+        case 'bottom':
+            return 'rotate-90';
+        case 'top':
+            return '-rotate-90';
+        default:
+            return '';
+    }
 });
 </script>
 
 <template>
     <svg
-        class="h-14"
-        :class="direction === 'left' ? 'rotate-180' : ''"
+        :class="[directionClass, size]"
         fill="none"
         viewBox="0 0 56 51"
     >
