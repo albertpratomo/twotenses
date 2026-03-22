@@ -11,6 +11,7 @@ const links = header_center_links.concat(header_right_links);
 
 const isHome = Astro.url.pathname === '/';
 const headerColor = isHome ? '' : 'bg-gray-light';
+const linkColor = isHome ? 'text-gray-light' : 'text-black';
 const borderColor = isHome ? 'border-black' : 'border-white';
 ---
 
@@ -55,7 +56,7 @@ const borderColor = isHome ? 'border-black' : 'border-white';
             </div>
         </HamburgerMenu>
 
-        <div class="ml-auto hidden sm:flex sm:gap-4 md:gap-12 uppercase-wide text-sm">
+        <div class={`ml-auto hidden sm:flex sm:gap-4 md:gap-12 uppercase-wide text-sm ${linkColor}`}>
             {header_center_links.map(link => (
                 <Link
                     {...link}
@@ -63,7 +64,7 @@ const borderColor = isHome ? 'border-black' : 'border-white';
             ))}
         </div>
 
-        <div class="hidden uppercase-wide text-sm sm:ml-4 sm:flex sm:gap-4 md:ml-8 md:gap-12 lg:ml-52">
+        <div class={`hidden uppercase-wide text-sm sm:ml-4 sm:flex sm:gap-4 md:ml-8 md:gap-12 lg:ml-52 ${linkColor}`}>
             {header_right_links.map(link => (
                 <Link
                     {...link}
