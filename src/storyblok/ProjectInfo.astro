@@ -8,8 +8,10 @@ let {blok, items, projectName} = Astro.props;
     {...storyblokEditable(blok)}
     class="border-b border-white bg-gray"
 >
+    <div class="h-(--header-height)"></div>
+
     <div class="container-fluid px-container grid grid-cols-1 lg:grid-cols-[40%_60%] lg:divide-white lg:divide-x">
-        <div class="pt-36 pb-12">
+        <div class="pt-24 pb-12">
             <h1 class="text-3xl lg:text-4xl">
                 {projectName}
             </h1>

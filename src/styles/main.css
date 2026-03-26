@@ -104,11 +104,19 @@
 }
 
 @layer base {
+    :root {
+        --header-height: 82.16px;
+    }
+
     html {
         overflow-y: overlay;
     }
 
     @media (width >= theme(--breakpoint-3xl)) {
+        :root {
+            --header-height: 92.44px;
+        }
+
         html {
             font-size: 18px;
         }
