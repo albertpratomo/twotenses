@@ -1,46 +1,34 @@
 ---
 import {storyblokEditable} from '@storyblok/astro';
 
-let {blok, items, projectName, projectDate} = Astro.props;
-
-projectDate = new Date(projectDate);
-
-const colClass = 'flex-col md:w-1/2 md:pt-20 lg:pt-32 md:pb-12';
+let {blok, items, projectName} = Astro.props;
 ---
 
 <section
     {...storyblokEditable(blok)}
-    class="border-b border-red bg-gray"
+    class="border-b border-white bg-gray"
 >
-    <div class="container-fluid px-container flex-col md:flex-row md:divide-x divide-red">
-        <div 
-            class="pt-12"
-            class:list={colClass}
-        >
-            <h1 class="text-5xl lg:text-7xl">
+    <div class="container-fluid px-container grid grid-cols-1 lg:grid-cols-[40%_60%] lg:divide-white lg:divide-x">
+        <div class="pt-36 pb-12">
+            <h1 class="text-3xl lg:text-4xl">
                 {projectName}
             </h1>
 
-            <div class="text-red mt-auto">
-                {projectDate.getFullYear()}
-            </div>
-        </div>
-
-        <div 
-            class="gap-4 md:gap-6 md:pl-12 pt-8 pb-12"
-            class:list={colClass}
-        >
-            {items.map(item => (
-                <div>
-                    <label class="text-red">
+            <div
+                class="grid grid-cols-[5rem_1fr] gap-8 whitespace-pre-line text-sm mt-16"
+            >
+                {items.map(item => (
+                    <label class="uppercase-wide">
                         {item.label}
                     </label>
 
-                    <div class="text-lg lg:text-2xl">
+                    <div>
                         {item.text}
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
+
+        <div class="hidden lg:block"></div>
     </div>
 </section>
