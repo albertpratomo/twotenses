@@ -1,29 +1,29 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
-import HeroCarouselSlider from '@/components/HeroCarouselSlider.vue';
-import IArrow from '@/components/icons/IArrow.vue';
-import {formatLink} from '@/utils';
+import {storyblokEditable} from '@storyblok/astro'
+import HeroCarouselSlider from '@/components/HeroCarouselSlider.vue'
+import IArrow from '@/components/icons/IArrow.vue'
+import {formatLink} from '@/utils'
 
-let {blok, items} = Astro.props;
+let {blok, items} = Astro.props
 
 items = items.map((item) => {
     return {
         ...item,
         link: formatLink(item.link),
-    };
+    }
 });
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="bg-red text-gray"
+  {...storyblokEditable(blok)}
+  class="bg-red text-gray"
 >
     <div class="container-fluid lg:px-container">
         <div class="h-(--header-height)" />
 
         <div class="grid grid-cols-[3fr_1fr] lg:grid-cols-[2fr_3fr]">
-            <div class="flex flex-col justify-between items-start p-4 pt-12 h-60 lg:pl-0 lg:h-auto lg:pb-12 3xl:pt-16">
-                <h1 class="text-xl lg:text-3xl lg:max-w-96">
+            <div class="flex flex-col h-60 items-start justify-between p-4 pt-12 lg:h-auto lg:pb-12 lg:pl-0 3xl:pt-16">
+                <h1 class="text-xl lg:max-w-96 lg:text-3xl">
                     {blok.title}
                 </h1>
 
@@ -32,10 +32,10 @@ items = items.map((item) => {
 
             <div class="border-l border-black lg:hidden" />
 
-            <div class="col-span-2 border-t border-black lg:border-t-0 lg:border-l lg:col-span-1 min-w-0 overflow-hidden lg:p-5 lg:pr-0 lg:pt-30">
+            <div class="col-span-2 min-w-0 overflow-hidden border-t border-black lg:col-span-1 lg:border-t-0 lg:border-l lg:p-5 lg:pt-30 lg:pr-0">
                 <HeroCarouselSlider
-                    client:visible
-                    items={items}
+                  client:visible
+                  items={items}
                 />
             </div>
         </div>

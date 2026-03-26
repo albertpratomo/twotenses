@@ -1,23 +1,23 @@
 ---
-import {storyblokEditable, useStoryblokApi} from '@storyblok/astro';
-import ProjectsGrid from '@/components/projects/ProjectsGrid.vue';
+import {storyblokEditable, useStoryblokApi} from '@storyblok/astro'
+import ProjectsGrid from '@/components/projects/ProjectsGrid.vue'
 
 interface Props {
     blok: any
 }
 
-const {blok} = Astro.props;
+const {blok} = Astro.props
 
-const api = useStoryblokApi();
+const api = useStoryblokApi()
 
 async function getFilter(datasource: string) {
     const {data: {datasource_entries}} = await api.get('cdn/datasource_entries', {
         datasource,
-    });
+    })
 
     return [{name: 'All', value: 'all'}].concat(
         datasource_entries.map(e => ({name: e.name, value: e.value})),
-    );
+    )
 }
 
 async function getProjects() {
@@ -28,7 +28,7 @@ async function getProjects() {
         },
         per_page: 100,
         version: import.meta.env.DEV ? 'draft' : 'published',
-    });
+    })
 
     return stories.map(s => ({
         categories: s.content.categories,
@@ -40,24 +40,24 @@ async function getProjects() {
             alt: s.content.thumbnail?.alt || s.name,
             title: s.content.thumbnail?.title || s.name,
         },
-    }));
+    }))
 }
 
-const categories = await getFilter('categories');
-const industries = await getFilter('industries');
+const categories = await getFilter('categories')
+const industries = await getFilter('industries')
 const projects = await getProjects();
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="bg-gray-light pb-16"
+  {...storyblokEditable(blok)}
+  class="bg-gray-light pb-16"
 >
     <div class="container-fluid px-container">
         <ProjectsGrid
-            client:visible
-            categories={categories}
-            industries={industries}
-            projects={projects}
+          client:visible
+          categories={categories}
+          industries={industries}
+          projects={projects}
         />
     </div>
 </section>

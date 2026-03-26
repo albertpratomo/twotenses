@@ -1,34 +1,34 @@
 <script setup lang="ts">
-import FilterListbox from '@/components/projects/FilterListbox.vue';
+import FilterListbox from '@/components/projects/FilterListbox.vue'
 
 defineProps({
-    categories: {
-        required: true,
-        type: Array,
-    },
-    industries: {
-        required: true,
-        type: Array,
-    },
-});
+  categories: {
+    required: true,
+    type: Array,
+  },
+  industries: {
+    required: true,
+    type: Array,
+  },
+})
 
-const category = defineModel<String>('category');
-const industry = defineModel<String>('industry');
+const category = defineModel<string>('category')
+const industry = defineModel<string>('industry')
 </script>
 
 <template>
-    <div class="flex">
-        <FilterListbox
-            v-model="category"
-            class="w-48"
-            label="CATEGORY"
-            :options="categories"
-        />
+  <div class="flex">
+    <FilterListbox
+      v-model="category"
+      class="w-48"
+      label="CATEGORY"
+      :options="categories"
+    />
 
-        <FilterListbox
-            v-model="industry"
-            label="CLIENT INDUSTRY"
-            :options="industries"
-        />
-    </div>
+    <FilterListbox
+      v-model="industry"
+      label="CLIENT INDUSTRY"
+      :options="industries"
+    />
+  </div>
 </template>

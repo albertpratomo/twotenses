@@ -1,7 +1,7 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
+import {storyblokEditable} from '@storyblok/astro'
 
-const {blok, title, paragraph, width = 8} = Astro.props;
+const {blok, title, paragraph, width = 8} = Astro.props
 
 const containerClass = width === '12'
     ? 'lg:w-full'
@@ -9,19 +9,19 @@ const containerClass = width === '12'
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="bg-gray py-4 md:py-12 lg:py-20"
+  {...storyblokEditable(blok)}
+  class="bg-gray py-4 md:py-12 lg:py-20"
 >
-    <div class="container-fluid px-container flex-center">
+    <div class="container-fluid flex-center px-container">
         <div class:list={[containerClass, 'space-y-4']}>
             <h2
-                class="text-3xl sm:text-4xl"
-                set:html={title}
+              class="text-3xl sm:text-4xl"
+              set:html={title}
             />
 
             <div
-                class="text-lg xl:text-xl"
-                set:html={paragraph}
+              class="text-lg xl:text-xl"
+              set:html={paragraph}
             />
         </div>
     </div>

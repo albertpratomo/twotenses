@@ -1,68 +1,68 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
-import {getSrcset} from '@/utils';
+import {storyblokEditable} from '@storyblok/astro'
+import {getSrcset} from '@/utils'
 
 const {blok, image, paragraph, subtitle, title, projectName} = Astro.props;
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="flex-col bg-gray lg:h-screen"
+  {...storyblokEditable(blok)}
+  class="flex-col bg-gray lg:h-screen"
 >
-    <div class="container-fluid px-container grid w-full grow lg:grid-cols-3">
-        <div class="col-span-2 flex items-end border-x border-white text-5xl lg:text-7xl text-red pt-12 lg:pb-8">
+    <div class="container-fluid grid w-full grow px-container lg:grid-cols-3">
+        <div class="border-white text-red col-span-2 flex items-end border-x pt-12 text-5xl lg:pb-8 lg:text-7xl">
             {title}
         </div>
 
-        <div class="border-r border-white"></div>
+        <div class="border-white border-r"></div>
     </div>
 
-    <div class="border-y border-white">
-        <div class="container-fluid px-container grid w-full grow lg:grid-cols-3">
-            <div class="py-8 lg:py-0 lg:col-span-2 grid border-x border-white xl:grid-cols-[auto_1fr] content-center">
+    <div class="border-white border-y">
+        <div class="container-fluid grid w-full grow px-container lg:grid-cols-3">
+            <div class="border-white grid content-center border-x py-8 lg:col-span-2 lg:py-0 xl:grid-cols-[auto_1fr]">
                 <div class="text-4xl">
                     {subtitle}
                 </div>
 
                 <p
-                    set:html={paragraph}
-                    class="max-w-lg text-lg whitespace-pre-line xl:mx-auto mt-4 xl:mt-0"
+                  set:html={paragraph}
+                  class="mt-4 max-w-lg text-lg whitespace-pre-line xl:mx-auto xl:mt-0"
                 />
             </div>
 
-            <div class="border-x lg:border-l-0 border-white">
+            <div class="border-white border-x lg:border-l-0">
                 <picture>
                     <source
-                        media="(max-width: 639px)"
-                        srcset={getSrcset(image, 607, 607)}
-                        width="607"
-                        height="607"
+                      media="(max-width: 639px)"
+                      srcset={getSrcset(image, 607, 607)}
+                      width="607"
+                      height="607"
                     />
 
                     <source
-                        media="(max-width: 767px)"
-                        srcset={getSrcset(image, 384, 384)}
-                        width="384"
-                        height="384"
+                      media="(max-width: 767px)"
+                      srcset={getSrcset(image, 384, 384)}
+                      width="384"
+                      height="384"
                     />
 
                     <img
-                        alt={image.alt || projectName}
-                        loading="lazy"
-                        srcset={getSrcset(image, 590, 590)}
-                        title={image.title || projectName}
-                        width="590"
-                        height="590"
-                        class="sm:w-96 sm:ml-auto lg:w-auto skeleton"
+                      alt={image.alt || projectName}
+                      loading="lazy"
+                      srcset={getSrcset(image, 590, 590)}
+                      title={image.title || projectName}
+                      width="590"
+                      height="590"
+                      class="skeleton sm:ml-auto sm:w-96 lg:w-auto"
                     />
                 </picture>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid px-container grid w-full grow lg:grid-cols-3">
-        <div class="col-span-2 border-x border-white" />
+    <div class="container-fluid grid w-full grow px-container lg:grid-cols-3">
+        <div class="border-white col-span-2 border-x" />
 
-        <div class="border-r border-white"></div>
+        <div class="border-white border-r"></div>
     </div>
 </section>

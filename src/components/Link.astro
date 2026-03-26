@@ -1,5 +1,5 @@
 ---
-import {formatLink} from '@/utils';
+import {formatLink} from '@/utils'
 
 interface Props {
     class: any
@@ -11,17 +11,17 @@ interface Props {
     }
 }
 
-let {class: classes, label, link} = Astro.props;
+let {class: classes, label, link} = Astro.props
 
-label = label || link.title;
+label = label || link.title
 
 const {href, target} = formatLink(link);
 ---
 
 <a
-    class:list={classes}
-    href={href}
-    target={target}
+  class:list={classes}
+  href={href}
+  target={target}
 >
     {label}
 

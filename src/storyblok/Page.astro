@@ -1,6 +1,6 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import {storyblokEditable} from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 interface Props {
     blok: any
@@ -11,12 +11,12 @@ const {blok, class: classes} = Astro.props;
 ---
 
 <main
-    {...storyblokEditable(blok)}
-    class:list={[classes]}
+  {...storyblokEditable(blok)}
+  class:list={[classes]}
 >
     {
         blok.sections?.map((section) => {
-            return <StoryblokComponent blok={section} {...section} />;
+            return <StoryblokComponent blok={section} {...section} />
         })
     }
 </main>

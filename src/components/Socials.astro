@@ -1,34 +1,34 @@
 ---
-import IInstagram from '@/components/icons/IInstagram.astro';
-import IWhatsapp from '@/components/icons/IWhatsapp.astro';
-import settings from '@/store/settings';
+import IInstagram from '@/components/icons/IInstagram.astro'
+import IWhatsapp from '@/components/icons/IWhatsapp.astro'
+import settings from '@/store/settings'
 
 interface Props {
     class?: string
     size?: string
 }
 
-const {class: classes, size = 'w-7'} = Astro.props;
+const {class: classes, size = 'w-7'} = Astro.props
 
 const {contact_instagram, contact_whatsapp} = settings;
 ---
 
 <div
-    class:list={[classes]}
-    class="flex gap-4"
+  class:list={[classes]}
+  class="flex gap-4"
 >
     <a
-        href={contact_whatsapp.cached_url}
-        target="_blank"
-        aria-label="Twotenses Whatsapp"
+      href={contact_whatsapp.cached_url}
+      target="_blank"
+      aria-label="Twotenses Whatsapp"
     >
         <IWhatsapp size={size} />
     </a>
 
     <a
-        href={contact_instagram.cached_url}
-        target="_blank"
-        aria-label="Twotenses Instagram"
+      href={contact_instagram.cached_url}
+      target="_blank"
+      aria-label="Twotenses Instagram"
     >
         <IInstagram size={size} />
     </a>

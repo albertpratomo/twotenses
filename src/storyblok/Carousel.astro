@@ -1,27 +1,27 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
-import Carousel from '@/components/Carousel.vue';
-import {formatLink} from '@/utils';
+import {storyblokEditable} from '@storyblok/astro'
+import Carousel from '@/components/Carousel.vue'
+import {formatLink} from '@/utils'
 
-let {blok, items} = Astro.props;
+let {blok, items} = Astro.props
 
 items = items.map((item) => {
     return {
         ...item,
         link: formatLink(item.link),
         text_color: `text-${item.text_color || 'white'}`,
-    };
+    }
 });
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="bg-black"
+  {...storyblokEditable(blok)}
+  class="bg-black"
 >
     <div class="container-fluid">
         <Carousel
-            client:visible
-            items={items}
+          client:visible
+          items={items}
         />
     </div>
 </section>

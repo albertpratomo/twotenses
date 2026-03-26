@@ -1,7 +1,7 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
-import {getSrcset} from '@/utils';
-import Tt from '@/components/t-t.astro';
+import {storyblokEditable} from '@storyblok/astro'
+import Tt from '@/components/t-t.astro'
+import {getSrcset} from '@/utils'
 
 const {
     background = 'gray',
@@ -12,77 +12,78 @@ const {
     paragraph,
     clock = false,
     projectName,
-} = Astro.props;
+} = Astro.props
 
 const isVideo = image.filename && image.filename.endsWith('.mp4');
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class=`bg-${background} py-4 md:py-12 lg:py-20 first:py-0`
+  {...storyblokEditable(blok)}
+  class=`bg-${background} py-4 md:py-12 lg:py-20 first:py-0`
 >
     <div class="container-fluid grid md:grid-cols-2">
         <div class:list={[{'order-last': image_on_right}, 'relative overflow-hidden']}>
             {clock
-                && <img
-                    loading="lazy"
-                    src="/images/clock-bg.png"
-                    class="skeleton"
-                    width="952"
-                    height="714"
-                />
+              && <img
+                loading="lazy"
+                src="/images/clock-bg.png"
+                class="skeleton"
+                width="952"
+                height="714"
+                 />
 
                 <img
-                    loading="lazy"
-                    src="/images/clock-future-hand.png"
-                    class="absolute skeleton animate-[spin_5s_linear_infinite] inset-0"
-                    width="952"
-                    height="714"
-                />
-            }
+                  loading="lazy"
+                  src="/images/clock-future-hand.png"
+                  class="absolute inset-0 skeleton animate-[spin_5s_linear_infinite]"
+                  width="952"
+                  height="714"
+                />}
 
             {(!clock && isVideo)
-                && <video src={image.filename} loop controls/>
-            }
+              && <video src={image.filename} loop controls />}
 
             {(!clock && !isVideo)
-                && <picture>
+              && (
+<picture>
                     <source
-                        media="(max-width: 639px)"
-                        srcset={getSrcset(image, 639)}
-                        width="639"
+                      media="(max-width: 639px)"
+                      srcset={getSrcset(image, 639)}
+                      width="639"
                     />
 
                     <source
-                        media="(max-width: 767px)"
-                        srcset={getSrcset(image, 767)}
-                        width="767"
+                      media="(max-width: 767px)"
+                      srcset={getSrcset(image, 767)}
+                      width="767"
                     />
 
                     <img
-                        alt={image.alt || projectName}
-                        loading="lazy"
-                        class="skeleton"
-                        srcset={getSrcset(image, 960)}
-                        title={image.title || projectName }
-                        width="960"
-                        height="1280"
+                      alt={image.alt || projectName}
+                      loading="lazy"
+                      class="skeleton"
+                      srcset={getSrcset(image, 960)}
+                      title={image.title || projectName}
+                      width="960"
+                      height="1280"
                     />
                 </picture>
-            }
+)}
         </div>
 
-        <div class="flex-col items-center justify-center px-container relative py-8">
+        <div class="relative flex-col items-center justify-center px-container py-8">
             <p
-                class="max-w-prose whitespace-pre-line text-lg xl:text-xl"
-                class:list={{'text-white': background === 'black'}}
-                set:html={paragraph}
+              class="max-w-prose text-lg whitespace-pre-line xl:text-xl"
+              class:list={{'text-white': background === 'black'}}
+              set:html={paragraph}
             />
 
-            {logo && <Tt
-                class="hidden lg:block absolute fill-none stroke-red bottom-8 -left-28"
-                size="w-3/5"
-            ></Tt>}
+            {logo && (
+<Tt
+  class="absolute bottom-8 -left-28 hidden fill-none stroke-red lg:block"
+  size="w-3/5"
+></Tt>
+)}
         </div>
     </div>
 </section>

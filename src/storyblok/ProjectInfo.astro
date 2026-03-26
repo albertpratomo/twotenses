@@ -1,23 +1,23 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
+import {storyblokEditable} from '@storyblok/astro'
 
 const {blok, items, projectName} = Astro.props;
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="border-b border-white bg-gray"
+  {...storyblokEditable(blok)}
+  class="border-white border-b bg-gray"
 >
     <div class="h-(--header-height)"></div>
 
-    <div class="container-fluid px-container grid grid-cols-1 lg:grid-cols-[40%_60%] lg:divide-white lg:divide-x">
+    <div class="container-fluid grid grid-cols-1 px-container lg:grid-cols-[40%_60%] lg:divide-x lg:divide-white">
         <div class="pt-24 pb-12">
             <h1 class="text-3xl lg:text-4xl">
                 {projectName}
             </h1>
 
             <div
-                class="grid grid-cols-[5rem_1fr] gap-8 whitespace-pre-line text-sm mt-16"
+              class="mt-16 grid grid-cols-[5rem_1fr] gap-8 text-sm whitespace-pre-line"
             >
                 {items.map(item => (
                     <label class="uppercase-wide">

@@ -1,57 +1,57 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
-import TextsGrid from '@/components/TextsGrid.vue';
+import {storyblokEditable} from '@storyblok/astro'
+import TextsGrid from '@/components/TextsGrid.vue'
 
-let {blok, items, parallax = false} = Astro.props;
+let {blok, items, parallax = false} = Astro.props
 
-items = items.map(item => item.text.split('\n'));
+items = items.map(item => item.text.split('\n'))
 
-const width = 'sm:w-10/12 lg:w-full xl:w-10/12';
+const width = 'sm:w-10/12 lg:w-full xl:w-10/12'
 const containerClass = 'container-fluid px-container w-full flex justify-center';
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    id="texts-grid"
-    class="flex-col bg-gray sm:h-screen transition-colors duration-300"
-    class:list={{'sticky inset-x-0 bottom-0 -z-10': parallax}}
+  {...storyblokEditable(blok)}
+  id="texts-grid"
+  class="flex-col bg-gray transition-colors duration-300 sm:h-screen"
+  class:list={{'sticky inset-x-0 bottom-0 -z-10': parallax}}
 >
     <div
-        class="grow"
-        class:list={containerClass}
+      class="grow"
+      class:list={containerClass}
     >
         <div
-            class="h-48 border-x border-white sm:h-full"
-            class:list={width}
+          class="border-white h-48 border-x sm:h-full"
+          class:list={width}
         />
     </div>
 
     <TextsGrid
-        client:visible
-        items={items}
-        width={width}
-        container-class={containerClass}
+      client:visible
+      items={items}
+      width={width}
+      container-class={containerClass}
     />
 
     <div
-        class="grow"
-        class:list={containerClass}
+      class="grow"
+      class:list={containerClass}
     >
         <div
-            class="h-48 border-x border-white sm:h-full"
-            class:list={width}
+          class="border-white h-48 border-x sm:h-full"
+          class:list={width}
         />
     </div>
 </section>
 
 <script>
-const section = document.querySelector('#texts-grid');
+const section = document.querySelector('#texts-grid')
 
 if (section) {
-    const observer = new IntersectionObserver(() => {
-        section?.classList.toggle('bg-red');
-    }, {threshold: 1});
+  const observer = new IntersectionObserver(() => {
+    section?.classList.toggle('bg-red')
+  }, {threshold: 1})
 
-    observer.observe(section);
+  observer.observe(section)
 }
 </script>

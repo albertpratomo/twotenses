@@ -1,5 +1,5 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
+import {storyblokEditable} from '@storyblok/astro'
 
 interface Props {
     blok: any
@@ -10,8 +10,8 @@ const {blok, title} = Astro.props;
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="bg-gray-light"
+  {...storyblokEditable(blok)}
+  class="bg-gray-light"
 >
     <div class="container-fluid px-container">
         <h1 class="flex min-h-[70vh] max-w-5xl items-center text-4xl lg:text-7xl">

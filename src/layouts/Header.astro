@@ -1,57 +1,57 @@
 ---
-import settings from '@/store/settings';
-import HamburgerMenu from '@/components/HamburgerMenu.vue';
-import Link from '@/components/Link.astro';
-import Twotenses from '@/components/Twotenses.astro';
-import Socials from '@/components/Socials.astro';
+import HamburgerMenu from '@/components/HamburgerMenu.vue'
+import Link from '@/components/Link.astro'
+import Socials from '@/components/Socials.astro'
+import Twotenses from '@/components/Twotenses.astro'
+import settings from '@/store/settings'
 
-const {header_center_links, header_right_links} = settings;
+const {header_center_links, header_right_links} = settings
 
-const links = header_center_links.concat(header_right_links);
+const links = header_center_links.concat(header_right_links)
 
-const isHome = Astro.url.pathname === '/';
-const headerBgColor = isHome ? '' : 'bg-gray-light';
-const linkColor = isHome ? 'text-gray-light group-[.bg-gray-light]:text-black' : 'text-black';
+const isHome = Astro.url.pathname === '/'
+const headerBgColor = isHome ? '' : 'bg-gray-light'
+const linkColor = isHome ? 'text-gray-light group-[.bg-gray-light]:text-black' : 'text-black'
 const borderColor = isHome ? 'border-black group-[.bg-gray-light]:border-white' : 'border-white';
 ---
 
 <header
-    class={`fixed inset-x-0 z-10 transition group ${headerBgColor}`}
-    data-is-home={isHome}
+  class={`group fixed inset-x-0 z-10 transition ${headerBgColor}`}
+  data-is-home={isHome}
 >
-    <nav class={`container-fluid px-container flex items-center border-b ${borderColor}`}>
+    <nav class={`container-fluid flex items-center border-b px-container ${borderColor}`}>
         <a
-            href="/"
-            class="py-8"
-            aria-label="Twotenses Logo"
+          href="/"
+          class="py-8"
+          aria-label="Twotenses Logo"
         >
-            <Twotenses class="w-32 fill-gray group-[.bg-gray-light]:fill-red"/>
+            <Twotenses class="w-32 fill-gray group-[.bg-gray-light]:fill-red" />
         </a>
 
         <HamburgerMenu
-            client:visible
-            class="ml-auto sm:hidden"
+          client:visible
+          class="ml-auto sm:hidden"
         >
-            <div class="bg-red h-full flex-col">
+            <div class="bg-red flex-col h-full">
                 <div class="px-4 py-8">
-                    <Twotenses class="w-32 fill-gray-light"/>
+                    <Twotenses class="w-32 fill-gray-light" />
                 </div>
 
-                <div class="grow flex border-t border-black">
+                <div class="flex grow border-t border-black">
                     <div class="w-25 border-r border-black"></div>
 
-                    <div class="grow flex justify-end px-16 py-12">
+                    <div class="flex grow justify-end px-16 py-12">
                         <nav class="flex flex-col gap-6 text-gray-light">
                             {links.map(link => (
                                 <Link
-                                    class="text-3xl"
-                                    {...link}
+                                  class="text-3xl"
+                                  {...link}
                                 />
                             ))}
 
                             <Socials
-                                class="mt-12"
-                                size="w-9"
+                              class="mt-12"
+                              size="w-9"
                             />
                         </nav>
                     </div>
@@ -59,18 +59,18 @@ const borderColor = isHome ? 'border-black group-[.bg-gray-light]:border-white' 
             </div>
         </HamburgerMenu>
 
-        <div class={`ml-auto hidden sm:flex sm:gap-4 md:gap-12 uppercase-wide text-sm ${linkColor}`}>
+        <div class={`ml-auto hidden text-sm uppercase-wide sm:flex sm:gap-4 md:gap-12 ${linkColor}`}>
             {header_center_links.map(link => (
                 <Link
-                    {...link}
+                  {...link}
                 />
             ))}
         </div>
 
-        <div class={`hidden uppercase-wide text-sm sm:ml-4 sm:flex sm:gap-4 md:ml-8 md:gap-12 lg:ml-52 ${linkColor}`}>
+        <div class={`hidden text-sm uppercase-wide sm:ml-4 sm:flex sm:gap-4 md:ml-8 md:gap-12 lg:ml-52 ${linkColor}`}>
             {header_right_links.map(link => (
                 <Link
-                    {...link}
+                  {...link}
                 />
             ))}
         </div>
@@ -78,22 +78,22 @@ const borderColor = isHome ? 'border-black group-[.bg-gray-light]:border-white' 
 </header>
 
 <script>
-let scrollY = 0;
-const header = document.querySelector('header');
+let scrollY = 0
+const header = document.querySelector('header')
 
 document.addEventListener('scroll', () => {
-    const method = (window.scrollY > 0 && window.scrollY > scrollY)
-        ? 'add'
-        : 'remove';
+  const method = (window.scrollY > 0 && window.scrollY > scrollY)
+    ? 'add'
+    : 'remove'
 
-    header?.classList[method]('-translate-y-full');
-    header?.classList[method]('opacity-0');
+  header?.classList[method]('-translate-y-full')
+  header?.classList[method]('opacity-0')
 
-    scrollY = window.scrollY;
+  scrollY = window.scrollY
 
-    if (header?.dataset.isHome === 'true') {
-        const toggleBg = scrollY <= 0 ? 'remove' : 'add';
-        header?.classList[toggleBg]('bg-gray-light');
-    }
-});
+  if (header?.dataset.isHome === 'true') {
+    const toggleBg = scrollY <= 0 ? 'remove' : 'add'
+    header?.classList[toggleBg]('bg-gray-light')
+  }
+})
 </script>

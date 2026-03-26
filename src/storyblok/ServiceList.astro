@@ -1,13 +1,13 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
-import CircleWorkWithYou from '@/components/CircleWorkWithYou.astro';
+import {storyblokEditable} from '@storyblok/astro'
+import CircleWorkWithYou from '@/components/CircleWorkWithYou.astro'
 
 const {blok, items, title} = Astro.props;
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="bg-black py-12 text-gray lg:py-24 xl:py-40"
+  {...storyblokEditable(blok)}
+  class="bg-black py-12 text-gray lg:py-24 xl:py-40"
 >
     <div class="container-fluid px-container">
         <h2 class="text-5xl lg:text-7xl">
@@ -17,8 +17,8 @@ const {blok, items, title} = Astro.props;
         <div class="grid lg:mt-12 lg:grid-cols-2">
             <div class="flex items-end justify-end overflow-hidden pl-12 lg:justify-start">
                 <CircleWorkWithYou
-                    size="w-28 lg:w-48"
-                    class="animate-[spin_10s_linear_infinite]"
+                  size="w-28 lg:w-48"
+                  class="animate-[spin_10s_linear_infinite]"
                 />
             </div>
 

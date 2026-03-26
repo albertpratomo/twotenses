@@ -1,68 +1,68 @@
 ---
-import settings from '@/store/settings';
-import Link from '@/components/Link.astro';
-import Twotenses from '@/components/Twotenses.astro';
+import Link from '@/components/Link.astro'
+import Twotenses from '@/components/Twotenses.astro'
+import settings from '@/store/settings'
 
 interface Props {
     parallax?: boolean
 }
 
-const {parallax = true} = Astro.props;
+const {parallax = true} = Astro.props
 
-const {contact_email, contact_instagram, contact_whatsapp, header_center_links, header_right_links} = settings;
+const {contact_email, contact_instagram, contact_whatsapp, header_center_links, header_right_links} = settings
 
-const labelClass = 'uppercase-wide text-[10px] 2xl:text-base';
+const labelClass = 'uppercase-wide text-[10px] 2xl:text-base'
 const linkClass = '2xl:text-xl';
 ---
 
 <footer
-    class="border-t-2 border-white bg-gray-light"
-    class:list={{'sticky inset-x-0 bottom-0': parallax}}
+  class="border-white border-t-2 bg-gray-light"
+  class:list={{'sticky inset-x-0 bottom-0': parallax}}
 >
-    <div class="container-fluid px-container grid grid-cols-3">
-        <div class="col-span-1 border-r-2 border-white pt-8 flex-col gap-1">
+    <div class="container-fluid grid grid-cols-3 px-container">
+        <div class="border-white col-span-1 flex-col gap-1 border-r-2 pt-8">
             {header_center_links.map(link => (
                 <Link
-                    {...link}
-                    class={linkClass}
+                  {...link}
+                  class={linkClass}
                 />
             ))}
 
             {header_right_links.map(link => (
                 <Link
-                    {...link}
-                    class={linkClass}
+                  {...link}
+                  class={linkClass}
                 />
             ))}
         </div>
 
-        <div class="col-span-2 pl-12 pt-8 pb-40 sm:pb-16 md:pb-40 md:flex md:justify-end md:gap-20">
+        <div class="col-span-2 pt-8 pb-40 pl-12 sm:pb-16 md:flex md:justify-end md:gap-20 md:pb-40">
             <div class="flex-col gap-1">
                 <label class={labelClass}>CONTACT</label>
 
                 <a
-                    href={`mailto:${contact_email}`}
-                    class={linkClass}
+                  href={`mailto:${contact_email}`}
+                  class={linkClass}
                 >
                     {contact_email}
                 </a>
 
                 <a
-                    href={contact_whatsapp.cached_url}
-                    target="_blank"
-                    class={linkClass}
+                  href={contact_whatsapp.cached_url}
+                  target="_blank"
+                  class={linkClass}
                 >
                     {contact_whatsapp.title}
                 </a>
             </div>
 
-            <div class="flex-col mt-6 md:mt-0 gap-1">
+            <div class="mt-6 flex-col gap-1 md:mt-0">
                 <label class={labelClass}>FOLLOW US</label>
 
                 <a
-                    href={contact_instagram.cached_url}
-                    target="_blank"
-                    class={linkClass}
+                  href={contact_instagram.cached_url}
+                  target="_blank"
+                  class={linkClass}
                 >
                     Instagram
                 </a>

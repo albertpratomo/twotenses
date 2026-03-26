@@ -1,6 +1,6 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
-import Accordion from '@/components/Accordion.vue';
+import {storyblokEditable} from '@storyblok/astro'
+import Accordion from '@/components/Accordion.vue'
 
 interface Props {
     blok: any
@@ -12,21 +12,21 @@ const {blok, items, title} = Astro.props;
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="bg-gray"
+  {...storyblokEditable(blok)}
+  class="bg-gray"
 >
     <div class="container-fluid px-container">
-        <h2 class="border-l border-white pb-4 pt-12 text-4xl text-red md:pt-24 md:text-7xl">
+        <h2 class="border-white text-red border-l pt-12 pb-4 text-4xl md:pt-24 md:text-7xl">
             {title}
         </h2>
     </div>
 
     <Accordion
-        client:visible
-        items={items}
+      client:visible
+      items={items}
     />
 
     <div class="container-fluid px-container">
-        <div class="border-l border-white pt-12 md:pt-24" />
+        <div class="border-white border-l pt-12 md:pt-24" />
     </div>
 </section>

@@ -1,5 +1,5 @@
 ---
-import '@/styles/main.css';
+import '@/styles/main.css'
 
 interface Props {
     description?: string
@@ -9,16 +9,16 @@ interface Props {
 const {
     description = 'twotenses is an interior design studio based in Jakarta.',
     title = 'Interior Design Studio',
-} = Astro.props;
+} = Astro.props
 
-const url = new URL(Astro.url.pathname, Astro.site);
+const url = new URL(Astro.url.pathname, Astro.site)
 const image = 'https://a.storyblok.com/f/210339/6181x4121/8aed680f62/img_9646.jpg/m/1200x630';
 ---
 
 <!DOCTYPE html>
 <html
-    lang="en"
-    class="scroll-smooth"
+  lang="en"
+  class="scroll-smooth"
 >
     <head>
         <meta charset="UTF-8" />
@@ -27,60 +27,64 @@ const image = 'https://a.storyblok.com/f/210339/6181x4121/8aed680f62/img_9646.jp
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
         <title>{title} - twotenses</title>
-        <meta name="description" content={description}>
-        <link rel="sitemap" href="/sitemap-index.xml">
+        <meta name="description" content={description} />
+        <link rel="sitemap" href="/sitemap-index.xml" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
-        <meta property="og:url" content={url}>
-        <meta property="og:type" content="website">
-        <meta property="og:title" content={title}>
-        <meta property="og:description" content={description}>
-        <meta property="og:image" content={image}>
+        <meta property="og:url" content={url} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
 
-        <meta name="twitter:card" content="summary_large_image">
-        <meta property="twitter:domain" content="twotenses.com">
-        <meta property="twitter:url" content={url}>
-        <meta property="twitter:title" content={title}>
-        <meta property="twitter:description" content={description}>
-        <meta name="twitter:image" content={image}>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="twotenses.com" />
+        <meta property="twitter:url" content={url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta name="twitter:image" content={image} />
 
-        <meta name="p:domain_verify" content="88a4ae161c7a7aedb13f1a0a57035e76"/>
+        <meta name="p:domain_verify" content="88a4ae161c7a7aedb13f1a0a57035e76" />
 
         <script>
-            window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-        </script>
+window.va = window.va || function (...args) {
+  (window.vaq = window.vaq || []).push(args)
+}
+</script>
         <script defer src="/_vercel/insights/script.js"></script>
 
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-S75LG5X62T"></script>
         <script is:inline>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
+window.dataLayer = window.dataLayer || []
+function gtag(...args) {
+  dataLayer.push(args)
+}
+gtag('js', new Date())
 
-            gtag('config', 'G-S75LG5X62T');
-        </script>
+gtag('config', 'G-S75LG5X62T')
+</script>
     </head>
 
     <body class="bg-gray-light text-black">
         <slot />
 
         <script is:inline>
-            const images = document.querySelectorAll('img');
+const images = document.querySelectorAll('img')
 
-            images.forEach((img) => {
-                if (img.complete) {
-                    img.classList.remove('skeleton');
-                }
-                else {
-                    img.addEventListener('load', () => {
-                        img.classList.remove('skeleton');
-                    });
-                }
-            });
-        </script>
+images.forEach((img) => {
+  if (img.complete) {
+    img.classList.remove('skeleton')
+  }
+  else {
+    img.addEventListener('load', () => {
+      img.classList.remove('skeleton')
+    })
+  }
+})
+</script>
     </body>
 </html>

@@ -1,24 +1,24 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
-import Link from '@/components/Link.astro';
-import IArrow from '@/components/icons/IArrow.vue';
+import {storyblokEditable} from '@storyblok/astro'
+import IArrow from '@/components/icons/IArrow.vue'
+import Link from '@/components/Link.astro'
 
 const {blok, link} = Astro.props;
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="bg-gray py-12 lg:py-24"
+  {...storyblokEditable(blok)}
+  class="bg-gray py-12 lg:py-24"
 >
-    <div class="container-fluid px-container flex justify-end">
+    <div class="container-fluid flex justify-end px-container">
         <Link
-            class="flex items-center gap-6 text-4xl lg:gap-11 lg:text-7xl"
-            link={link}
+          class="flex items-center gap-6 text-4xl lg:gap-11 lg:text-7xl"
+          link={link}
         >
-            <div class="flex-center h-16 w-16 rounded-full border border-red lg:h-24 lg:w-24">
+            <div class="flex-center size-16 rounded-full border border-red lg:size-24">
                 <IArrow
-                    class="h-8 text-red lg:h-14"
-                    client:visible
+                  class="text-red h-8 lg:h-14"
+                  client:visible
                 />
             </div>
         </Link>

@@ -1,7 +1,7 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
-import Twotenses from '@/components/Twotenses.astro';
-import Socials from '@/components/Socials.astro';
+import {storyblokEditable} from '@storyblok/astro'
+import Socials from '@/components/Socials.astro'
+import Twotenses from '@/components/Twotenses.astro'
 
 interface Props {
     blok: any
@@ -12,10 +12,10 @@ const {blok, texts} = Astro.props;
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="bg-gray-light text-black"
+  {...storyblokEditable(blok)}
+  class="bg-gray-light text-black"
 >
-    <div class="container-fluid px-container flex h-screen flex-col py-8">
+    <div class="container-fluid flex flex-col h-screen px-container py-8">
         <div class="mt-auto">
             <Twotenses />
         </div>

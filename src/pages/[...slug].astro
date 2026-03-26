@@ -1,12 +1,12 @@
 ---
-import {useStoryblokApi} from '@storyblok/astro';
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
-import Footer from '@/layouts/Footer.astro';
-import Header from '@/layouts/Header.astro';
-import Layout from '@/layouts/Layout.astro';
+import {useStoryblokApi} from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import Footer from '@/layouts/Footer.astro'
+import Header from '@/layouts/Header.astro'
+import Layout from '@/layouts/Layout.astro'
 
 export async function getStaticPaths() {
-    const api = useStoryblokApi();
+    const api = useStoryblokApi()
 
     const {data: {stories}} = await api.get('cdn/stories', {
         filter_query: {
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
         },
         per_page: 100,
         version: import.meta.env.DEV ? 'draft' : 'published',
-    });
+    })
 
     return stories
         .map(story => ({
@@ -26,50 +26,50 @@ export async function getStaticPaths() {
                         : story.full_slug,
             },
             props: {story},
-        }));
+        }))
 }
 
 async function getStory(slug: string) {
-    const api = useStoryblokApi();
+    const api = useStoryblokApi()
 
-    let response;
+    let response
 
     try {
         response = await api.get(`cdn/stories/${slug || 'home'}`, {
             version: import.meta.env.DEV ? 'draft' : 'published',
-        });
+        })
     }
-    catch (error) {
-        return false;
+    catch {
+        return false
     }
 
-    return response.data.story;
+    return response.data.story
 }
 
 interface Props {
     story?: any
 }
 
-const {slug} = Astro.params;
-let {story} = Astro.props;
+const {slug} = Astro.params
+let {story} = Astro.props
 
 if (!story)
-    story = await getStory(slug);
+    story = await getStory(slug)
 
 const footerParallax = !story.content.sections.at(-1).parallax;
 ---
 
 <Layout
-    description={story.content.seo_description}
-    title={story.content.seo_title}
+  description={story.content.seo_description}
+  title={story.content.seo_title}
 >
     <Header />
 
     <StoryblokComponent
-        blok={story.content}
-        name={story.name}
-        class:list={{'relative z-5': footerParallax}}
+      blok={story.content}
+      name={story.name}
+      class:list={{'relative z-5': footerParallax}}
     />
 
-    <Footer parallax={footerParallax}/>
+    <Footer parallax={footerParallax} />
 </Layout>

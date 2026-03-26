@@ -1,50 +1,50 @@
 ---
-import {storyblokEditable} from '@storyblok/astro';
-import {getSrcset} from '@/utils';
+import {storyblokEditable} from '@storyblok/astro'
+import {getSrcset} from '@/utils'
 
 const {blok, caption, image, projectName} = Astro.props;
 ---
 
 <section
-    {...storyblokEditable(blok)}
-    class="bg-gray py-4 md:py-12 lg:py-20 first:py-0"
+  {...storyblokEditable(blok)}
+  class="bg-gray py-4 first:py-0 md:py-12 lg:py-20"
 >
     <div class="container-fluid">
         <picture class="relative">
             <source
-                height="360"
-                media="(max-width: 639px)"
-                srcset={getSrcset(image, 639, 360)}
-                width="639"
+              height="360"
+              media="(max-width: 639px)"
+              srcset={getSrcset(image, 639, 360)}
+              width="639"
             />
 
             <source
-                height="431"
-                media="(max-width: 767px)"
-                srcset={getSrcset(image, 767, 431)}
-                width="767"
+              height="431"
+              media="(max-width: 767px)"
+              srcset={getSrcset(image, 767, 431)}
+              width="767"
             />
 
             <source
-                height="576"
-                media="(max-width: 1023px)"
-                srcset={getSrcset(image, 1023, 576)}
-                width="1023"
+              height="576"
+              media="(max-width: 1023px)"
+              srcset={getSrcset(image, 1023, 576)}
+              width="1023"
             />
 
             <img
-                alt={image.alt || projectName}
-                height="1080"
-                loading="lazy"
-                srcset={getSrcset(image, 1920, 1080)}
-                title={image.title || projectName}
-                width="1920"
-                class="skeleton"
+              alt={image.alt || projectName}
+              height="1080"
+              loading="lazy"
+              srcset={getSrcset(image, 1920, 1080)}
+              title={image.title || projectName}
+              width="1920"
+              class="skeleton"
             />
 
             <div
-                class="px-container absolute text-sm md:text-base bottom-4 md:bottom-6 lg:text-2xl"
-                set:html={caption}
+              class="absolute bottom-4 px-container text-sm md:bottom-6 md:text-base lg:text-2xl"
+              set:html={caption}
             />
         </picture>
     </div>
