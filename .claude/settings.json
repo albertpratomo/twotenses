@@ -1,13 +1,5 @@
 {
   "permissions": {
-    "allow": [
-      "WebFetch(domain:deepwiki.com)",
-      "WebFetch(domain:unpkg.com)",
-      "Bash(node -e \"console.log\\(require\\(''eslint/package.json''\\).version\\)\")",
-      "Bash(grep -oP '\\\\S+$')",
-      "Read(//Users/albert/Documents/code/twotenses/**)",
-      "Bash(grep -A2 -B2 \"class={\\\\`\")"
-    ],
     "additionalDirectories": [
       "/Users/albert/Documents/code/twotenses/thoughts/shared"
     ]
