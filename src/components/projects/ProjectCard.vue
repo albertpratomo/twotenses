@@ -11,9 +11,9 @@ defineProps({
 </script>
 
 <template>
-    <a 
-        :href="project.href"
+    <a
         :aria-label="`View ${project.name} project details`"
+        :href="project.href"
     >
         <picture>
             <source

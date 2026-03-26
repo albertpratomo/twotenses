@@ -5,7 +5,6 @@ module.exports = {
     extends: [
         '@antfu',
         'plugin:astro/recommended',
-        'plugin:tailwindcss/recommended',
     ],
     overrides: [
         {
@@ -38,10 +37,5 @@ module.exports = {
             'error',
             [{blankLine: 'always', next: '*', prev: '*'}],
         ],
-    },
-    settings: {
-        tailwindcss: {
-            config: 'tailwind.config.cjs',
-        },
     },
 };

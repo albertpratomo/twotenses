@@ -23,8 +23,8 @@ const isVideo = image.filename && image.filename.endsWith('.mp4');
 >
     <div class="container-fluid grid md:grid-cols-2">
         <div class:list={[{'order-last': image_on_right}, 'relative overflow-hidden']}>
-            {clock && 
-                <img
+            {clock
+                && <img
                     loading="lazy"
                     src="/images/clock-bg.png"
                     class="skeleton"
@@ -41,12 +41,12 @@ const isVideo = image.filename && image.filename.endsWith('.mp4');
                 />
             }
 
-            {(!clock && isVideo) && 
-                <video src={image.filename} loop controls/>
+            {(!clock && isVideo)
+                && <video src={image.filename} loop controls/>
             }
 
-            {(!clock && !isVideo) &&
-                <picture>
+            {(!clock && !isVideo)
+                && <picture>
                     <source
                         media="(max-width: 639px)"
                         srcset={getSrcset(image, 639)}
@@ -63,18 +63,17 @@ const isVideo = image.filename && image.filename.endsWith('.mp4');
                         alt={image.alt || projectName}
                         loading="lazy"
                         class="skeleton"
-                        srcset={getSrcset(image, 960 )}
-                        title={image.title || projectName   }
+                        srcset={getSrcset(image, 960)}
+                        title={image.title || projectName }
                         width="960"
                         height="1280"
                     />
                 </picture>
             }
         </div>
-        
 
         <div class="flex-col items-center justify-center px-container relative py-8">
-            <p 
+            <p
                 class="max-w-prose whitespace-pre-line text-lg xl:text-xl"
                 class:list={{'text-white': background === 'black'}}
                 set:html={paragraph}
@@ -82,7 +81,7 @@ const isVideo = image.filename && image.filename.endsWith('.mp4');
 
             {logo && <Tt
                 class="hidden lg:block absolute fill-none stroke-red bottom-8 -left-28"
-                size="w-3/5" 
+                size="w-3/5"
             ></Tt>}
         </div>
     </div>

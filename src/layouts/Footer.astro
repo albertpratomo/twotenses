@@ -2,6 +2,7 @@
 import settings from '@/store/settings';
 import Link from '@/components/Link.astro';
 import Twotenses from '@/components/Twotenses.astro';
+
 interface Props {
     parallax?: boolean
 }
@@ -45,7 +46,7 @@ const linkClass = '2xl:text-xl';
                 >
                     {contact_email}
                 </a>
-        
+
                 <a
                     href={contact_whatsapp.cached_url}
                     target="_blank"
@@ -54,7 +55,7 @@ const linkClass = '2xl:text-xl';
                     {contact_whatsapp.title}
                 </a>
             </div>
-        
+
             <div class="flex-col mt-6 md:mt-0 gap-1">
                 <label class={labelClass}>FOLLOW US</label>
 

@@ -11,8 +11,8 @@ const props = defineProps({
 defineEmits(['toggle']);
 
 const color = computed(() => {
-    return props.isOpen ? 'bg-gray-light' : 'bg-gray group-[.bg-gray-light]:bg-red'
-})
+    return props.isOpen ? 'bg-gray-light' : 'bg-gray group-[.bg-gray-light]:bg-red';
+});
 </script>
 
 <template>
@@ -27,8 +27,8 @@ const color = computed(() => {
             :class="[isOpen ? '-rotate-90 -translate-y-1.25' : '', color]"
         />
 
-        <div 
-            class="h-0.5 w-full" 
+        <div
+            class="h-0.5 w-full"
             :class="color"
         />
 

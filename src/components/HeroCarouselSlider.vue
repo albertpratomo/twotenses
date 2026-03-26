@@ -35,7 +35,9 @@ function stopAutoplay() {
 
             <span class="flex items-center gap-3">
                 <span>{{ `${swiper.realIndex + 1}`.padStart(2, '0') }}</span>
+
                 <span class="w-10 border-t border-current" />
+
                 <span>{{ `${items.length}`.padStart(2, '0') }}</span>
             </span>
         </div>
@@ -79,11 +81,11 @@ function stopAutoplay() {
                         <img
                             :alt="item.image_landscape.alt"
                             class="skeleton object-cover"
-                            loading="lazy"
                             height="798"
-                            width="1197"
+                            loading="lazy"
                             :srcset="getSrcset(item.image_landscape, 1197, 798)"
                             :title="item.image_landscape.title"
+                            width="1197"
                             @load="e => e.target.classList.remove('skeleton')"
                         >
                     </picture>

@@ -47,8 +47,8 @@ setInterval(next, 4000);
                         name="fade-up"
                     >
                         <p
-                            class="w-[70%]"
                             :key="text"
+                            class="w-[70%]"
                             :style="{ transitionDelay: `calc(${i} * 120ms)` }"
                             v-html="text"
                         />

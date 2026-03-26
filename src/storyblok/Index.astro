@@ -1,8 +1,7 @@
 ---
-import { storyblokEditable } from "@storyblok/astro";
-import Link from "@/components/Link.astro";
+import {storyblokEditable} from '@storyblok/astro';
 
-const { blok, sections, title } = Astro.props;
+const {blok, sections, title} = Astro.props;
 ---
 
 <section {...storyblokEditable(blok)} class="bg-gray-light">
@@ -12,20 +11,20 @@ const { blok, sections, title } = Astro.props;
         </h2>
 
         {
-            sections.map((section) => (
+            sections.map(section => (
                 <div class="mt-8 border-t border-red py-6 md:mt-16 grid md:grid-cols-3 gap-y-8">
                     <h3 class="w-full text-3xl text-red md:text-4xl lg:mr-20 lg:w-auto xl:mr-40 2xl:mr-80 col-span-full md:col-span-1">
                         {section.title}
                     </h3>
 
                     <div class="md:col-span-2 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12">
-                        {section.columns.map((column) => (
+                        {section.columns.map(column => (
                             <div class="flex-col gap-y-2">
                                 <h4 class="text-red">
                                     {column.label || <>&nbsp;</>}
                                 </h4>
 
-                                {column.links.map((link) => (
+                                {column.links.map(link => (
                                     <p>{link.label}</p>
                                 ))}
                             </div>

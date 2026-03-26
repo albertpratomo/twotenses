@@ -20,18 +20,18 @@ items = items.map((item) => {
 >
     <div class="container-fluid lg:px-container">
         <div class="h-(--header-height)" />
-    
+
         <div class="grid grid-cols-[3fr_1fr] lg:grid-cols-[2fr_3fr]">
             <div class="flex flex-col justify-between items-start p-4 pt-12 h-60 lg:pl-0 lg:h-auto lg:pb-12 3xl:pt-16">
                 <h1 class="text-xl lg:text-3xl lg:max-w-96">
                     {blok.title}
                 </h1>
-    
+
                 <IArrow direction="bottom" size="h-10 lg:h-18" />
             </div>
-    
+
             <div class="border-l border-black lg:hidden" />
-    
+
             <div class="col-span-2 border-t border-black lg:border-t-0 lg:border-l lg:col-span-1 min-w-0 overflow-hidden lg:p-5 lg:pr-0 lg:pt-30">
                 <HeroCarouselSlider
                     client:visible

@@ -15,9 +15,10 @@ const linkColor = isHome ? 'text-gray-light group-[.bg-gray-light]:text-black' :
 const borderColor = isHome ? 'border-black group-[.bg-gray-light]:border-white' : 'border-white';
 ---
 
-<header class={`fixed inset-x-0 z-10 transition  group ${headerBgColor}`} 
-
-data-is-home={isHome}>
+<header
+    class={`fixed inset-x-0 z-10 transition group ${headerBgColor}`}
+    data-is-home={isHome}
+>
     <nav class={`container-fluid px-container flex items-center border-b ${borderColor}`}>
         <a
             href="/"
@@ -47,7 +48,7 @@ data-is-home={isHome}>
                                     {...link}
                                 />
                             ))}
-        
+
                             <Socials
                                 class="mt-12"
                                 size="w-9"
