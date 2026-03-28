@@ -1,6 +1,6 @@
 ---
 import {storyblokEditable} from '@storyblok/astro'
-import {getSrcset} from '@/utils'
+import {below, getSrcset} from '@/utils'
 
 const {blok, image, paragraph, subtitle, title, projectName} = Astro.props;
 ---
@@ -33,14 +33,14 @@ const {blok, image, paragraph, subtitle, title, projectName} = Astro.props;
             <div class="border-white border-x lg:border-l-0">
                 <picture>
                     <source
-                      media="(max-width: 639px)"
+                      media={below.sm}
                       srcset={getSrcset(image, 607, 607)}
                       width="607"
                       height="607"
                     />
 
                     <source
-                      media="(max-width: 767px)"
+                      media={below.md}
                       srcset={getSrcset(image, 384, 384)}
                       width="384"
                       height="384"

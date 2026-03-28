@@ -1,3 +1,19 @@
+/** Tailwind breakpoint values (px) — keep in sync with @theme in main.css */
+const screens = {
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  '3xl': 1920,
+} as const
+
+/** Media query strings for `<source media>` attributes (max-width: breakpoint − 1) */
+export const below = {
+  sm: `(max-width: ${screens.sm - 1}px)`,
+  md: `(max-width: ${screens.md - 1}px)`,
+  lg: `(max-width: ${screens.lg - 1}px)`,
+} as const
+
 export interface ISbImage {
   alt: string
   filename: string

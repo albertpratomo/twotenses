@@ -1,6 +1,6 @@
 ---
 import {storyblokEditable} from '@storyblok/astro'
-import {getSrcset} from '@/utils'
+import {below, getSrcset} from '@/utils'
 
 const {blok, image1, image2, projectName} = Astro.props;
 ---
@@ -14,13 +14,13 @@ const {blok, image1, image2, projectName} = Astro.props;
       <div class="col-span-6 lg:col-span-4 lg:pb-40">
         <picture>
           <source
-            media="(max-width: 639px)"
+            media={below.sm}
             srcset={getSrcset(image1, 300, 400)}
             width="300"
             height="400"
           />
           <source
-            media="(max-width: 1023px)"
+            media={below.lg}
             srcset={getSrcset(image1, 472, 629)}
             width="472"
             height="629"
@@ -40,13 +40,13 @@ const {blok, image1, image2, projectName} = Astro.props;
       <div class="col-span-10 col-start-3 row-start-2 mt-8 lg:col-span-6 lg:col-start-7 lg:row-start-1">
         <picture>
           <source
-            media="(max-width: 639px)"
+            media={below.sm}
             srcset={getSrcset(image2, 503, 377)}
             width="503"
             height="377"
           />
           <source
-            media="(max-width: 1023px)"
+            media={below.lg}
             srcset={getSrcset(image2, 796, 597)}
             width="796"
             height="597"

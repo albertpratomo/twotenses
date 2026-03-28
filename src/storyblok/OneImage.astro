@@ -1,6 +1,6 @@
 ---
 import {storyblokEditable} from '@storyblok/astro'
-import {getSrcset} from '@/utils'
+import {below, getSrcset} from '@/utils'
 
 const {blok, image, width = 6, projectName} = Astro.props
 
@@ -22,13 +22,13 @@ const isVideo = image.filename.endsWith('.mp4');
                 : (
                   <picture>
                     <source
-                      media="(max-width: 639px)"
+                      media={below.sm}
                       srcset={getSrcset(image, 639)}
                       width="639"
                     />
 
                     <source
-                      media="(max-width: 767px)"
+                      media={below.md}
                       srcset={getSrcset(image, 767)}
                       width="767"
                     />

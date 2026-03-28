@@ -2,7 +2,7 @@
 import type {Swiper as ISwiper} from 'swiper'
 import {Swiper, SwiperSlide} from 'swiper/vue'
 import {ref} from 'vue'
-import {getSrcset} from '@/utils'
+import {below, getSrcset} from '@/utils'
 import 'swiper/css'
 
 defineProps({
@@ -64,21 +64,21 @@ function stopAutoplay() {
           <picture>
             <source
               height="852"
-              media="(max-width: 639px)"
+              :media="below.sm"
               :srcset="getSrcset(item.image_portrait, 639, 852)"
               width="639"
             >
 
             <source
               height="431"
-              media="(max-width: 767px)"
+              :media="below.md"
               :srcset="getSrcset(item.image_landscape, 767, 431)"
               width="767"
             >
 
             <source
               height="682"
-              media="(max-width: 1023px)"
+              :media="below.lg"
               :srcset="getSrcset(item.image_landscape, 1023, 682)"
               width="1023"
             >

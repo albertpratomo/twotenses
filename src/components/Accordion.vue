@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {ref} from 'vue'
 import IPlus from '@/components/icons/IPlus.vue'
-import {getSrcset} from '@/utils'
+import {below, getSrcset} from '@/utils'
 
 const props = defineProps({
   items: {
@@ -61,21 +61,21 @@ const isOpen = ref(props.items.map(_ => false))
             <picture class="sm:w-1/2">
               <source
                 height="359"
-                media="(max-width: 639px)"
+                :media="below.sm"
                 :srcset="getSrcset(item.image, 639, 359)"
                 width="639"
               >
 
               <source
                 height="431"
-                media="(max-width: 767px)"
+                :media="below.md"
                 :srcset="getSrcset(item.image, 767, 431)"
                 width="767"
               >
 
               <source
                 height="575"
-                media="(max-width: 1023px)"
+                :media="below.lg"
                 :srcset="getSrcset(item.image, 1023, 575)"
                 width="1023"
               >

@@ -1,7 +1,7 @@
 ---
 import {storyblokEditable} from '@storyblok/astro'
 import Tt from '@/components/t-t.astro'
-import {getSrcset} from '@/utils'
+import {below, getSrcset} from '@/utils'
 
 const {
     background = 'gray',
@@ -47,13 +47,13 @@ const isVideo = image.filename && image.filename.endsWith('.mp4');
               && (
 <picture>
                     <source
-                      media="(max-width: 639px)"
+                      media={below.sm}
                       srcset={getSrcset(image, 639)}
                       width="639"
                     />
 
                     <source
-                      media="(max-width: 767px)"
+                      media={below.md}
                       srcset={getSrcset(image, 767)}
                       width="767"
                     />
