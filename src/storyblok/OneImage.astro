@@ -20,7 +20,7 @@ const isVideo = image.filename.endsWith('.mp4');
             {isVideo
                 ? <video src={image.filename} loop controls />
                 : (
-<picture>
+                  <picture>
                     <source
                       media="(max-width: 639px)"
                       srcset={getSrcset(image, 639)}
@@ -42,7 +42,7 @@ const isVideo = image.filename.endsWith('.mp4');
                       width="1920"
                     />
                 </picture>
-)}
+            )}
         </div>
     </div>
 </section>
