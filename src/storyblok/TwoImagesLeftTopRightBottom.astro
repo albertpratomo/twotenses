@@ -1,0 +1,67 @@
+---
+import {storyblokEditable} from '@storyblok/astro'
+import {getSrcset} from '@/utils'
+
+const {blok, image1, image2, projectName} = Astro.props;
+---
+
+<section
+  {...storyblokEditable(blok)}
+  class="bg-gray py-4 md:py-12 lg:py-20"
+>
+  <div class="container-fluid px-container">
+    <div class="grid grid-cols-12 gap-x-4 lg:items-end">
+      <div class="col-span-6 lg:col-span-4 lg:pb-40">
+        <picture>
+          <source
+            media="(max-width: 639px)"
+            srcset={getSrcset(image1, 300, 400)}
+            width="300"
+            height="400"
+          />
+          <source
+            media="(max-width: 1023px)"
+            srcset={getSrcset(image1, 472, 629)}
+            width="472"
+            height="629"
+          />
+          <img
+            alt={image1.alt || projectName}
+            loading="lazy"
+            class="w-full skeleton"
+            srcset={getSrcset(image1, 666, 888)}
+            title={image1.title || projectName}
+            width="666"
+            height="888"
+          />
+        </picture>
+      </div>
+
+      <div class="col-span-10 col-start-3 row-start-2 mt-8 lg:col-span-6 lg:col-start-7 lg:row-start-1">
+        <picture>
+          <source
+            media="(max-width: 639px)"
+            srcset={getSrcset(image2, 503, 377)}
+            width="503"
+            height="377"
+          />
+          <source
+            media="(max-width: 1023px)"
+            srcset={getSrcset(image2, 796, 597)}
+            width="796"
+            height="597"
+          />
+          <img
+            alt={image2.alt || projectName}
+            loading="lazy"
+            class="w-full skeleton"
+            srcset={getSrcset(image2, 1008, 756)}
+            title={image2.title || projectName}
+            width="1008"
+            height="756"
+          />
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>

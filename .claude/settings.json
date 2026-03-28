@@ -3,7 +3,8 @@
     "allow": [
       "mcp__Storyblok__search",
       "mcp__Storyblok__describe",
-      "mcp__Storyblok__execute_readonly"
+      "mcp__Storyblok__execute_readonly",
+      "Bash(python3 -m json.tool)"
     ],
     "additionalDirectories": [
       "/Users/albert/Documents/code/twotenses/thoughts/shared"
