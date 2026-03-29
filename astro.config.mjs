@@ -42,6 +42,7 @@ export default defineConfig({
         TextsGrid: 'storyblok/TextsGrid',
         TitleParagraph: 'storyblok/TitleParagraph',
         TwoImage: 'storyblok/TwoImage',
+        TwoImagesBottomAlignedA: 'storyblok/TwoImagesBottomAlignedA',
         TwoImagesLeftTopRightBottom: 'storyblok/TwoImagesLeftTopRightBottom',
       },
     }),

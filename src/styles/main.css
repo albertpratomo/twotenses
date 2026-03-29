@@ -42,7 +42,7 @@
 }
 
 @utility container-fluid {
-  @apply 3xl:max-w-(--breakpoint-3xl) mx-auto;
+  @apply 3xl:max-w-[1920px] mx-auto;
 }
 
 @utility flex-col {
