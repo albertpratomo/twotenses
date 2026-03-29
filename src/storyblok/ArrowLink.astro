@@ -8,19 +8,25 @@ const {blok, link} = Astro.props;
 
 <section
   {...storyblokEditable(blok)}
-  class="bg-gray-light py-12 lg:py-24"
+  class="border-white border-t bg-gray-light py-12 lg:py-24"
 >
-    <div class="container-fluid flex justify-end px-container">
+    <div class="container-fluid flex items-center justify-between px-container">
+      <div class="flex flex-col gap-2">
+        <p class="text-xs uppercase-wide md:text-sm">
+          Next project
+        </p>
+
         <Link
-          class="flex items-center gap-6 text-4xl lg:gap-11 lg:text-7xl"
+          class="-ml-1 text-4xl lg:text-7xl"
           link={link}
-        >
-            <div class="flex-center size-16 rounded-full border border-red lg:size-24">
-                <IArrow
-                  class="text-red h-8 lg:h-14"
-                  client:visible
-                />
-            </div>
-        </Link>
+        />
+      </div>
+
+      <Link link={link} label=" ">
+        <IArrow
+          class="h-8 lg:h-16"
+          client:visible
+        />
+      </Link>
     </div>
 </section>
