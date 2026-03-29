@@ -15,24 +15,24 @@ const {blok, image1, image2, projectName} = Astro.props;
         <picture>
           <source
             media={below.sm}
-            srcset={getSrcset(image1, 399, 532)}
-            width="399"
-            height="532"
+            srcset={getSrcset(image1, 295, 264)}
+            width="295"
+            height="264"
           />
           <source
             media={below.lg}
-            srcset={getSrcset(image1, 634, 845)}
-            width="634"
-            height="845"
+            srcset={getSrcset(image1, 472, 423)}
+            width="472"
+            height="423"
           />
           <img
             alt={image1.alt || projectName}
             loading="lazy"
             class="w-full skeleton"
-            srcset={getSrcset(image1, 737, 983)}
+            srcset={getSrcset(image1, 435, 390)}
             title={image1.title || projectName}
-            width="737"
-            height="983"
+            width="435"
+            height="390"
           />
         </picture>
       </div>
@@ -41,24 +41,24 @@ const {blok, image1, image2, projectName} = Astro.props;
         <picture>
           <source
             media={below.sm}
-            srcset={getSrcset(image2, 296, 395)}
-            width="296"
-            height="395"
+            srcset={getSrcset(image2, 607, 455)}
+            width="607"
+            height="455"
           />
           <source
             media={below.lg}
-            srcset={getSrcset(image2, 472, 629)}
-            width="472"
-            height="629"
+            srcset={getSrcset(image2, 959, 719)}
+            width="959"
+            height="719"
           />
           <img
             alt={image2.alt || projectName}
             loading="lazy"
             class="w-full skeleton"
-            srcset={getSrcset(image2, 586, 781)}
+            srcset={getSrcset(image2, 888, 666)}
             title={image2.title || projectName}
-            width="586"
-            height="781"
+            width="888"
+            height="666"
           />
         </picture>
       </div>
