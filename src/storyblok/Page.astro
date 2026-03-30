@@ -7,7 +7,9 @@ interface Props {
     class?: string
 }
 
-const {blok, class: classes} = Astro.props;
+const {blok, class: classes} = Astro.props
+
+const sections = blok.sections.filter(s => !s.hide)
 ---
 
 <main
@@ -15,7 +17,7 @@ const {blok, class: classes} = Astro.props;
   class:list={[classes]}
 >
     {
-        blok.sections?.map((section) => {
+        sections.map((section) => {
             return <StoryblokComponent blok={section} {...section} />
         })
     }

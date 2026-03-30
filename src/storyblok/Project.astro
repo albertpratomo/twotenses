@@ -3,28 +3,27 @@ import {storyblokEditable} from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 interface Props {
-    blok: any
-    class?: string
-    name: string
+  blok: any
+  class?: string
+  name: string
 }
 
-const {blok, class: classes, name} = Astro.props;
+const {blok, class: classes, name} = Astro.props
+
+const sections = blok.sections.filter(s => !s.hide)
 ---
 
-<main
-  {...storyblokEditable(blok)}
-  class:list={[classes]}
->
-    {
-        blok.sections?.map((section) => {
-            return (
-<StoryblokComponent
-  blok={section}
-  projectDate={blok.date}
-  projectName={name}
-  {...section}
-/>
-)
-        })
-    }
+<main {...storyblokEditable(blok)} class:list={[classes]}>
+  {
+    sections.map((section) => {
+      return (
+        <StoryblokComponent
+          blok={section}
+          projectDate={blok.date}
+          projectName={name}
+          {...section}
+        />
+      )
+    })
+  }
 </main>
