@@ -9,7 +9,15 @@
       "Bash(rm /Users/albert/Documents/code/twotenses/.claude/commands/create-storyblok-component.md)",
       "Bash(rmdir /Users/albert/Documents/code/twotenses/.claude/skills/create-storyblok-component/references)",
       "Skill(create-storyblok-component)",
-      "Skill(create-storyblok-component:*)"
+      "Skill(create-storyblok-component:*)",
+      "Read(//Users/albert/.claude/skills/**)",
+      "mcp__Storyblok__install_skills",
+      "Edit(~/.claude/skills/storyblok-content-modeling/**)",
+      "Edit(~/.claude/skills/storyblok-datasources/**)",
+      "Edit(~/.claude/skills/storyblok-internationalization/**)",
+      "Edit(~/.claude/skills/storyblok-mcp/**)",
+      "Edit(~/.claude/skills/storyblok-releases/**)",
+      "Edit(~/.claude/skills/storyblok-stories/**)"
     ],
     "additionalDirectories": [
       "/Users/albert/Documents/code/twotenses/thoughts/shared",

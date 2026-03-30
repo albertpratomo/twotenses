@@ -22,7 +22,6 @@ export default defineConfig({
         Carousel: 'storyblok/Carousel',
         ClientTimeline: 'storyblok/ClientTimeline',
         Contact: 'storyblok/Contact',
-        Counter: 'storyblok/Counter',
         FullImage: 'storyblok/FullImage',
         Header: 'storyblok/Header',
         Hero: 'storyblok/Hero',
