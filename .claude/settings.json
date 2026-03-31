@@ -17,7 +17,8 @@
       "Edit(~/.claude/skills/storyblok-internationalization/**)",
       "Edit(~/.claude/skills/storyblok-mcp/**)",
       "Edit(~/.claude/skills/storyblok-releases/**)",
-      "Edit(~/.claude/skills/storyblok-stories/**)"
+      "Edit(~/.claude/skills/storyblok-stories/**)",
+      "mcp__Storyblok__execute_mutating"
     ],
     "additionalDirectories": [
       "/Users/albert/Documents/code/twotenses/thoughts/shared",

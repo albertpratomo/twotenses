@@ -42,7 +42,6 @@ export default antfu(
   {
     rules: {
       'no-multi-spaces': 'error',
-      'sort-keys': 'error',
     },
   },
 

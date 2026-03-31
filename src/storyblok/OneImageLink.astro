@@ -1,0 +1,55 @@
+---
+import type {ISbImage} from '@/utils'
+import {storyblokEditable} from '@storyblok/astro'
+import {below, getSrcset} from '@/utils'
+
+const {blok, image, link, mobileWidth, mobilePosition, desktopWidth, desktopPosition, projectName} = Astro.props
+
+const wrapperClass = `col-span-${mobileWidth} col-start-${mobilePosition} lg:col-span-${desktopWidth} lg:col-start-${desktopPosition}`
+
+// Screen configs: padding from px-container, screenWidth for srcset calculation
+const config = {
+  xs: {padding: 16, screenWidth: 639},
+  md: {padding: 32, screenWidth: 1023},
+  lg: {padding: 56, screenWidth: 1920},
+}
+
+// Calculate image srcset from grid column span and screen size
+function _getSrcset(image: ISbImage, colWidth: number, screen: 'xs' | 'md' | 'lg') {
+  const gap = 16 // gap-x-4
+  const {padding, screenWidth} = config[screen]
+  const containerWidth = screenWidth - padding * 2
+
+  // Distribute columns across 12-col grid, accounting for 11 inter-column gaps
+  const width = Math.round((containerWidth * colWidth + gap * (colWidth - 12)) / 12)
+
+  return getSrcset(image, width)
+}
+---
+
+<section
+  {...storyblokEditable(blok)}
+  class="bg-gray-light py-4 md:py-12 lg:py-20"
+>
+  <div class="container-fluid grid grid-cols-12 gap-x-4 px-container">
+    <div class={wrapperClass}>
+      <picture>
+        <source
+          media={below.sm}
+          srcset={_getSrcset(image, mobileWidth, 'xs')}
+        />
+        <source
+          media={below.lg}
+          srcset={_getSrcset(image, mobileWidth, 'md')}
+        />
+        <img
+          alt={image.alt || projectName}
+          loading="lazy"
+          class="w-full skeleton"
+          srcset={_getSrcset(image, desktopWidth, 'lg')}
+          title={image.title || projectName}
+        />
+      </picture>
+    </div>
+  </div>
+</section>
