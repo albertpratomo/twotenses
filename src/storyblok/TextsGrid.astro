@@ -43,15 +43,3 @@ const containerClass = 'container-fluid px-container w-full flex justify-center'
         />
     </div>
 </section>
-
-<script>
-const section = document.querySelector('#texts-grid')
-
-if (section) {
-  const observer = new IntersectionObserver(() => {
-    section?.classList.toggle('bg-red')
-  }, {threshold: 1})
-
-  observer.observe(section)
-}
-</script>
