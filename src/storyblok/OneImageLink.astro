@@ -1,11 +1,15 @@
 ---
 import type {ISbImage} from '@/utils'
 import {storyblokEditable} from '@storyblok/astro'
+import IArrowBox from '@/components/icons/IArrowBox.vue'
+import Link from '@/components/Link.astro'
 import {below, getSrcset} from '@/utils'
 
 const {blok, image, link, mobileWidth, mobilePosition, desktopWidth, desktopPosition, projectName} = Astro.props
 
 const wrapperClass = `col-span-${mobileWidth} col-start-${mobilePosition} lg:col-span-${desktopWidth} lg:col-start-${desktopPosition}`
+
+const _link = link?.[0]
 
 // Screen configs: padding from px-container, screenWidth for srcset calculation
 const config = {
@@ -33,23 +37,34 @@ function _getSrcset(image: ISbImage, colWidth: number, screen: 'xs' | 'md' | 'lg
 >
   <div class="container-fluid grid grid-cols-12 gap-x-4 px-container">
     <div class={wrapperClass}>
-      <picture>
-        <source
-          media={below.sm}
-          srcset={_getSrcset(image, mobileWidth, 'xs')}
-        />
-        <source
-          media={below.lg}
-          srcset={_getSrcset(image, mobileWidth, 'md')}
-        />
-        <img
-          alt={image.alt || projectName}
-          loading="lazy"
-          class="w-full skeleton"
-          srcset={_getSrcset(image, desktopWidth, 'lg')}
-          title={image.title || projectName}
-        />
-      </picture>
+      {_link && (
+        <Link
+          {..._link}
+          class="mb-4 flex items-center gap-3 uppercase-wide"
+        >
+          <IArrowBox />
+        </Link>
+      )}
+
+      <a href={_link?.link.cached_url || null}>
+        <picture>
+          <source
+            media={below.sm}
+            srcset={_getSrcset(image, mobileWidth, 'xs')}
+          />
+          <source
+            media={below.lg}
+            srcset={_getSrcset(image, mobileWidth, 'md')}
+          />
+          <img
+            alt={image.alt || projectName}
+            loading="lazy"
+            class="w-full skeleton"
+            srcset={_getSrcset(image, desktopWidth, 'lg')}
+            title={image.title || projectName}
+          />
+        </picture>
+      </a>
     </div>
   </div>
 </section>
