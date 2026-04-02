@@ -2,7 +2,7 @@
 import {storyblokEditable} from '@storyblok/astro'
 import {below, getSrcset} from '@/utils'
 
-const {blok, image1, image2, projectName} = Astro.props;
+const {blok, image1, image2, projectName, flip = false} = Astro.props;
 ---
 
 <section
@@ -10,7 +10,7 @@ const {blok, image1, image2, projectName} = Astro.props;
   class="bg-gray-light py-4 md:py-12 lg:py-20"
 >
   <div class="container-fluid px-container">
-    <div class="grid grid-cols-12 gap-x-4 lg:items-end">
+    <div class:list={["grid grid-cols-12 gap-x-4 lg:items-end", {"[direction:rtl]": flip}]}>
       <div class="col-span-8 col-start-3 lg:col-span-5 lg:col-start-1">
         <picture>
           <source
