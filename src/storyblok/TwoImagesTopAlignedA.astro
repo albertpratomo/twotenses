@@ -1,0 +1,67 @@
+---
+import {storyblokEditable} from '@storyblok/astro'
+import {below, getSrcset} from '@/utils'
+
+const {blok, image1, image2, projectName, flip = false} = Astro.props;
+---
+
+<section
+  {...storyblokEditable(blok)}
+  class="bg-gray-light py-4 md:py-12 lg:py-20"
+>
+  <div class="container-fluid px-container">
+    <div class:list={['grid grid-cols-12 gap-x-4 lg:items-start', {'[direction:rtl]': flip}]}>
+      <div class="col-span-6 lg:col-span-4">
+        <picture>
+          <source
+            media={below.sm}
+            srcset={getSrcset(image1, 296, 242)}
+            width="296"
+            height="242"
+          />
+          <source
+            media={below.lg}
+            srcset={getSrcset(image1, 472, 385)}
+            width="472"
+            height="385"
+          />
+          <img
+            alt={image1.alt || projectName}
+            loading="lazy"
+            class="w-full skeleton"
+            srcset={getSrcset(image1, 592, 483)}
+            title={image1.title || projectName}
+            width="592"
+            height="483"
+          />
+        </picture>
+      </div>
+
+      <div class="col-span-8 col-start-4 row-start-2 mt-8 md:mt-24 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:mt-0">
+        <picture>
+          <source
+            media={below.sm}
+            srcset={getSrcset(image2, 399, 532)}
+            width="399"
+            height="532"
+          />
+          <source
+            media={below.lg}
+            srcset={getSrcset(image2, 634, 845)}
+            width="634"
+            height="845"
+          />
+          <img
+            alt={image2.alt || projectName}
+            loading="lazy"
+            class="w-full skeleton"
+            srcset={getSrcset(image2, 744, 992)}
+            title={image2.title || projectName}
+            width="744"
+            height="992"
+          />
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>

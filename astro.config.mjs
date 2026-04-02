@@ -45,6 +45,7 @@ export default defineConfig({
         TwoImagesBottomAlignedA: 'storyblok/TwoImagesBottomAlignedA',
         TwoImagesBottomAlignedB: 'storyblok/TwoImagesBottomAlignedB',
         TwoImagesLeftTopRightBottom: 'storyblok/TwoImagesLeftTopRightBottom',
+        TwoImagesTopAlignedA: 'storyblok/TwoImagesTopAlignedA',
       },
     }),
     sitemap({
