@@ -1,9 +1,9 @@
 /** Tailwind breakpoint values (px) — keep in sync with @theme in main.css */
 const screens = {
-  sm: 640,
-  md: 768,
-  lg: 1024,
-  xl: 1280,
+  'sm': 640,
+  'md': 768,
+  'lg': 1024,
+  'xl': 1280,
   '3xl': 1920,
 } as const
 
@@ -12,6 +12,7 @@ export const below = {
   sm: `(max-width: ${screens.sm - 1}px)`,
   md: `(max-width: ${screens.md - 1}px)`,
   lg: `(max-width: ${screens.lg - 1}px)`,
+  xl: `(max-width: ${screens.xl - 1}px)`,
 } as const
 
 export interface ISbImage {
