@@ -32,8 +32,7 @@ setInterval(next, 4000)
     >
       <div
         class="
-          border-white h-3 border-x
-          sm:h-4
+          border-white h-6 border-x
           md:h-7
           lg:h-9
         "
@@ -43,14 +42,14 @@ setInterval(next, 4000)
 
     <div
       class="
-        border-white border-b text-3xl leading-[.69]!
-        sm:text-4xl
+        border-white border-b text-2xl leading-[.69]!
+        sm:text-3xl
         xl:text-5xl
       "
     >
       <div :class="containerClass">
         <div
-          class="border-white flex justify-center border-x"
+          class="border-white border-x"
           :class="width"
         >
           <Transition
@@ -59,7 +58,7 @@ setInterval(next, 4000)
           >
             <p
               :key="text"
-              class="w-[70%]"
+              class="lg:pl-12"
               :style="{transitionDelay: `calc(${i} * 120ms)`}"
               v-html="text"
             />

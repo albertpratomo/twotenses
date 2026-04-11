@@ -1,29 +1,38 @@
 ---
 import {storyblokEditable} from '@storyblok/astro'
+import IArrowBox from '@/components/icons/IArrowBox.vue'
+import Link from '@/components/Link.astro'
 import TextsGrid from '@/components/TextsGrid.vue'
 
-let {blok, items, parallax = false} = Astro.props
+let {blok, link, items} = Astro.props
 
 items = items.map(item => item.text.split('\n'))
 
-const width = 'sm:w-10/12 lg:w-full xl:w-10/12'
-const containerClass = 'container-fluid px-container w-full flex justify-center';
+const width = 'w-full sm:w-10/12 lg:w-full xl:w-10/12 px-4 lg:pl-20'
+const containerClass = 'container-fluid px-container w-full';
 ---
 
 <section
   {...storyblokEditable(blok)}
   id="texts-grid"
-  class="flex-col bg-gray-light transition-colors duration-300 sm:h-screen"
-  class:list={{'sticky inset-x-0 bottom-0 -z-10': parallax}}
+  class="flex-col bg-gray-light transition-colors duration-300"
 >
     <div
       class="grow"
       class:list={containerClass}
     >
         <div
-          class="border-white h-48 border-x sm:h-full"
+          class="border-white flex h-48 items-end border-x pb-12 sm:h-80 2xl:pb-20"
           class:list={width}
-        />
+        >
+          {link?.title && (
+            <div>
+              <Link link={link} class="flex items-center gap-3 uppercase-wide">
+                <IArrowBox />
+              </Link>
+            </div>
+          )}
+        </div>
     </div>
 
     <TextsGrid
@@ -38,7 +47,7 @@ const containerClass = 'container-fluid px-container w-full flex justify-center'
       class:list={containerClass}
     >
         <div
-          class="border-white h-48 border-x sm:h-full"
+          class="border-white h-48 border-x sm:h-80"
           class:list={width}
         />
     </div>
