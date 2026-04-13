@@ -1,0 +1,15 @@
+---
+import {storyblokEditable} from '@storyblok/astro'
+import ListHoverable from '@/components/ListHoverable.vue'
+
+const {blok, items, title} = Astro.props
+---
+
+<section
+  {...storyblokEditable(blok)}
+  class="bg-gray-light py-12 lg:py-24 xl:py-40"
+>
+  <div class="container-fluid px-container">
+    <ListHoverable client:visible title={title} items={items} />
+  </div>
+</section>

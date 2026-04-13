@@ -28,6 +28,7 @@ export default defineConfig({
         HeroCarousel: 'storyblok/HeroCarousel',
         ImageParagraph: 'storyblok/ImageParagraph',
         Index: 'storyblok/Index',
+        ListHoverable: 'storyblok/ListHoverable',
         LogosGrid: 'storyblok/LogosGrid',
         ModelParagraph: 'storyblok/ModelParagraph',
         OneImage: 'storyblok/OneImage',
