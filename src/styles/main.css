@@ -22,8 +22,8 @@
 @source inline("bg-{black,gray,red,white}");
 @source inline("text-{black,gray,red,white,left,right,center,justify}");
 @source inline("{lg:,}w-{1..12}/12");
-@source inline("{,lg:}col-span-{1..12}");
-@source inline("{,lg:}col-start-{1..12}");
+@source inline("{,md:,lg:}col-span-{1..12}");
+@source inline("{,md:,lg:}col-start-{1..12}");
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,

@@ -1,0 +1,29 @@
+---
+import {storyblokEditable} from '@storyblok/astro'
+import IArrowBox from '@/components/icons/IArrowBox.vue'
+import Link from '@/components/Link.astro'
+
+const {blok, link, paragraph, mobileWidth, mobilePosition, desktopWidth, desktopPosition} = Astro.props
+
+const wrapperClass = `col-span-${mobileWidth} col-start-${mobilePosition} md:col-span-${desktopWidth} md:col-start-${desktopPosition}`
+---
+
+<section
+  {...storyblokEditable(blok)}
+  class="bg-gray-light py-4 md:py-12 lg:py-20"
+>
+  <div class="container-fluid grid grid-cols-12 gap-x-4 px-container">
+    <div class={wrapperClass}>
+      <p class="max-w-sm">{paragraph}</p>
+
+      {link?.title && (
+        <Link
+          link={link}
+          class="mt-10 flex items-center gap-3 uppercase-wide"
+        >
+          <IArrowBox />
+        </Link>
+      )}
+    </div>
+  </div>
+</section>

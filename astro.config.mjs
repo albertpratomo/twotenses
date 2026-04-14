@@ -36,6 +36,7 @@ export default defineConfig({
         OneParagraph: 'storyblok/OneParagraph',
         Page: 'storyblok/Page',
         ParagraphImageGrid: 'storyblok/ParagraphImageGrid',
+        ParagraphLink: 'storyblok/ParagraphLink',
         Project: 'storyblok/Project',
         ProjectInfo: 'storyblok/ProjectInfo',
         ProjectsGrid: 'storyblok/ProjectsGrid',
