@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {ref} from 'vue'
+import {onMounted, onUnmounted, ref} from 'vue'
 import {below, getSrcset} from '@/utils'
 
-defineProps({
+const props = defineProps({
   title: {
     required: true,
     type: String,
@@ -14,6 +14,29 @@ defineProps({
 })
 
 const activeIndex = ref(0)
+let autoplayTimer: ReturnType<typeof setInterval> | null = null
+
+function stopAutoplay() {
+  if (autoplayTimer) {
+    clearInterval(autoplayTimer)
+    autoplayTimer = null
+  }
+}
+
+function onMouseenter(i: number) {
+  stopAutoplay()
+  activeIndex.value = i
+}
+
+onMounted(() => {
+  autoplayTimer = setInterval(() => {
+    activeIndex.value = (activeIndex.value + 1) % props.items.length
+  }, 1500)
+})
+
+onUnmounted(() => {
+  stopAutoplay()
+})
 </script>
 
 <template>
@@ -38,7 +61,7 @@ const activeIndex = ref(0)
         <li
           v-for="item, i in items"
           :key="i"
-          @mouseenter="activeIndex = i"
+          @mouseenter="onMouseenter(i)"
         >
           <span
             class="
