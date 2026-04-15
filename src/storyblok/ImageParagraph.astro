@@ -14,12 +14,19 @@ const {
     projectName,
 } = Astro.props
 
+const bgClass: Record<string, string> = {
+    gray: 'bg-gray-light',
+    red: 'bg-red',
+    black: 'bg-black',
+    white: 'bg-white',
+}
+
 const isVideo = image.filename && image.filename.endsWith('.mp4');
 ---
 
 <section
   {...storyblokEditable(blok)}
-  class=`bg-${background} py-4 md:py-12 lg:py-20 first:py-0`
+  class={`${bgClass[background]} py-4 first:py-0 md:py-12 lg:py-20`}
 >
     <div class="container-fluid grid md:grid-cols-2">
         <div class:list={[{'order-last': image_on_right}, 'relative overflow-hidden']}>

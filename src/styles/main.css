@@ -19,7 +19,7 @@
 
 /* Safelist classes that might be added via Storyblok */
 @source inline("font-bold italic");
-@source inline("bg-{black,gray,red,white}");
+@source inline("bg-{black,gray,gray-light,red,white}");
 @source inline("text-{black,gray,red,white,left,right,center,justify}");
 @source inline("{lg:,}w-{1..12}/12");
 @source inline("{,md:,lg:}col-span-{1..12}");

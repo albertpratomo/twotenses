@@ -41,6 +41,7 @@ export default defineConfig({
         ProjectInfo: 'storyblok/ProjectInfo',
         ProjectsGrid: 'storyblok/ProjectsGrid',
         ServiceList: 'storyblok/ServiceList',
+        TeamGrid: 'storyblok/TeamGrid',
         TextsGrid: 'storyblok/TextsGrid',
         TitleParagraph: 'storyblok/TitleParagraph',
         TwoImage: 'storyblok/TwoImage',
