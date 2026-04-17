@@ -60,7 +60,7 @@ const [grid] = useAutoAnimate()
   >
     <ProjectCard
       v-for="project in _projects"
-      :key="project.name"
+      :key="project.href"
       :project="project"
     />
   </div>
