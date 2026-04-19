@@ -10,14 +10,17 @@ const {header_center_links, header_right_links} = settings
 const links = header_center_links.concat(header_right_links)
 
 const isHome = Astro.url.pathname === '/'
-const headerBgColor = isHome ? '' : 'bg-gray-light'
-const linkColor = isHome ? 'text-gray-light group-[.bg-gray-light]:text-black' : 'text-black'
+const isAbout = Astro.url.pathname === '/about'
+// TODO: Refactor to only modify the headerBgColor. Other colors should be dependednt on headerBgColor via tailwind group selector.
+const headerBgColor = isHome || isAbout ? '' : 'bg-gray-light'
+const linkColor = isHome || isAbout ? 'text-gray-light group-[.bg-gray-light]:text-black' : 'text-black'
 const borderColor = isHome ? 'border-black group-[.bg-gray-light]:border-white' : 'border-white';
 ---
 
 <header
   class={`group fixed inset-x-0 z-10 transition ${headerBgColor}`}
   data-is-home={isHome}
+  data-is-about={isAbout}
 >
     <nav class={`container-fluid flex items-center border-b px-container ${borderColor}`}>
         <a
@@ -91,7 +94,7 @@ document.addEventListener('scroll', () => {
 
   scrollY = window.scrollY
 
-  if (header?.dataset.isHome === 'true') {
+  if (header?.dataset.isHome === 'true' || header?.dataset.isAbout === 'true') {
     const toggleBg = scrollY <= 0 ? 'remove' : 'add'
     header?.classList[toggleBg]('bg-gray-light')
   }
