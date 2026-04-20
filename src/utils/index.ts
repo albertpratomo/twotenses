@@ -9,9 +9,13 @@ const screens = {
 
 /** Media query strings for `<source media>` attributes (max-width: breakpoint − 1) */
 export const below = {
+  /** 639px */
   sm: `(max-width: ${screens.sm - 1}px)`,
+  /** 767px */
   md: `(max-width: ${screens.md - 1}px)`,
+  /** 1023px */
   lg: `(max-width: ${screens.lg - 1}px)`,
+  /** 1279px */
   xl: `(max-width: ${screens.xl - 1}px)`,
 } as const
 

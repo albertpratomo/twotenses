@@ -1,0 +1,110 @@
+---
+import {storyblokEditable} from '@storyblok/astro'
+import {below, getSrcset} from '@/utils'
+
+const {blok, image1, image2, image3, title} = Astro.props;
+---
+
+<section {...storyblokEditable(blok)} class="bg-black text-gray">
+  <div class="container-fluid lg:px-container">
+    <div class="h-(--header-height)"></div>
+
+    <div class="grid lg:grid-cols-[2fr_3fr]">
+      <div class="grid grid-cols-4">
+        <div
+          class="col-span-3 border-r border-gray-light p-4 pr-14 lg:border-0 lg:px-0 lg:py-8"
+        >
+          <picture>
+            <source
+              media={below.sm}
+              srcset={getSrcset(image1, 407, 600)}
+              width="407"
+              height="600"
+            />
+            <source
+              media={below.lg}
+              srcset={getSrcset(image1, 695, 1025)}
+              width="695"
+              height="1025"
+            />
+            <img
+              alt={image1.alt || title}
+              loading="lazy"
+              class="w-full skeleton"
+              srcset={getSrcset(image1, 542, 799)}
+              title={image1.title}
+              width="542"
+              height="799"
+            />
+          </picture>
+        </div>
+      </div>
+
+      <div
+        class="grid grid-cols-4 border-t border-gray-light lg:grid-cols-7 lg:border-t-0 lg:border-l"
+      >
+        <div
+          class="col-span-3 col-start-2 p-4 pl-0 lg:col-span-4 lg:col-start-4 lg:px-0 lg:pt-8"
+        >
+          <picture>
+            <source
+              media={below.sm}
+              srcset={getSrcset(image2, 463, 293)}
+              width="463"
+              height="293"
+            />
+            <source
+              media={below.lg}
+              srcset={getSrcset(image2, 751, 475)}
+              width="751"
+              height="475"
+            />
+            <img
+              alt={image2.alt || title}
+              loading="lazy"
+              class="w-full skeleton"
+              srcset={getSrcset(image2, 619, 391)}
+              title={image2.title}
+              width="619"
+              height="391"
+            />
+          </picture>
+        </div>
+
+        <div
+          class="col-span-3 col-start-2 py-2 pr-4 lg:order-last lg:col-span-4 lg:col-start-4 lg:mt-auto lg:px-0 lg:pb-7"
+        >
+          <h1 class="max-w-66 text-xl lg:max-w-sm lg:text-2xl xl:text-3xl">
+            {title}
+          </h1>
+        </div>
+
+        <div class="p-4 pr-0 lg:col-span-2 lg:pb-8 lg:pl-6">
+          <picture>
+            <source
+              media={below.sm}
+              srcset={getSrcset(image3, 144, 184)}
+              width="144"
+              height="184"
+            />
+            <source
+              media={below.lg}
+              srcset={getSrcset(image3, 240, 307)}
+              width="240"
+              height="307"
+            />
+            <img
+              alt={image3.alt || title}
+              loading="lazy"
+              class="size-full skeleton object-cover"
+              srcset={getSrcset(image3, 286, 365)}
+              title={image3.title}
+              width="286"
+              height="365"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

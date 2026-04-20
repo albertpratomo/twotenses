@@ -27,6 +27,22 @@ The user provides:
 - Components folder UUID: `8ec45af0-83cc-4d07-8a79-00a617cc53a7`
 - Imports: `getSrcset` and `below` from `@/utils`
 
+## Standard schema rules
+
+Every component must include these two things, always:
+
+- **`hide`** boolean field at the last `pos` of `schema`:
+  ```json
+  "hide": {"type": "boolean", "default_value": false, "display_name": "Hide", "inline_label": true, "pos": <last>}
+  ```
+- **`preview_tmpl`** on the component set to:
+  ```
+  {{it.hide ? '🙈 ' : ''}}
+  ```
+  This renders the 🙈 monkey emoji in the Storyblok sidebar when the editor toggles `hide` on.
+
+`hide` is an editor-only convention — **do NOT destructure it from `Astro.props`, and do NOT wrap the template in `{!hide && (...)}`**. The `.astro` file ignores it.
+
 ## Grid & image sizing
 
 Grid is `grid-cols-12 gap-x-4` (16px gaps) inside `container-fluid px-container`.
@@ -65,7 +81,7 @@ const {blok, image1, image2, projectName} = Astro.props;
   class="bg-gray py-4 md:py-12 lg:py-20"
 >
   <div class="container-fluid px-container">
-    <div class="grid grid-cols-12 gap-x-4 [layout classes]">
+    <div class="[layout classes] grid grid-cols-12 gap-x-4">
 
       <div class="[column classes]">
         <picture>
@@ -119,6 +135,9 @@ Wait for explicit approval.
 ### Step 4 — Execute (run all three in parallel)
 
 **4a. Create Storyblok block**
+
+Payload must include `preview_tmpl: "{{it.hide ? '🙈 ' : ''}}"` and a `hide` boolean at the end of `schema` (see "Standard schema rules").
+
 ```bash
 curl -s -X POST "https://mapi.storyblok.com/v1/spaces/210339/components" \
   -H "Authorization: <token>" \
