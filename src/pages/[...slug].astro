@@ -61,7 +61,7 @@ const footerParallax = !story.content.sections.at(-1).parallax;
 
 <Layout
   description={story.content.seo_description}
-  title={story.content.seo_title}
+  title={story.name || story.content.seo_title}
 >
     <Header />
 
