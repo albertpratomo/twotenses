@@ -4,15 +4,26 @@ import '@/styles/main.css'
 interface Props {
     description?: string
     title?: string
+    image?: string
 }
 
 const {
     description = 'Twotenses is an interior design studio based in Jakarta.',
     title = 'Interior Design Studio',
+    image: imageProp,
 } = Astro.props
 
+const DEFAULT_IMAGE = 'https://a.storyblok.com/f/210339/6181x4121/8aed680f62/img_9646.jpg'
+
+function toOgImage(src?: string) {
+    const base = src || DEFAULT_IMAGE
+    return base.includes('a.storyblok.com') && !base.includes('/m/')
+        ? `${base}/m/1200x630`
+        : base
+}
+
 const url = new URL(Astro.url.pathname, Astro.site)
-const image = 'https://a.storyblok.com/f/210339/6181x4121/8aed680f62/img_9646.jpg/m/1200x630';
+const image = toOgImage(imageProp)
 ---
 
 <!DOCTYPE html>
